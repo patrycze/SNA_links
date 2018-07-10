@@ -128,8 +128,14 @@ def removeFromArray(link, array, greedyArray):
     else:
         return array
 
+
+
 def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray, graph, readArray):
     # print(link)
+
+    if (link in greedyArray):
+        return [0,0,0,0,0,0,0,0,0,0,0,0,0]
+
     s = 1;
     isInfecting = True
     # path = 'C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\' + net;
@@ -292,6 +298,17 @@ def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray, graph, 
         # print("Zainfekowanych", infections + numberofseeds)
         # print("Total coverage % (infections + seeds):")
         coverage = 100 * (numberofseeds + infections) / nodes
+
+        myFile = open('results/' + 'greedy.csv', 'w')
+        myFile = open('results/' + 'greedy.csv', 'a')
+        with myFile:
+            myFields = ['pair', 'coverage', 'i']
+            writer = csv.DictWriter(myFile, fieldnames=myFields)
+            writer.writerow(
+                {'pair': greedyArray + link,
+                 'coverage': infections,
+                 'i': run})
+
         return infections + numberofseeds, s - 1, coverage, closeness, transitivity_undirected, eigenvector_centrality, betweenness, assort, nodeCloseness, nodeEcc, nodeBW, nodeDG, nodeTR
 
 
@@ -309,8 +326,12 @@ net = ['ba1.5']
 
 count = 0;
 
-combinationsArray = []
+myFile = open('results/' + 'countedMaxValuesPerOnePair.csv', 'w')
+myFile = open('results/' + 'averageCoverageForOnePair.csv', 'w')
 
+
+combinationsArray = []
+resultWithMaxValue = []
 # for e in g.es:
     # print(e.target)
 
@@ -319,18 +340,19 @@ localMaximum = [];
 greedyArray = [];
 greedy = 2;
 stuff = [];
+greedyArrayWithCoverage = [];
 
 with open("fileGreedy.txt", "r") as f:
     for line in f:
         combinationsArray.append(line.replace("\n", "").split(" "))
 localMaximum.append({'pair': combinationsArray[1], 'coverage': 0})
-iterarr = [x * 0.1 for x in range(11,12)]
+iterarr = [x * 0.1 for x in range(19,22)]
 for iter in iterarr:
     for type in range(1,2):
         if(iter == 2.0 or iter == 3.0 or iter == 4.0 or iter == 5.0):
             iter = iter + 0.1
         net = 'ba' + str(type) + '_' + str(iter)[0:3]
-        g = Graph.Read_Ncol('C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\' + net + '.txt', directed=False)
+        g = Graph.Read_Ncol('nets/' + net + '.txt', directed=False)
         reset = g;
         network = 'ba_' + net
         toanalysis = [];
@@ -338,6 +360,7 @@ for iter in iterarr:
         # ranking = ['random', 'degree', 'betweenness', 'eigenvector']
         ranking = ['degree']
         array = [];
+        greedyArrayWithCoverage = [];
         print('SIEĆ', iter)
         print('')
         for rank in ranking:
@@ -348,14 +371,15 @@ for iter in iterarr:
                         localMaximum = []
                         sorted_by_value = []
                         toanalysis = []
+                        resultWithMaxValue = []
                         stuff = []
-                        print('GREEDY ARRAY **************', greedyArray)
+                        # print('GREEDY ARRAY **************', greedyArray)
                         for i in range(1, 100):
                             infectionsArray = []
                             array = [];
                             for link in combinationsArray:
-                                readFileToArray('C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\networks\\' + net + '_' + str(i) + '.txt', array)
-                                temp2 = simulation(pp, sp, network, rank, i, link, True, greedyArray, g, array)
+                                readFileToArray('nets/networks/' + net + '_' + str(i) + '.txt', array)
+                                temp2 = simulation(pp, sp, network, rank, greedy, link, True, greedyArray, g, array)
                                 infectionsArray.append(temp2[0])
                                 localMaximum.append({'pair': link, 'coverage': temp2[0]});
                                 stuff.append({'pair': link, 'coverage': temp2[0]});
@@ -367,59 +391,55 @@ for iter in iterarr:
                             # print(sorted_by_value)
                             for i in range(0,len(localMaximum)):
                                 if (sorted_by_value[i]['coverage'] == maximum):
-                                    toanalysis.append(str(sorted_by_value[i]['pair']) + ', ' + str(greedyArray))
+                                    toanalysis.append(str(sorted_by_value[i]['pair']))
+                                    resultWithMaxValue.append((sorted_by_value[i]))
 
                         for s in stuff:
                            d[str(s["pair"])].append(int(s["coverage"]))
 
                         # print(d.items())
-                        result = {k: sum(v) / len(v) for k, v in d.items()}
+                        result = {k: (sum(v) / len(v))-1 for k, v in d.items()}
                         sorted_x = sorted(result.items(), key=operator.itemgetter(1), reverse=True)
 
                         for key in sorted_x:
                             print('MAXIMUM PAIR **************', key[0])
                             if not (key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(',') in greedyArray):
-                                print(key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(','))
+                                # print(key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(','))
                                 greedyArray.append(key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(','));
+                                greedyArrayWithCoverage.append(key)
+                                print('GREEDY ARRAY *****', greedyArray)
                                 break
 
-                        print('RAW ARRAY WITH COVERAGE ***', sorted_by_value)
-                        print('ANALYSIS ******************', toanalysis)
-                        print('ANALYSIS ******************', Counter(toanalysis))
-                        print('DATA FRAME', sorted_x)
+                        # print('RAW ARRAY WITH COVERAGE ***', sorted_by_value)
+                        # print('ANALYSIS ******************', toanalysis)
+                        # print('ANALYSIS ******************', Counter(toanalysis))
+                        # print('DATA FRAME', sorted_x)
+                        print('RESULT', greedyArrayWithCoverage)
 
                         print('')
 
-                        myFile = open('results/' + 'resultsRawArray.csv', 'a')
+                        myFile = open('results/' + 'countedMaxValuesPerOnePair.csv', 'a')
                         with myFile:
-                            myFields = ['pair', 'coverage']
+                            myFields = ['pair', 'quantity', 'i']
                             writer = csv.DictWriter(myFile, fieldnames=myFields)
                             writer.writeheader();
-                            for line in sorted_by_value:
+                            for line in Counter(toanalysis):
                                 writer.writerow(
-                                    {'pair': line['pair'],
-                                     'coverage': line['coverage'] })
+                                    {'pair': line,
+                                     'quantity': Counter(toanalysis)[line],
+                                     'i': greedy})
 
-                        # myFile = open('results/' + 'resultsWithMaxValue.csv', 'a')
-                        # with myFile:
-                        #     myFields = ['pair', 'coverage']
-                        #     writer = csv.DictWriter(myFile, fieldnames=myFields)
-                        #     writer.writeheader();
-                        #     for line in toanalysis:
-                        #         print(re.search("^'pair'://.*,$", line).group(0))
-                        #         writer.writerow(
-                        #             {'pair': line['pair'],
-                        #              'coverage': line['coverage']})
-
-                        # myFile = open('results/' + 'resultsMaxValueWithQuantity.csv', 'a')
-                        # with myFile:
-                        #     myFields = ['pair', 'coverage']
-                        #     writer = csv.DictWriter(myFile, fieldnames=myFields)
-                        #     writer.writeheader();
-                        #     for line in Counter(toanalysis):
-                        #         writer.writerow(
-                        #             {'pair': line['pair'],
-                        #              'coverage': line['coverage']})
+                        myFile = open('results/' + 'averageCoverageForOnePair.csv', 'a')
+                        with myFile:
+                            myFields = ['pair', 'coverage', 'i']
+                            writer = csv.DictWriter(myFile, fieldnames=myFields)
+                            writer.writeheader();
+                            for line in sorted_x:
+                                # print(line)
+                                writer.writerow(
+                                    {'pair': line[0],
+                                     'coverage': line[1],
+                                     'i': greedy})
 
 
         # end = time.time()
