@@ -113,7 +113,7 @@ def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray):
     s = 1;
     isInfecting = True
 
-    g = Graph.Read_Ncol('/Users/apple/Desktop/nets/' + net, directed=False)
+    g = Graph.Read_Ncol('C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\' + net, directed=False)
 
     nodes = Graph.vcount(g)
     #print(greedyArray);
@@ -264,7 +264,7 @@ ppARR = [0.1]
 #       'ws_2_0', 'ws_2_0.25', 'ws_2_0.5', 'ws_2_0.75', 'ws_2_1',
 #       'ws_4_0', 'ws_4_0.25', 'ws_4_0.5', 'ws_4_0.75', 'ws_4_1']
 
-net = ['ba1.5']
+net = ['ba_1.5']
 
 count = 0;
 

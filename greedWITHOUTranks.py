@@ -1,5 +1,6 @@
 from igraph import *
 import random
+from collections import Counter
 # import matplotlib.pyplot as plt
 # import numpy as np
 # load data into a graph
@@ -8,6 +9,11 @@ import operator
 import time
 
 
+def removeFromGraph(graph, link):
+    # Graph.get.edge.ids(g, link[i], link[i + 1]);
+    edge = graph.get_eid(link[0], link[1])
+    # print(edge)
+    Graph.delete_edges(graph, edge)
 def readFileToArray(file, array):
     with open(file, "r") as ins:
         for line in ins:
@@ -15,11 +21,11 @@ def readFileToArray(file, array):
 
 
 def searchInArray(a, b, array):
+    # print('array', array)
     for i in range(len(array)):
         if (array[i][0] == str(a)):
             if (array[i][0] == str(a) and array[i][1] == str(b)):
                 return array[i][2]
-
 
 def addLinksToGraph(g, arr):
     for i in range(0, len(arr), 2):
@@ -33,7 +39,6 @@ def addLinksToGraph(g, arr):
 def closenessForNodes(g, arr):
     measuresArray = [];
     for i in range(0, len(arr), 2):
-
         try:
             m = Graph.closeness(g, [g.vs.find(arr[i]), g.vs.find(arr[i + 1])])
             measuresArray.append(mean(m));
@@ -66,6 +71,15 @@ def betweennessForNodes(g, arr):
             m = 0;
             measuresArray.append(mean(m));
     return measuresArray
+
+def searchInArray(a, b, array):
+    for i in range(len(array)):
+        if(array[i][0] == str(a)):
+            if(array[i][0] == str(a) and array[i][1] == str(b)):
+                return array[i][2]
+        if (array[i][1] == str(a)):
+            if(array[i][1] == str(a) and array[i][0] == str(b)):
+                return array[i][3]
 
 
 def degreeForNodes(g, arr):
@@ -108,26 +122,33 @@ def removeFromArray(link, array, greedyArray):
     else:
         return array
 
-def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray):
+def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray, graph, readArray):
     # print(link)
     s = 1;
     isInfecting = True
-
-    g = Graph.Read_Ncol('/Users/apple/Desktop/nets/' + net, directed=False)
-
+    # path = 'C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\' + net;
+    # print(path)
+    g = graph;
     nodes = Graph.vcount(g)
-    #print(greedyArray);
+    # print(len(g.es))
     #if (len(greedyArray) > 0):
         #print(greedyArray);
 
+    array = readArray;
+
+
+
+    if (lp == True):
+        addLinksToGraph(g, link)
 
     addToGraphGreedyLinks(g, greedyArray);
-
-    # for e in g.es:
-    # print(g.vs[e.source], g.vs[e.target])
+    # print(len(g.es))
+    #for e in g.es:
+        #print(g.vs[e.source], g.vs[e.target])
 
     g.vs["label"] = g.vs["name"]
-    numberofseeds = int(round(nodes * percentage, ndigits=0))
+    # numberofseeds = int(round(nodes * percentage, ndigits=0))
+    numberofseeds = 1
 
     infections = 0
 
@@ -181,7 +202,7 @@ def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray):
     nodeTR = 0
     ### ADD LINK TO GRAPH ###
     if (lp == True):
-        addLinksToGraph(g, link)
+        # addLinksToGraph(g, link)
         nodeCloseness = 0
         # nodeCloseness = closenessForNodes(g, link)
         nodeEcc = 0
@@ -234,7 +255,9 @@ def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray):
                     if notinfected:
                         for k in range(0, numberofneighbors):
                             if (numberofneighbors >= 1):
-                                x = random.random()
+                                x = searchInArray(g.vs[j]['name'], g.vs[notinfected[k]]['name'], array)
+                                if(x == None):
+                                    x = 0.001
                                 if (float(x) <= pp):
                                     g.vs[notinfected[k]]["infected"] = 1
                                     g.vs[notinfected[k]]["stepinfected"] = s
@@ -245,8 +268,7 @@ def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray):
                                     #         f.write(line)
                                     # print("INFEKCJA",g.vs[j]['name'], g.vs[notinfected[k]]['name'], x, "\n\n")
                                     infections = infections + 1
-                                    if (infections + numberofseeds == 19):
-                                        print('stop')
+                                    # print('stop')
                                         # plot(g)
 
         if (infecting == infections):
@@ -255,9 +277,11 @@ def simulation(pp, percentage, net, ranking, run, link, lp, greedyArray):
         s = s + 1
 
         # plot(g)
+        if(lp == True):
+            removeFromGraph(g, link)
         # with open("infections.txt", "a") as f:
         #     f.write("Zainfekowanych" + str(infections + numberofseeds) + "\n")
-        #print("Zainfekowanych", infections + numberofseeds)
+        print("Zainfekowanych", infections + numberofseeds)
         # print("Total coverage % (infections + seeds):")
         coverage = 100 * (numberofseeds + infections) / nodes
         return infections + numberofseeds, s - 1, coverage, closeness, transitivity_undirected, eigenvector_centrality, betweenness, assort, nodeCloseness, nodeEcc, nodeBW, nodeDG, nodeTR
@@ -279,262 +303,64 @@ count = 0;
 
 combinationsArray = []
 
+# for e in g.es:
+    # print(e.target)
+
 start = time.time()
 localMaximum = [];
 greedyArray = [];
-greedy = 30;
+greedy = 2;
 with open("fileGreedy.txt", "r") as f:
     for line in f:
         combinationsArray.append(line.replace("\n", "").split(" "))
 localMaximum.append({'pair': combinationsArray[1], 'coverage': 0})
+iterarr = [x * 0.1 for x in range(11,12)]
+for iter in iterarr:
+    for type in range(1,3):
+        if(iter == 2.0 or iter == 3.0 or iter == 4.0 or iter == 5.0):
+            iter = iter + 0.1
+        net = 'ba' + str(type) + '_' + str(iter)[0:3]
+        print(net)
+        g = Graph.Read_Ncol('C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\' + net + '.txt', directed=False)
+        reset = g;
+        network = 'ba_' + net
+        toanalysis = [];
 
-myFile = open('syntetic/RESULTS/' + net[0][0:5] + 'result.csv', 'a')
-with myFile:
-    myFields = ['ranking',
-                'run',
-                'net',
-                'sp',
-                'pp',
-                'step',
-                'infections',
-                'coverage',
-                'cl',
-                'cc',
-                'ev',
-                'bw',
-                'assort',
-                'closenessV1',
-                'eccV1',
-                'bwV1',
-                'dgV1',
-                'trV1',
-                'pair',
-                'greedy',
-                'nl',
-                'i']
-    writer = csv.DictWriter(myFile, fieldnames=myFields)
-    writer.writeheader();
-# ranking = ['random', 'degree', 'betweenness', 'eigenvector']
-ranking = ['degree']
+        # ranking = ['random', 'degree', 'betweenness', 'eigenvector']
+        ranking = ['degree']
+        array = [];
 
-for rank in ranking:
-    print(rank)
-    for sp in spARR:
-        for pp in ppARR:
-            greedyArray = [];
-            for i in range(1, 2):
-                for n in net:
-                    n = n + '.txt';
-                    for j in range(1, 1000):
-                        temp1 = simulation(pp, sp, n, rank, i, '', False, greedyArray)
-                        myFile = open('syntetic/RESULTS/' + n[0:5] + 'result.csv', 'a')
-                        with myFile:
-                            myFields = ['ranking',
-                                        'run',
-                                        'net',
-                                        'sp',
-                                        'pp',
-                                        'step',
-                                        'infections',
-                                        'coverage',
-                                        'cl',
-                                        'cc',
-                                        'ev',
-                                        'bw',
-                                        'assort',
-                                        'closenessV1',
-                                        'eccV1',
-                                        'bwV1',
-                                        'dgV1',
-                                        'trV1',
-                                        'pair',
-                                        'greedy',
-                                        'nl',
-                                        'i']
-                            writer = csv.DictWriter(myFile, fieldnames=myFields)
-                            writer.writerow({'ranking': rank,
-                                             'run': i,
-                                             'net': n,
-                                             'sp': sp,
-                                             'pp': pp,
-                                             'step': temp1[1],
-                                             'infections': temp1[0],
-                                             'coverage': temp1[2],
-                                             'cl': temp1[3],
-                                             'cc': temp1[4],
-                                             'ev': temp1[5],
-                                             'bw': temp1[6],
-                                             'assort': temp1[7],
-                                             'closenessV1': temp1[8],
-                                             'eccV1': temp1[9],
-                                             'bwV1': temp1[10],
-                                             'dgV1': temp1[11],
-                                             'trV1': temp1[12],
-                                             'pair': 'none',
-                                             'greedy': greedyArray,
-                                             'nl': False,
-                                             'i': 0})
-                    for k in range(0, greedy + 1):
-                        localMaximum = [];
-                        temp1 = simulation(pp, sp, n, rank, i, '', False, greedyArray)
-                        myFile = open('syntetic/RESULTS/' + n[0:5] + 'result.csv', 'a')
-                        with myFile:
-                            myFields = ['ranking',
-                                        'run',
-                                        'net',
-                                        'sp',
-                                        'pp',
-                                        'step',
-                                        'infections',
-                                        'coverage',
-                                        'cl',
-                                        'cc',
-                                        'ev',
-                                        'bw',
-                                        'assort',
-                                        'closenessV1',
-                                        'eccV1',
-                                        'bwV1',
-                                        'dgV1',
-                                        'trV1',
-                                        'pair',
-                                        'greedy',
-                                        'nl',
-                                        'i']
-                            writer = csv.DictWriter(myFile, fieldnames=myFields)
-                            writer.writerow({'ranking': rank,
-                                             'run': i,
-                                             'net': n,
-                                             'sp': sp,
-                                             'pp': pp,
-                                             'step': temp1[1],
-                                             'infections': temp1[0],
-                                             'coverage': temp1[2],
-                                             'cl': temp1[3],
-                                             'cc': temp1[4],
-                                             'ev': temp1[5],
-                                             'bw': temp1[6],
-                                             'assort': temp1[7],
-                                             'closenessV1': temp1[8],
-                                             'eccV1': temp1[9],
-                                             'bwV1': temp1[10],
-                                             'dgV1': temp1[11],
-                                             'trV1': temp1[12],
-                                             'pair': 'none',
-                                             'greedy': greedyArray,
-                                             'nl': False,
-                                             'i': 0})
-                        for link in combinationsArray:
-                            infectionsArray = []
-                            for p in range(1,1000):
-                                temp2 = simulation(pp, sp, n, rank, i, link, True, greedyArray)
-                                infectionsArray.append(temp2[0])
-                            infections = mean(infectionsArray)
-                            myFile = open('syntetic/RESULTS/' + n[0:5] + 'result.csv', 'a+')
-                            with myFile:
-                                myFields = ['ranking',
-                                            'run',
-                                            'net',
-                                            'sp',
-                                            'pp',
-                                            'step',
-                                            'infections',
-                                            'coverage',
-                                            'cl',
-                                            'cc',
-                                            'ev',
-                                            'bw',
-                                            'assort',
-                                            'closenessV1',
-                                            'eccV1',
-                                            'bwV1',
-                                            'dgV1',
-                                            'trV1',
-                                            'pair',
-                                            'greedy',
-                                            'nl',
-                                            'i']
-                                writer = csv.DictWriter(myFile, fieldnames=myFields)
-                                writer.writerow(
-                                    {'ranking': rank,
-                                     'run': i,
-                                     'net': n,
-                                     'sp': sp,
-                                     'pp': pp,
-                                     'step': temp2[1],
-                                     'infections': infections,
-                                     'coverage': temp2[2],
-                                     'cl': temp2[3],
-                                     'cc': temp2[4],
-                                     'ev': temp2[5],
-                                     'bw': temp2[6],
-                                     'assort': temp1[7],
-                                     'closenessV1': temp2[8],
-                                     'eccV1': temp2[9],
-                                     'bwV1': temp2[10],
-                                     'dgV1': temp2[11],
-                                     'trV1': temp2[12],
-                                     'pair': link,
-                                     'greedy': greedyArray,
-                                     'nl': True,
-                                     'i': 0})
-                            localMaximum.append({'pair': link, 'coverage': infections});
-                        sorted_by_value = sorted(localMaximum, key=lambda k: k['coverage'], reverse=True)
-                        # print(greedyArray)
-                        for i in range(0,len(localMaximum)):
-                            if not (sorted_by_value[0]['pair'] in greedyArray):
-                                greedyArray.append(sorted_by_value[i]['pair']);
-                                break
-                        for j in range(1, 1000):
-                            temp2 = simulation(pp, sp, n, rank, i, link, True, greedyArray)
-                            myFile = open('syntetic/RESULTS/' + n[0:5] + 'result.csv', 'a+')
-                            with myFile:
-                                myFields = ['ranking',
-                                            'run',
-                                            'net',
-                                            'sp',
-                                            'pp',
-                                            'step',
-                                            'infections',
-                                            'coverage',
-                                            'cl',
-                                            'cc',
-                                            'ev',
-                                            'bw',
-                                            'assort',
-                                            'closenessV1',
-                                            'eccV1',
-                                            'bwV1',
-                                            'dgV1',
-                                            'trV1',
-                                            'pair',
-                                            'greedy',
-                                            'nl',
-                                            'i']
-                                writer = csv.DictWriter(myFile, fieldnames=myFields)
-                                writer.writerow(
-                                    {'ranking': rank,
-                                     'run': i,
-                                     'net': n,
-                                     'sp': sp,
-                                     'pp': pp,
-                                     'step': temp2[1],
-                                     'infections': temp2[0],
-                                     'coverage': temp2[2],
-                                     'cl': temp2[3],
-                                     'cc': temp2[4],
-                                     'ev': temp2[5],
-                                     'bw': temp2[6],
-                                     'assort': temp1[7],
-                                     'closenessV1': temp2[8],
-                                     'eccV1': temp2[9],
-                                     'bwV1': temp2[10],
-                                     'dgV1': temp2[11],
-                                     'trV1': temp2[12],
-                                     'pair': 'none',
-                                     'greedy': greedyArray,
-                                     'nl': True,
-                                     'i': j})
+        for rank in ranking:
+            for sp in spARR:
+                for pp in ppARR:
+                    greedyArray = [];
+                    for i in range(1, 3):
+                        for n in range(1,2):
+                            toanalysis = []
+                            print(greedyArray)
+                            for k in range(1, 50):
+                                array = [];
+                                localMaximum = [];
+                                readFileToArray('C:\\Users\\Patryk\\Desktop\\SNA_links\\nets\\networks\\' + net + '_' + str(k) + '.txt', array)
+                                for link in combinationsArray:
+                                    infectionsArray = []
+                                    for p in range(1,2):
+                                        temp2 = simulation(pp, sp, n, rank, i, link, True, greedyArray, g, array)
+                                        infectionsArray.append(temp2[0])
+                                    infections = mean(infectionsArray)
+                                    localMaximum.append({'pair': link, 'coverage': infections});
+                                sorted_by_value = sorted(localMaximum, key=lambda k: k['coverage'], reverse=True)
+                                for i in range(0,len(localMaximum)):
+                                    if not (sorted_by_value[0]['pair'] in greedyArray):
+                                        greedyArray.append(sorted_by_value[i]['pair']);
+                                        # print('greedy', greedyArray)
+                                        toanalysis.append(str(sorted_by_value[i]['pair']));
+                                        break
+                                # print(greedyArray)
+                                greedyArray = [];
+                                g = reset;
+                                localMaximum = [];
 
-end = time.time()
-print(end - start)
+                            print(Counter(toanalysis))
+        # end = time.time()
+        # print(end - start)
