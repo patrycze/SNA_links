@@ -374,7 +374,8 @@ for iter in iterarr:
                         resultWithMaxValue = []
                         stuff = []
                         # print('GREEDY ARRAY **************', greedyArray)
-                        for i in range(1, 100):
+                        for i in range(1, 10000):
+                            print(i)
                             infectionsArray = []
                             array = [];
                             for link in combinationsArray:
@@ -402,7 +403,7 @@ for iter in iterarr:
                         sorted_x = sorted(result.items(), key=operator.itemgetter(1), reverse=True)
 
                         for key in sorted_x:
-                            print('MAXIMUM PAIR **************', key[0])
+                            # print('MAXIMUM PAIR **************', key[0])
                             if not (key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(',') in greedyArray):
                                 # print(key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(','))
                                 greedyArray.append(key[0].replace('[', '').replace(']', '').replace('\'', '').replace(' ', '').split(','));
@@ -412,34 +413,34 @@ for iter in iterarr:
 
                         # print('RAW ARRAY WITH COVERAGE ***', sorted_by_value)
                         # print('ANALYSIS ******************', toanalysis)
-                        # print('ANALYSIS ******************', Counter(toanalysis))
+                        print('ANALYSIS ******************', Counter(toanalysis))
                         # print('DATA FRAME', sorted_x)
                         print('RESULT', greedyArrayWithCoverage)
 
                         print('')
 
-                        myFile = open('results/' + 'countedMaxValuesPerOnePair.csv', 'a')
-                        with myFile:
-                            myFields = ['pair', 'quantity', 'i']
-                            writer = csv.DictWriter(myFile, fieldnames=myFields)
-                            writer.writeheader();
-                            for line in Counter(toanalysis):
-                                writer.writerow(
-                                    {'pair': line,
-                                     'quantity': Counter(toanalysis)[line],
-                                     'i': greedy})
-
-                        myFile = open('results/' + 'averageCoverageForOnePair.csv', 'a')
-                        with myFile:
-                            myFields = ['pair', 'coverage', 'i']
-                            writer = csv.DictWriter(myFile, fieldnames=myFields)
-                            writer.writeheader();
-                            for line in sorted_x:
-                                # print(line)
-                                writer.writerow(
-                                    {'pair': line[0],
-                                     'coverage': line[1],
-                                     'i': greedy})
+                        # myFile = open('results/' + 'countedMaxValuesPerOnePair.csv', 'a')
+                        # with myFile:
+                        #     myFields = ['pair', 'quantity', 'i']
+                        #     writer = csv.DictWriter(myFile, fieldnames=myFields)
+                        #     writer.writeheader();
+                        #     for line in Counter(toanalysis):
+                        #         writer.writerow(
+                        #             {'pair': line,
+                        #              'quantity': Counter(toanalysis)[line],
+                        #              'i': greedy})
+                        #
+                        # myFile = open('results/' + 'averageCoverageForOnePair.csv', 'a')
+                        # with myFile:
+                        #     myFields = ['pair', 'coverage', 'i']
+                        #     writer = csv.DictWriter(myFile, fieldnames=myFields)
+                        #     writer.writeheader();
+                        #     for line in sorted_x:
+                        #         # print(line)
+                        #         writer.writerow(
+                        #             {'pair': line[0],
+                        #              'coverage': line[1],
+                        #              'i': greedy})
 
 
         # end = time.time()
