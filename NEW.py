@@ -150,30 +150,3 @@ for pp in ppARR:
                                 writer = csv.DictWriter(myFile, fieldnames=myFields)
                                 writer.writerow({'pp': pp,'seed': c, 'coverage': infections, 'net': graph})
 
-
-
-
-#                         sorted_by_value = sorted(localMaximum, key=lambda k: k['coverage'], reverse=True)
-#                         for i in range(0,len(localMaximum)):
-#                             if not (sorted_by_value[0]['pair'] in greedyArray):
-#                                 greedyArray.append(sorted_by_value[i]['pair']);
-#                                 myFile = open('results/results.csv', 'a+')
-#                                 with myFile:
-#                                     myFields = ['greedy', 'coverage', 'net', 'ranking']
-#                                     writer = csv.DictWriter(myFile, fieldnames=myFields)
-#                                     writer.writerow(
-#                                         {'greedy': greedyArray, 'coverage': sorted_by_value[i]['coverage'], 'net': n, 'ranking': rank})
-#                                 break
-#                         infectionsArray = []
-#                         for j in range(1, 1000):
-#                             temp2 = simulation(pp, sp, n, rank, i, '', False, greedyArray)
-#                             infectionsArray.append(temp2[0])
-#                         infections = mean(infectionsArray)
-#                         myFile = open('results/results.csv', 'a+')
-#                         with myFile:
-#                             myFields = ['greedy', 'coverage', 'net', 'ranking']
-#                             writer = csv.DictWriter(myFile, fieldnames=myFields)
-#                             writer.writerow({'greedy': greedyArray, 'coverage': infections, 'net': n, 'ranking': rank})
-#
-# end = time.time()
-# print(end - start)
