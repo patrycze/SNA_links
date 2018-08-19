@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8c593e73-7bde-48db-a7c7-78345109123b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/connectGreedyWithMeasures.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/greedyOP" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/graph_base.py" afterPath="$PROJECT_DIR$/graph_base.py" />
-      <change beforePath="$PROJECT_DIR$/results/.RData" afterPath="$PROJECT_DIR$/results/.RData" />
-      <change beforePath="$PROJECT_DIR$/results/.Rhistory" afterPath="$PROJECT_DIR$/results/.Rhistory" />
-      <change beforePath="$PROJECT_DIR$/results/graphs.csv" afterPath="$PROJECT_DIR$/results/graphs.csv" />
-      <change beforePath="$PROJECT_DIR$/results/treeWithCoverage.csv" afterPath="$PROJECT_DIR$/results/treeWithCoverage.csv" />
-      <change beforePath="$PROJECT_DIR$/results/ważne.R" afterPath="$PROJECT_DIR$/results/ważne.R" />
+      <change beforePath="$PROJECT_DIR$/greedyOP" afterPath="$PROJECT_DIR$/greedy-OP/greedyOP" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1534678494095" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1534701869654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -37,10 +30,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="greedyOP" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/greedyOP">
+        <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+            <state relative-caret-position="497">
+              <caret line="130" column="65" lean-forward="false" selection-start-line="130" selection-start-column="65" selection-end-line="130" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="greedyToDisplay.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/greedy-OP/results/greedyToDisplay.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="listOfNetworksWithMaxCoverage.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/greedy-OP/results/listOfNetworksWithMaxCoverage.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -49,8 +62,8 @@
       <file leaf-file-name="graph_base.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/graph_base.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="150" column="27" lean-forward="false" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="27" />
+            <state relative-caret-position="141">
+              <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -58,21 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maxToDisplay.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/maxToDisplay.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="connectGreedyWithMeasures.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/connectGreedyWithMeasures.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="334">
+              <caret line="60" column="115" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -99,14 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>0-1 0-2 3-4 2-3 4-5 2-5</find>
-      <find>0-1 0-2 3-4 2-3 4-5</find>
-      <find>0-1 0-2 3-4 2-3 2-5</find>
-      <find>0-1 0-2 3-4 2-3 1-2</find>
-      <find>11</find>
-      <find>patArr.append(e2)</find>
-      <find>0-1 0-2 2-3'</find>
-      <find>0-1 0-2 2-3 2-4</find>
       <find>'0-1 0-2 2-3'</find>
       <find>0-1 0-2 1-3 2-3</find>
       <find>0-1 0-2 2-3</find>
@@ -129,10 +124,19 @@
       <find>'0-1', '0-2', '0-3', '4-5', '2-4', '3-4', '1-2', '1-3', '</find>
       <find>0-1 0-2 2-3 1-2</find>
       <find>'0-1', '0-2', '2-3'</find>
+      <find>0-1', '0-2', '2-3', '2-4'</find>
+      <find>10</find>
+      <find>11</find>
+      <find>12</find>
+      <find>13</find>
+      <find>9</find>
+      <find>dataset</find>
+      <find>head</find>
     </findStrings>
     <replaceStrings>
       <replace>r1</replace>
       <replace>r2</replace>
+      <replace>data</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -166,6 +170,7 @@
         <option value="$PROJECT_DIR$/connectGreedyWithMeasures.py" />
         <option value="$PROJECT_DIR$/graph_base.py" />
         <option value="$PROJECT_DIR$/greedyOP" />
+        <option value="$PROJECT_DIR$/greedy-OP/greedyOP" />
       </list>
     </option>
   </component>
@@ -203,6 +208,22 @@
               <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
               <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
+              <item name="greedy-OP" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
+              <item name="greedy-OP" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -218,6 +239,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/greedy-OP" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -266,7 +288,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="SNA_links" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/greedyOP" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/greedy-OP/greedyOP" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -294,19 +316,27 @@
       <option name="project" value="LOCAL" />
       <updated>1531257663242</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added important &quot;greedyOP&quot; script with correct approach to select greedy net form dataset, entire script written - good looking :P - OP">
+      <created>1534678975328</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1534678975328</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="984" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52980876" sideWeight="0.5021299" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.52980876" sideWeight="0.4978701" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43419573" sideWeight="0.4978701" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22790202" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1171459" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -347,46 +377,45 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added writting to files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added writting to files" />
+    <MESSAGE value="added important &quot;greedyOP&quot; script with correct approach to select greedy net form dataset, entire script written - good looking :P - OP" />
+    <option name="LAST_COMMIT_MESSAGE" value="added important &quot;greedyOP&quot; script with correct approach to select greedy net form dataset, entire script written - good looking :P - OP" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../_infa/modelowanie dyfuzji/python/sym1/venv/lib/python3.5/collections/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6398">
-          <caret line="511" column="8" lean-forward="false" selection-start-line="511" selection-start-column="8" selection-end-line="511" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="377" column="35" lean-forward="false" selection-start-line="377" selection-start-column="35" selection-end-line="377" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/resultsRANDOM.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedWITHOUTranks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="271" column="22" lean-forward="false" selection-start-line="271" selection-start-column="22" selection-end-line="271" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/greedyWithTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4650">
@@ -670,18 +699,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/maxToDisplay.csv">
+    <entry file="file://$PROJECT_DIR$/results/readyToDisplayMax.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="11" />
+        <state relative-caret-position="-791">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/connectGreedyWithMeasures.py">
+    <entry file="file://$PROJECT_DIR$/results/maxToDisplay.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="-622">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -694,20 +723,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/connectGreedyWithMeasures.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="60" column="115" lean-forward="true" selection-start-line="60" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/listOfNetworksWithMaxCoverage.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/graph_base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="150" column="27" lean-forward="false" selection-start-line="150" selection-start-column="10" selection-end-line="150" selection-end-column="27" />
+        <state relative-caret-position="141">
+          <caret line="36" column="25" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/greedyOP">
+    <entry file="file://$PROJECT_DIR$/greedy-OP/results/listOfNetworksWithMaxCoverage.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/greedy-OP/results/greedyToDisplay.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="497">
+          <caret line="130" column="65" lean-forward="false" selection-start-line="130" selection-start-column="65" selection-end-line="130" selection-end-column="65" />
           <folding />
         </state>
       </provider>

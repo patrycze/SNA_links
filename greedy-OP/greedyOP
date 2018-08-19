@@ -9,6 +9,38 @@ class Network:
     eigenvector = 0
     betweenness = 0
     coverage = 0
+    listOfNetworksWithMaxCoverage = []
+
+    def createRankingWithMaxCoverage(self, networkList):
+
+        max = Network()
+        max.coverage = 0
+
+        for i in range(3, 16):
+            for network in networkList:
+                if (len(network.edges.listOfPairs)) == i:
+                    if (float(max.coverage) < float(network.coverage)):
+                        max = network
+            self.listOfNetworksWithMaxCoverage.append(max)
+
+    def createCsv(self, name, dataset):
+        print('greedy-OP/results/' + name +'.csv')
+
+        myFields = ['net', 'coverage', 'nodes', 'edges', 'closeness', 'transitivity', 'eigenvector', 'betweenness']
+        myFile = open('greedy-OP/results/' + name + '.csv', 'w')
+        with myFile:
+            writer = csv.DictWriter(myFile, fieldnames=myFields)
+            writer.writeheader();
+
+        for data in dataset:
+            print(data.coverage)
+
+
+            myFile = open('greedy-OP/results/' + name +'.csv', 'a+')
+            with myFile:
+                writer = csv.DictWriter(myFile, fieldnames=myFields)
+                writer.writerow({'net': data.net, 'coverage': data.coverage, 'nodes': data.nodes, 'edges': data.edges.listOfPairs, 'closeness': data.closeness, 'transitivity': data.transitivity,
+                                 'eigenvector': data.eigenvector, 'betweenness': data.betweenness})
 
 class Edges:
     listOfPairs = []
@@ -74,19 +106,6 @@ with open('results/resultWithE.csv', 'r') as csvfile:
 
             listOfNetworks.append(tmpNetwors)
 
-# edges = Edges()
-# edges.listOfPairs = ['2-1', '1-1', '2-2']
-# tmpNetwors.edges = edges
-#
-# listOfNetworks.append(tmpNetwors)
-#
-# tmpNetwors = Network()
-#
-# edges = Edges()
-# edges.listOfPairs = ['2-1', '2-2', '1-1', '2-3']
-# tmpNetwors.edges = edges
-#
-# listOfNetworks.append(tmpNetwors)
 listOfGreedy = []
 
 for l in listOfNetworks:
@@ -95,6 +114,19 @@ for l in listOfNetworks:
     listOfGreedy.append(greedy)
     # print(greedy)
 
+greedyToDisplay = []
+
 for l in listOfGreedy:
     for g in l.greedy:
-        print(g.edges.listOfPairs, "    ", g.coverage)
+        if(len(l.greedy) == 9):
+            greedyToDisplay = l.greedy
+            break
+
+networks = Network()
+networks.createRankingWithMaxCoverage(listOfNetworks)
+
+# for i in range(0, len(networks.listOfNetworksWithMaxCoverage)):
+    # print(float(networks.listOfNetworksWithMaxCoverage[i+1].coverage) - float(networks.listOfNetworksWithMaxCoverage[i].coverage))
+
+networks.createCsv('listOfNetworksWithMaxCoverage', networks.listOfNetworksWithMaxCoverage)
+networks.createCsv('greedyToDisplay', greedyToDisplay)
