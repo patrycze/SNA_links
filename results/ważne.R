@@ -3,13 +3,14 @@
 setwd("/Users/apple/Desktop/SNA_links/results")
 
 
-data = read.csv('results.csv', header=TRUE,sep=",")
+data = read.csv('resultWithE.csv', header=FALSE,sep=",")
 data$meanInfections <- ave(data$coverage, data$net, data$len, FUN=mean) # okreslenie średniej wartości i przypisanie ich do tabeli
 
+data$diff <- ave(data$V2, FUN=function(x) c(0, diff(x)))
 
 data$len <- nchar(as.character(data$seed))
 
-#data1 <- subset(data, pp == 0.5)
+data1 <- subset(data, select = c(V2,V5,V6,V7,V8))
 
 
 net4 <- as.data.frame(data[grep("^4", data$net),])
@@ -43,16 +44,18 @@ line1 <- t(net4)
 line2 <- t(net5)
 line3 <- t(net6)
 
-png(paste("lines.png"),width = 3000, height = 3000, res=300)
+png(paste("points.png"),width = 3000, height = 3000, res=300)
 
-plot(line3,length3,col="white",xlab="",  ylab="", cex.lab=2.5,mgp = c(2.5, 1, 0), cex.axis=2,log="xy" )
+#plot(line3,length3,col="white",xlab="",  ylab="", cex.lab=2.5,mgp = c(2.5, 1, 0), cex.axis=2,log="xy" )
+plot(data$V6,data$V2,col="white",xlab="",  ylab="", cex.lab=2.5,mgp = c(2.5, 1, 0), cex.axis=2,log="xy" )
 
 title(ylab="coverage",mgp=c(2.5,1,0), cex.lab=2.5)
 title(xlab="seed set",mgp=c(2.5,1,0), cex.lab=2.5)
 
-lines(length1,line1,col="red",  pch=20,  cex=0.4, bg="yellow1") 
-lines(length2,line2,col="orange2",  pch=20,  cex=0.4, bg="yellow1") 
-lines(length3,line3,col="green2",  pch=20,  cex=0.4, bg="yellow1") 
+points(data$V5,data$V2,col="red",  pch=20,  cex=0.4, bg="red") 
+#lines(length1,line1,col="red",  pch=20,  cex=0.4, bg="yellow1") 
+#lines(length2,line2,col="orange2",  pch=20,  cex=0.4, bg="yellow1") 
+#lines(length3,line3,col="green2",  pch=20,  cex=0.4, bg="yellow1") 
 
 colors <- c("red","orange2","green2", "blue", "yellow1")
 

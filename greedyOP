@@ -1,0 +1,100 @@
+import csv
+
+class Network:
+    net = ''
+    nodes = []
+    edges = []
+    closeness = 0
+    transitivity = 0
+    eigenvector = 0
+    betweenness = 0
+    coverage = 0
+
+class Edges:
+    listOfPairs = []
+
+    def createList(self, rawList):
+        self.listOfPairs = rawList.split(" ")
+
+
+class Greedy:
+
+    greedy = []
+    pattern = []
+    def createGreedySequences(self, network, networks):
+
+        self.greedy = []
+
+        self.pattern = network
+        self.searchPatternInNetworksList(self.pattern, networks)
+
+    def searchPatternInNetworksList(self, pattern, networks):
+
+        max = pattern
+
+        for network2 in networks:
+
+            last = []
+
+            if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
+                if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
+                    if not any(d == pattern for d in self.greedy):
+
+                        if(max.coverage < network2.coverage):
+                            max = network2
+
+        if(max.coverage != pattern.coverage):
+            self.greedy.append(pattern)
+            last = network2.edges.listOfPairs
+            self.pattern = max
+            self.searchPatternInNetworksList(self.pattern, networks)
+
+        # if (last != []):
+        #     self.greedy.append(last)
+
+listOfNetworks = []
+
+
+with open('results/resultWithE.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    for row in reader:
+        tmpNetwors = Network()
+        if row != []:
+            tmpNetwors.net = row[0]
+            tmpNetwors.coverage = row[1]
+            tmpNetwors.betweenness = row[7]
+            tmpNetwors.closeness = row[4]
+            tmpNetwors.nodes = row[2]
+            tmpNetwors.eigenvector = row[6]
+            tmpNetwors.transitivity = row[5]
+
+            edges = Edges()
+            edges.createList(row[3][:-1])
+            tmpNetwors.edges = edges
+
+            listOfNetworks.append(tmpNetwors)
+
+# edges = Edges()
+# edges.listOfPairs = ['2-1', '1-1', '2-2']
+# tmpNetwors.edges = edges
+#
+# listOfNetworks.append(tmpNetwors)
+#
+# tmpNetwors = Network()
+#
+# edges = Edges()
+# edges.listOfPairs = ['2-1', '2-2', '1-1', '2-3']
+# tmpNetwors.edges = edges
+#
+# listOfNetworks.append(tmpNetwors)
+listOfGreedy = []
+
+for l in listOfNetworks:
+    greedy = Greedy()
+    greedy.createGreedySequences(l, listOfNetworks)
+    listOfGreedy.append(greedy)
+    # print(greedy)
+
+for l in listOfGreedy:
+    for g in l.greedy:
+        print(g.edges.listOfPairs, "    ", g.coverage)

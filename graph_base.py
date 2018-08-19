@@ -135,33 +135,122 @@ for x in range(0, len(links)):
 max = 0
 previous = 0
 
-print(len(links))
-print(len(linksWithCoverage))
+# print(len(links))
+#print(linksWithCoverage)
 
 max = 0
 previous = 0
+trash = []
+tmp = []
 
-for i in range(0, len(links)):
-    previous = i
-    # links[i][0] = str(links[i][0]) + ' G'
+# len = 11
+maxlen = 59
+pattern = ''
+patArr = []
+
+for e1 in linksWithCoverage:
+    if not any(d['links'] == e1['links'] for d in patArr):
+        # print('E1 ********', e1)
+        pattern = e1['links']
+        tmp = e1
+        patArr.append(e1)
+        for i in range(7, 59, 4):
+            max = 0
+            if len(pattern) == i:
+                for e2 in linksWithCoverage:
+                    if len(e2['links']) == i+4:
+                        if pattern in e2['links']:
+                            if(float(max) < float(e2['coverage'])):
+                                # print('E2 ********', e2)
+                                max = e2['coverage']
+                                tmp = e2
+                if not any(d['links'] == tmp['links'] for d in patArr):
+                    pattern = tmp['links']
+                    patArr.append(tmp)
+
+# for p in patArr:
+#     myFile = open('results/greedyTreeWithCoverage.csv', 'a+')
+#     with myFile:
+#         myFields = ['links', 'coverage']
+#         writer = csv.DictWriter(myFile, fieldnames=myFields)
+#         writer.writerow({'links': p['links'], 'coverage': p['coverage']})
+
+maxArr = []
+tmp = 0
+for i in range(7, 59, 4):
     max = 0
-    for r in range(0, len(linksWithCoverage)):
+    for e2 in linksWithCoverage:
+        if len(e2['links']) == i:
+            if(float(max) < float(e2['coverage'])):
+                # print('E2 ********', e2)
+                max = e2['coverage']
+                tmp = e2
+    if(tmp is not 0):
+        maxArr.append(tmp)
 
-        if(links[i][0][:-4] == linksWithCoverage[r]['links']):
 
-            # print(links[i][0][:-6])
-            # print(linksWithCoverage[r]['links'])
-            # print(max)
-            # print(float(linksWithCoverage[r]['coverage']))
 
-            if max < float(linksWithCoverage[r]['coverage']):
-                max = float(linksWithCoverage[r]['coverage'])
-                links[r][0] = str(links[r][0]) + ' G'
-                links[previous][0] = links[previous][0][:-2]
-                print(links[r][0])
+randArr = []
 
-                previous = int(r)
-            # print(results[r]['links'])
+for e1 in linksWithCoverage:
+    if not any(d['links'] == e1['links'] for d in randArr):
+        # print('E1 ********', e1)
+        pattern = e1['links']
+        tmp = e1
+        # randArr.append(e1)
+        for i in range(7, 59, 4):
+            max = 0
+            if len(pattern) == i:
+                for e2 in linksWithCoverage:
+                    if len(e2['links']) == i+4:
+                        if pattern in e2['links']:
+                            if(float(max) < float(e2['coverage'])):
+                                if not any(d['links'] == e2['links'] for d in randArr):
+                                    randArr.append(e2)
+                                    pattern = e2['links']
+                                    # print('E2 ********', e2)
+                                    break
 
-# for l in links:
-    # print(l)
+
+def searchMax(length):
+    for m in maxArr:
+        if (len(m['links']) == length):
+            return m
+
+# for m in randArr:
+    # print('aaaaa', m)
+i = int(random.uniform(0, len(linksWithCoverage)))
+
+myFile = open('results/greedyToDisplay.csv', 'w')
+myFile = open('results/maxToDisplay.csv', 'w')
+myFile = open('results/randomToDisplay.csv', 'w')
+
+for t in patArr:
+    print("*****", t['links'])
+    for i in range (i, len(linksWithCoverage)):
+        if(len(t['links']) == 11):
+            print("JEST 9", t)
+        if(i == len(linksWithCoverage)-1):
+            i = int(random.uniform(0,len(linksWithCoverage)))
+        if (len(linksWithCoverage[i]['links']) == len(t['links'])):
+            max = searchMax(len(t['links']))
+            #print(t['links'], ' i ', linksWithCoverage[i]['links'], ' i ', max['links'])
+            myFile = open('results/greedyToDisplay.csv', 'a+')
+            with myFile:
+                myFields = ['links', 'coverage']
+                writer = csv.DictWriter(myFile, fieldnames=myFields)
+                writer.writerow({'links': t['links'], 'coverage': t['coverage']})
+
+            myFile = open('results/maxToDisplay.csv', 'a+')
+            with myFile:
+                myFields = ['links', 'coverage']
+                writer = csv.DictWriter(myFile, fieldnames=myFields)
+                writer.writerow({'links': max['links'], 'coverage': max['coverage']})
+
+            myFile = open('results/randomToDisplay.csv', 'a+')
+            with myFile:
+                myFields = ['links', 'coverage']
+                writer = csv.DictWriter(myFile, fieldnames=myFields)
+                writer.writerow({'links': linksWithCoverage[i]['links'], 'coverage': linksWithCoverage[i]['coverage']})
+            break
+
