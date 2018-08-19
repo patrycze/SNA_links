@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8c593e73-7bde-48db-a7c7-78345109123b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/greedyOP" afterPath="$PROJECT_DIR$/greedy-OP/greedyOP" />
+      <change beforePath="$PROJECT_DIR$/greedy-OP/greedyOP" afterPath="$PROJECT_DIR$/greedy-OP/greedyOP" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1534701869654" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1534706378485" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -29,11 +29,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="greedyOP" pinned="false" current-in-tab="true">
+      <file leaf-file-name="greedyOP" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="497">
-              <caret line="130" column="65" lean-forward="false" selection-start-line="130" selection-start-column="65" selection-end-line="130" selection-end-column="65" />
+            <state relative-caret-position="363">
+              <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="greedyToDisplayAll.csv" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/greedy-OP/results/greedyToDisplayAll.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="407" column="0" lean-forward="false" selection-start-line="407" selection-start-column="0" selection-end-line="415" selection-end-column="134" />
               <folding />
             </state>
           </provider>
@@ -102,8 +112,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>'0-1 0-2 2-3'</find>
-      <find>0-1 0-2 1-3 2-3</find>
       <find>0-1 0-2 2-3</find>
       <find>0-1 0-2 3-4 2-3</find>
       <find>0-1 0-2 0-3 1-4 2-4 3-4 2-5 3-5</find>
@@ -132,11 +140,15 @@
       <find>9</find>
       <find>dataset</find>
       <find>head</find>
+      <find>9</find>
+      <find>data</find>
     </findStrings>
     <replaceStrings>
       <replace>r1</replace>
       <replace>r2</replace>
       <replace>data</replace>
+      <replace>data.greedy</replace>
+      <replace>data['net']</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -323,7 +335,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534678975328</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added important &quot;greedyOP&quot; script with correct approach to select greedy net form dataset, entire script written - good looking :P - OP">
+      <created>1534703410061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1534703410061</updated>
+    </task>
+    <task id="LOCAL-00004" summary="added consecutive numbers in greedy seq">
+      <created>1534706251146</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1534706251146</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -336,7 +362,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1171459" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1171459" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -409,20 +435,14 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added writting to files" />
     <MESSAGE value="added important &quot;greedyOP&quot; script with correct approach to select greedy net form dataset, entire script written - good looking :P - OP" />
-    <option name="LAST_COMMIT_MESSAGE" value="added important &quot;greedyOP&quot; script with correct approach to select greedy net form dataset, entire script written - good looking :P - OP" />
+    <MESSAGE value="added consecutive numbers in greedy seq" />
+    <option name="LAST_COMMIT_MESSAGE" value="added consecutive numbers in greedy seq" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/greedyWithTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4650">
-          <caret line="318" column="34" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="391" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/4_1_seeds.txt" />
     <entry file="file://$PROJECT_DIR$/4_2_seeds.txt" />
     <entry file="file://$PROJECT_DIR$/seeds/6_1_seeds.txt">
@@ -767,8 +787,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="130" column="65" lean-forward="false" selection-start-line="130" selection-start-column="65" selection-end-line="130" selection-end-column="65" />
+        <state relative-caret-position="363">
+          <caret line="157" column="0" lean-forward="true" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/greedy-OP/results/greedyToDisplayAll.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="407" column="0" lean-forward="false" selection-start-line="407" selection-start-column="0" selection-end-line="415" selection-end-column="134" />
           <folding />
         </state>
       </provider>

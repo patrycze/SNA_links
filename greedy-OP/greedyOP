@@ -92,7 +92,7 @@ class Greedy:
     def createCsv(self, name, dataset):
         print('greedy-OP/results/' + name +'.csv')
 
-        myFields = ['net', 'coverage', 'nodes', 'edges', 'links', 'closeness', 'transitivity', 'eigenvector', 'betweenness']
+        myFields = ['number', 'net', 'coverage', 'nodes', 'edges', 'links', 'closeness', 'transitivity', 'eigenvector', 'betweenness']
         myFile = open('greedy-OP/results/' + name + '.csv', 'w')
         with myFile:
             writer = csv.DictWriter(myFile, fieldnames=myFields)
@@ -103,8 +103,8 @@ class Greedy:
                 myFile = open('greedy-OP/results/' + name +'.csv', 'a+')
                 with myFile:
                     writer = csv.DictWriter(myFile, fieldnames=myFields)
-                    writer.writerow({'net': data.net, 'coverage': data.coverage, 'nodes': data.nodes, 'edges': data.edges.listOfPairs, 'links': len(data.edges.listOfPairs), 'closeness': data.closeness, 'transitivity': data.transitivity,
-                                     'eigenvector': data.eigenvector, 'betweenness': data.betweenness})
+                    writer.writerow({'number': data['number'], 'net': data['net'].net, 'coverage': data['net'].coverage, 'nodes': data['net'].nodes, 'edges': data['net'].edges.listOfPairs, 'links': len(data['net'].edges.listOfPairs), 'closeness': data['net'].closeness, 'transitivity': data['net'].transitivity,
+                                     'eigenvector': data['net'].eigenvector, 'betweenness': data['net'].betweenness})
 
 
 listOfNetworks = []
@@ -154,4 +154,4 @@ greedy = Greedy()
     # print(float(networks.listOfNetworksWithMaxCoverage[i+1].coverage) - float(networks.listOfNetworksWithMaxCoverage[i].coverage))
 
 # networks.createCsv('listOfNetworksWithMaxCoverage', networks.listOfNetworksWithMaxCoverage)
-# greedy.createCsv('greedyToDisplayAll', listOfGreedy)
+greedy.createCsv('greedyToDisplayAll', listOfGreedy)
