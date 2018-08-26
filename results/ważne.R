@@ -4,6 +4,8 @@ setwd("/Users/apple/Desktop/SNA_links/results")
 
 
 data = read.csv('resultWithE.csv', header=FALSE,sep=",")
+
+
 data$meanInfections <- ave(data$coverage, data$net, data$len, FUN=mean) # okreslenie średniej wartości i przypisanie ich do tabeli
 
 data$diff <- ave(data$V2, FUN=function(x) c(0, diff(x)))
