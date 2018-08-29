@@ -5,7 +5,7 @@ from matplotlib.ticker import FormatStrFormatter
 import matplotlib.colors
 from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,
                                AutoMinorLocator)
-
+import random
 
 class Network:
     net = ''
@@ -80,12 +80,18 @@ class Greedy:
     pattern = []
     number = 0
     coverage = 0
+    listOfPairs = 0
+    net = ''
+    maximum = 0
 
     def createGreedySequences(self, network, networks):
 
         self.greedy = []
 
         self.pattern = network
+        self.coverage = network.coverage
+        self.net = network.net
+        self.listOfPairs = len(network.edges.listOfPairs)
         self.searchPatternInNetworksList(self.pattern, networks)
 
     def searchPatternInNetworksList(self, pattern, networks):
@@ -107,11 +113,14 @@ class Greedy:
         if(max.coverage != pattern.coverage):
             self.number = self.number + 1
             self.coverage = max.coverage
+            self.listOfPairs = len(max.edges.listOfPairs)
+
             # print(self.number, pattern.edges.listOfPairs)
             pattern.number = self.number
             self.greedy.append({'number': self.number, 'net': pattern})
             last = network2.edges.listOfPairs
             self.pattern = max
+
             self.searchPatternInNetworksList(self.pattern, networks)
 
     def createSequences(self, network, networks):
@@ -119,29 +128,105 @@ class Greedy:
         self.greedy = []
 
         self.pattern = network
+        self.coverage = network.coverage
+        self.net = network.net
+
+        self.listOfPairs = len(network.edges.listOfPairs)
+
         self.searchRandomPatternInNetworksList(self.pattern, networks)
 
     def searchRandomPatternInNetworksList(self, pattern, networks):
 
-        random = pattern
+        rand = pattern
+        randomArray = []
 
         for network2 in networks:
 
-            last = []
 
             if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
                 if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
-                        random = network2
-                        if (random.coverage != pattern.coverage):
-                            self.number = self.number + 1
-                            self.coverage = pattern.coverage
-                            print(self.number, pattern.edges.listOfPairs)
-                            pattern.number = self.number
-                            self.greedy.append({'number': self.number, 'net': pattern})
-                            last = network2.edges.listOfPairs
-                            self.pattern = random
-                            self.searchRandomPatternInNetworksList(self.pattern, networks)
-                            break
+                        rand = network2
+                        randomArray.append(network2)
+
+        if (rand.coverage != pattern.coverage):
+            self.number = self.number + 1
+            self.listOfPairs = len(rand.edges.listOfPairs)
+
+            # print(self.net, self.number, pattern.edges.listOfPairs, self.coverage)
+            pattern.number = self.number
+            self.greedy.append({'number': self.number, 'net': pattern})
+            last = network2.edges.listOfPairs
+
+            i = random.uniform(0, len(randomArray))
+            # print(int(i))
+            # print(randomArray)
+
+            if(len(randomArray) != 0):
+                self.pattern = randomArray[int(i)]
+                self.coverage = pattern.coverage
+
+            else:
+                self.pattern = rand
+                self.coverage = rand.coverage
+
+            # print(self.net, self.number, pattern.edges.listOfPairs, self.coverage)
+            self.searchRandomPatternInNetworksList(self.pattern, networks)
+
+    def createAllSequences(self, network, networks):
+
+        self.greedy = []
+
+        self.pattern = network
+        self.coverage = network.coverage
+        self.net = network.net
+
+        self.listOfPairs = len(network.edges.listOfPairs)
+
+        self.searchAllPatternInNetworksList(self.pattern, networks)
+
+    def searchAllPatternInNetworksList(self, pattern, networks):
+
+        rand = pattern
+        randomArray = []
+        # print('MAXIMA', self.net, self.number, pattern.edges.listOfPairs, self.coverage)
+
+        for network2 in networks:
+
+            if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
+                if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
+                    rand = network2
+                    randomArray.append(network2)
+
+        # print('MAXIMA', pattern.net, pattern.number, pattern.edges.listOfPairs, pattern.coverage)
+        if (rand.coverage != pattern.coverage):
+            self.number = self.number + 1
+            self.coverage = rand.coverage
+            self.listOfPairs = len(rand.edges.listOfPairs)
+
+            # print('MAXIMA', rand.net, self.number, rand.edges.listOfPairs, self.coverage)
+            # pattern.number = self.number
+            self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
+            # print("GREEDYY ARRAY", self.greedy)
+            last = network2.edges.listOfPairs
+
+            # i = random.uniform(0, len(randomArray))
+            # print(int(i))
+            # print(randomArray)
+
+            for r in randomArray:
+                self.searchAllPatternInNetworksList(r, networks)
+
+
+    def searchInGreedyMaximum(self):
+        self.maximum = 0
+        for g in self.greedy:
+            print('MAX', g['coverage'])
+            if(self.maximum < float(g['coverage'])):
+                self.maximum = float(g['coverage'])
+        print('MAX????', self.net, self.maximum)
+        if(self.maximum == 0):
+            self.maximum = self.coverage
+
 
         # if (last != []):
         #     self.greedy.append(last)
@@ -189,6 +274,7 @@ with open('results/resultWithE.csv', 'r') as csvfile:
 listOfGreedy = []
 listOfRandom = []
 
+
 for l in listOfNetworks:
     greedy = Greedy()
     greedy.createGreedySequences(l, listOfNetworks)
@@ -196,15 +282,15 @@ for l in listOfNetworks:
     # print(greedy)
 
 for l in listOfNetworks:
-    random = Greedy()
-    random.createSequences(l, listOfNetworks)
-    listOfRandom.append(random)
+    rand = Greedy()
+    rand.createSequences(l, listOfNetworks)
+    listOfRandom.append(rand)
     # print(greedy)
 
 greedyToDisplay = []
 greedyToDisplayAll = []
 greedy = []
-random = []
+rand = []
 
 for l in listOfGreedy:
     for g in l.greedy:
@@ -217,8 +303,8 @@ for l in listOfGreedy:
 for l in listOfRandom:
     for g in l.greedy:
         if(len(l.greedy) == 6):
-            print("RANDOM", g['number'], g['net'].edges.listOfPairs)
-            random.append(g['net'])
+            # print("RANDOM", g['number'], g['net'].edges.listOfPairs)
+            rand.append(g['net'])
     if (len(l.greedy) == 6):
         break
 
@@ -258,7 +344,7 @@ for n in listOfNetworksSorted:
             y.append(float(n.coverage))
             xNodes.append(float(len(n.edges.listOfPairs)))
             break
-    for r in random:
+    for r in rand:
         if (r.coverage == n.coverage):
             col.append('C7')
             y.append(float(n.coverage))
@@ -311,39 +397,126 @@ x = sorted(x, reverse=True)
 
 ########### FIGURE 2 ###################
 
-y = []
+# y = []
+#
+# for g in listOfGreedy:
+#     for r in listOfRandom:
+#         if(float(g.coverage) != float(r.coverage)):
+#             if(len(g.greedy) == len(r.greedy)):
+#                 # print("ROZNICA", float(g.coverage) / float(r.coverage))
+#                 y.append(float(g.coverage) / float(r.coverage))
+#                 if float(g.coverage) / float(r.coverage) > 1.5:
+#                     for test in g.greedy:
+#                         print(test['net'].edges.listOfPairs,  " ")
+# fig = plt.figure(figsize=(10,10))
+# ax = fig.add_subplot(111)
+#
+# y = sorted(y, reverse=True)
+#
+# x = range(len(y))
+#
+# less_than_one = list(filter(lambda x: x < 1, y))
+# bigger_than_one = list(filter(lambda x: x > 1, y))
+#
+# print('LEEESSSS', len(less_than_one))
+# print('BIGGGGER', len(bigger_than_one))
+#
+# ax.scatter(x, y, color='C0', s=0.5, label=col)
+# ax.plot([1,3000],[1,1], 'C3', lw=1)
+#
+# # ax.set_yscale('log')
+#
+#
+# ax.tick_params(axis='both', which='major', labelsize=10)
+#
+# plt.show()
+#
+# fig.savefig("test.png", dpi = (200))
 
-for g in listOfGreedy:
-    for r in listOfRandom:
-        if(float(g.coverage) != float(r.coverage)):
-            if(len(g.greedy) == len(r.greedy)):
-                # print("ROZNICA", float(g.coverage) / float(r.coverage))
-                y.append(float(g.coverage) / float(r.coverage))
-                if float(g.coverage) / float(r.coverage) > 1.5:
-                    for test in g.greedy:
-                        print(test['net'].edges.listOfPairs,  " ")
+########### FIGURE 3 ###################
+
+listOfMaximum = []
+
+print(listOfNetworks)
+for l in listOfNetworks:
+    maximum = Greedy()
+    maximum.createAllSequences(l, listOfNetworks)
+    maximum.searchInGreedyMaximum()
+    # print("MAXIMUM", maximum.net, maximum.maximum)
+    listOfMaximum.append(maximum)
+
+
+
+y1 = []
+y2 = []
+y3 = []
+y4 = []
+x = []
+
+
+listOfGreedy = sorted(listOfGreedy, key=lambda x: x.coverage)
+wastedNets = []
+networks = []
+
+for i in range(0, len(listOfGreedy)):
+
+    if len(listOfGreedy[i].greedy) >= 0:
+        # print("GREEDY", listOfGreedy[i].net, listOfGreedy[i].coverage)
+        y1.append(float(listOfGreedy[i].coverage))
+        networks.append(listOfGreedy[i].net)
+        for n in listOfRandom:
+            if(n.net == listOfGreedy[i].net):
+                print("RANDOM", n.net, n.coverage)
+                # print(m)
+                y2.append(float(n.coverage))
+                break
+
+
+        for m in listOfMaximum:
+            if(m.net == listOfGreedy[i].net):
+                print("MAXIMUM", m.net, m.maximum, '\n')
+                # print(m)
+                y3.append(float(m.maximum))
+                break
+
 fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
-y = sorted(y, reverse=True)
+# print(y1)
+print(y2)
+print(y3)
 
-x = range(len(y))
+# y1 = sorted(y1)
+# y2 = sorted(y2)
+# y3 = sorted(y3)
 
-less_than_one = list(filter(lambda x: x < 1, y))
-bigger_than_one = list(filter(lambda x: x > 1, y))
 
-print('LEEESSSS', len(less_than_one))
-print('BIGGGGER', len(bigger_than_one))
 
-ax.scatter(x, y, color='C0', s=0.5, label=col)
-ax.plot([1,3000],[1,1], 'C3', lw=1)
+x = range(len(y1))
+
+# less_than_one = list(filter(lambda x: x < 1, y))
+# bigger_than_one = list(filter(lambda x: x > 1, y))
+
+# print('LEEESSSS', len(less_than_one))
+# print('BIGGGGER', len(bigger_than_one))
+
+ax.scatter(x, y1, color='C2', s=6, label=col)
+ax.scatter(x, y2, color='C0', s=6, label=col)
+ax.scatter(x, y3, color='C3', s=6, label=col)
+
+
+
+# ax.scatter(x, y4, color='C6', s=4, label=col)
 
 # ax.set_yscale('log')
 
-
+#
 ax.tick_params(axis='both', which='major', labelsize=10)
+
+# plt.xticks(rotation='vertical')
 
 plt.show()
 
-fig.savefig("test.png", dpi = (200))
+plt.savefig("test.png", dpi = (200))
+#
 
