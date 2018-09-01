@@ -7,6 +7,19 @@ from matplotlib.ticker import (MultipleLocator, FormatStrFormatter,
                                AutoMinorLocator)
 import random
 
+class Case:
+    pp = 0
+    seed = []
+    coverage = 0
+    net = ''
+
+
+class Seed:
+    seed = []
+
+    def createSeed(self, rawList):
+        self.seed = rawList.replace("[","").replace("]","").replace(",","").replace("'","").split(' ')
+
 class Network:
     net = ''
     nodes = []
@@ -115,7 +128,7 @@ class Greedy:
             self.coverage = max.coverage
             self.listOfPairs = len(max.edges.listOfPairs)
 
-            # print(self.number, pattern.edges.listOfPairs)
+            # print(self.net, self.number, max.edges.listOfPairs, self.coverage)
             pattern.number = self.number
             self.greedy.append({'number': self.number, 'net': pattern})
             last = network2.edges.listOfPairs
@@ -198,12 +211,13 @@ class Greedy:
                     randomArray.append(network2)
 
         # print('MAXIMA', pattern.net, pattern.number, pattern.edges.listOfPairs, pattern.coverage)
-        if (rand.coverage != pattern.coverage):
+        self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
+        if (rand.net != pattern.net):
             self.number = self.number + 1
             self.coverage = rand.coverage
             self.listOfPairs = len(rand.edges.listOfPairs)
 
-            # print('MAXIMA', rand.net, self.number, rand.edges.listOfPairs, self.coverage)
+            print('MAXIMA', rand.net, self.number, rand.edges.listOfPairs, self.coverage)
             # pattern.number = self.number
             self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
             # print("GREEDYY ARRAY", self.greedy)
@@ -249,9 +263,26 @@ class Greedy:
 
 
 listOfNetworks = []
+allCases = []
+
+with open('C:/Users/Patryk/Desktop/SNA_Links/SNA_links/results/results.csv', 'r') as csvfile:
+    reader = csv.reader(csvfile, delimiter=',')
+    for row in reader:
+        tmpCase = Case()
+        if row != []:
+            if row[0] != 'pp':
+                tmpCase.pp = float(row[0])
+                tmpCase.coverage = row[2]
+                tmpCase.net = row[3]
+
+                seed = Seed()
+                seed.createSeed(row[1])
+                tmpCase.seed = seed.seed
+
+                allCases.append(tmpCase)
 
 
-with open('results/resultWithE.csv', 'r') as csvfile:
+with open('C:/Users/Patryk/Desktop/SNA_Links/SNA_links/results/resultWithE.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         tmpNetwors = Network()
@@ -371,7 +402,7 @@ x = range(len(y))
 x = sorted(x, reverse=True)
 
 ########### FIGURE 1 ###################
-
+#
 # plt.subplot(212)
 #
 # fig = plt.figure(figsize=(10,10))
@@ -395,14 +426,14 @@ x = sorted(x, reverse=True)
 #
 # fig.savefig("test.png", dpi = (200))
 
-########### FIGURE 2 ###################
-
+########## FIGURE 2 ###################
+#
 # y = []
 #
 # for g in listOfGreedy:
 #     for r in listOfRandom:
 #         if(float(g.coverage) != float(r.coverage)):
-#             if(len(g.greedy) == len(r.greedy)):
+#             if(g.net == r.net):
 #                 # print("ROZNICA", float(g.coverage) / float(r.coverage))
 #                 y.append(float(g.coverage) / float(r.coverage))
 #                 if float(g.coverage) / float(r.coverage) > 1.5:
@@ -421,8 +452,8 @@ x = sorted(x, reverse=True)
 # print('LEEESSSS', len(less_than_one))
 # print('BIGGGGER', len(bigger_than_one))
 #
-# ax.scatter(x, y, color='C0', s=0.5, label=col)
-# ax.plot([1,3000],[1,1], 'C3', lw=1)
+# ax.scatter(x, y, color='C0', s=2, label=col)
+# ax.plot([1,128],[1,1], 'C3', lw=1)
 #
 # # ax.set_yscale('log')
 #
@@ -431,9 +462,9 @@ x = sorted(x, reverse=True)
 #
 # plt.show()
 #
-# fig.savefig("test.png", dpi = (200))
+# fig.savefig("ratio_coverage_g.png", dpi = (200))
 
-########### FIGURE 3 ###################
+########## FIGURE 3 ###################
 
 listOfMaximum = []
 
@@ -461,12 +492,12 @@ networks = []
 for i in range(0, len(listOfGreedy)):
 
     if len(listOfGreedy[i].greedy) >= 0:
-        # print("GREEDY", listOfGreedy[i].net, listOfGreedy[i].coverage)
+        print("GREEDY", listOfGreedy[i].net, listOfGreedy[i].coverage)
         y1.append(float(listOfGreedy[i].coverage))
         networks.append(listOfGreedy[i].net)
         for n in listOfRandom:
             if(n.net == listOfGreedy[i].net):
-                print("RANDOM", n.net, n.coverage)
+                # print("RANDOM", n.net, n.coverage)
                 # print(m)
                 y2.append(float(n.coverage))
                 break
@@ -483,8 +514,8 @@ fig = plt.figure(figsize=(10,10))
 ax = fig.add_subplot(111)
 
 # print(y1)
-print(y2)
-print(y3)
+# print(y2)
+# print(y3)
 
 # y1 = sorted(y1)
 # y2 = sorted(y2)
@@ -500,9 +531,14 @@ x = range(len(y1))
 # print('LEEESSSS', len(less_than_one))
 # print('BIGGGGER', len(bigger_than_one))
 
-ax.scatter(x, y1, color='C2', s=6, label=col)
-ax.scatter(x, y2, color='C0', s=6, label=col)
-ax.scatter(x, y3, color='C3', s=6, label=col)
+ax.scatter(x, y1, color='C2', s=14, label='GREEDY')
+ax.scatter(x, y2, color='C0', s=4, label='RANDOM')
+ax.scatter(x, y3, color='C3', s=4, label='MAXIMUM')
+
+
+ax.legend()
+ax.set_ylabel('COVERAGE')
+ax.set_xlabel('NETWORKS')
 
 
 
@@ -517,6 +553,47 @@ ax.tick_params(axis='both', which='major', labelsize=10)
 
 plt.show()
 
-plt.savefig("test.png", dpi = (200))
+fig.savefig("coverageXcases.png", dpi = (200))
 #
 
+
+##################### FIGURE 4 #####################
+
+listOfRandom = sorted(listOfRandom, key=lambda x: x.coverage)
+
+y1 = []
+y2 = []
+
+for r in listOfRandom:
+    for g in listOfGreedy:
+        if(r.net == g.net):
+            y1.append(float(r.coverage))
+            y2.append(float(g.coverage))
+
+# for case in allCases:
+#     for g in listOfGreedy:
+#         if(case.net == g.net):
+#             if(len(case.seed) == 4 and case.pp == 0.5):
+#             print(len(case.seed))
+                # y.append(float(case.coverage))
+
+fig = plt.figure(figsize=(10,10))
+ax = fig.add_subplot(111)
+
+
+
+x = range(len(y1))
+
+print(len(x))
+
+
+ax.scatter(x, y1, color='C2', s=4, label='RANDOM')
+ax.scatter(x, y2, color='C0', s=4, label='GREEDY')
+# ax.scatter(x, y3, color='C3', s=4, label=col)
+
+# plt.show()
+ax.legend()
+ax.set_ylabel('COVERAGE')
+ax.set_xlabel('CASES')
+
+fig.savefig("test.png", dpi = (200))
