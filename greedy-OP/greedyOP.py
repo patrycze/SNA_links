@@ -31,6 +31,7 @@ class Network:
     coverage = 0
     listOfNetworksWithMaxCoverage = []
     listOfNetworksWithMinCoverage = []
+    difference = ''
 
     def createRankingWithMaxCoverage(self, networkList):
 
@@ -96,6 +97,9 @@ class Greedy:
     listOfPairs = 0
     net = ''
     maximum = 0
+    maximumNet = []
+    maximumSeq = []
+    increase = 0
 
     def createGreedySequences(self, network, networks):
 
@@ -128,7 +132,7 @@ class Greedy:
             self.coverage = max.coverage
             self.listOfPairs = len(max.edges.listOfPairs)
 
-            # print(self.net, self.number, max.edges.listOfPairs, self.coverage)
+            # print(self.number, pattern.edges.listOfPairs)
             pattern.number = self.number
             self.greedy.append({'number': self.number, 'net': pattern})
             last = network2.edges.listOfPairs
@@ -217,7 +221,7 @@ class Greedy:
             self.coverage = rand.coverage
             self.listOfPairs = len(rand.edges.listOfPairs)
 
-            print('MAXIMA', rand.net, self.number, rand.edges.listOfPairs, self.coverage)
+            # print('MAXIMA', rand.net, self.number, rand.edges.listOfPairs, self.coverage)
             # pattern.number = self.number
             self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
             # print("GREEDYY ARRAY", self.greedy)
@@ -233,17 +237,34 @@ class Greedy:
 
     def searchInGreedyMaximum(self):
         self.maximum = 0
+        tmpMaximum = []
         for g in self.greedy:
-            print('MAX', g['coverage'])
             if(self.maximum < float(g['coverage'])):
                 self.maximum = float(g['coverage'])
-        print('MAX????', self.net, self.maximum)
+                self.maximumNet = g['net']
+        if(self.maximum != 0):
+            self.maximumSeq = []
+            self.maximumSeq.append({'net': self.maximumNet, 'difference': [], 'increase': 0})
+            self.createMaximumSequences(self.maximumNet)
         if(self.maximum == 0):
             self.maximum = self.coverage
 
 
+
+    def createMaximumSequences(self, pattern):
+        for g in self.greedy:
+            if(len(pattern.edges.listOfPairs) - len(g['net'].edges.listOfPairs) == 1):
+                if set(g['net'].edges.listOfPairs).issubset(set(pattern.edges.listOfPairs)):
+                    self.difference = list(set(pattern.edges.listOfPairs) - set(g['net'].edges.listOfPairs))
+                    increase = float(pattern.coverage) - float(g['net'].coverage)
+                    self.maximumSeq.append({'net': g['net'], 'difference': self.difference, 'increase': increase})
+                    self.createMaximumSequences(g['net'])
+                    break;
         # if (last != []):
         #     self.greedy.append(last)
+
+
+
     def createCsv(self, name, dataset):
         print('greedy-OP/results/' + name +'.csv')
 
@@ -402,7 +423,7 @@ x = range(len(y))
 x = sorted(x, reverse=True)
 
 ########### FIGURE 1 ###################
-#
+
 # plt.subplot(212)
 #
 # fig = plt.figure(figsize=(10,10))
@@ -426,8 +447,8 @@ x = sorted(x, reverse=True)
 #
 # fig.savefig("test.png", dpi = (200))
 
-########## FIGURE 2 ###################
-#
+########### FIGURE 2 ###################
+
 # y = []
 #
 # for g in listOfGreedy:
@@ -462,20 +483,90 @@ x = sorted(x, reverse=True)
 #
 # plt.show()
 #
+# fig.savefig("coverage_ratio.png", dpi = (200))
 # fig.savefig("ratio_coverage_g.png", dpi = (200))
 
-########## FIGURE 3 ###################
+########### FIGURE 3 ###################
 
 listOfMaximum = []
 
-print(listOfNetworks)
+# print(listOfNetworks)
 for l in listOfNetworks:
     maximum = Greedy()
     maximum.createAllSequences(l, listOfNetworks)
     maximum.searchInGreedyMaximum()
-    # print("MAXIMUM", maximum.net, maximum.maximum)
     listOfMaximum.append(maximum)
 
+for m in listOfMaximum:
+    for s in m.maximumSeq:
+        print(s['net'].net, s['net'].coverage, s['difference'], s['increase'])
+#
+#
+# y1 = []
+# y2 = []
+# y3 = []
+# y4 = []
+# x = []
+#
+#
+# listOfGreedy = sorted(listOfGreedy, key=lambda x: x.coverage)
+# wastedNets = []
+# networks = []
+#
+# for i in range(0, len(listOfGreedy)):
+#
+#     if len(listOfGreedy[i].greedy) >= 0:
+#         # print("GREEDY", listOfGreedy[i].net, listOfGreedy[i].coverage)
+#         y1.append(float(listOfGreedy[i].coverage))
+#         networks.append(listOfGreedy[i].net)
+#         for n in listOfRandom:
+#             if(n.net == listOfGreedy[i].net):
+#                 print("RANDOM", n.net, n.coverage)
+#                 # print(m)
+#                 y2.append(float(n.coverage))
+#                 break
+#
+#
+#         for m in listOfMaximum:
+#             if(m.net == listOfGreedy[i].net):
+#                 print("MAXIMUM", m.net, m.maximum, '\n')
+#                 # print(m)
+#                 y3.append(float(m.maximum))
+#                 break
+#
+# fig = plt.figure(figsize=(10,10))
+# ax = fig.add_subplot(111)
+#
+# # print(y1)
+# print(y2)
+# print(y3)
+#
+# # y1 = sorted(y1)
+# # y2 = sorted(y2)
+# # y3 = sorted(y3)
+#
+#
+#
+# x = range(len(y1))
+#
+# # less_than_one = list(filter(lambda x: x < 1, y))
+# # bigger_than_one = list(filter(lambda x: x > 1, y))
+#
+# # print('LEEESSSS', len(less_than_one))
+# # print('BIGGGGER', len(bigger_than_one))
+#
+# ax.scatter(x, y1, color='C2', s=6, label=col)
+# ax.scatter(x, y2, color='C0', s=3, label=col)
+# ax.scatter(x, y3, color='C3', s=3, label=col)
+#
+#
+#
+# # ax.scatter(x, y4, color='C6', s=4, label=col)
+#
+# # ax.set_yscale('log')
+#
+# #
+# ax.tick_params(axis='both', which='major', labelsize=10)
 
 
 y1 = []
@@ -554,6 +645,12 @@ ax.tick_params(axis='both', which='major', labelsize=10)
 plt.show()
 
 fig.savefig("coverageXcases.png", dpi = (200))
+# # plt.xticks(rotation='vertical')
+#
+# plt.show()
+#
+# fig.savefig('coverageXcases.png')
+# # plt.savefig("test.png", dpi = (200))
 #
 
 
