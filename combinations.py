@@ -3,10 +3,10 @@ import re
 
 
 
-x1 = 6
-x2 = 5
+x1 = 8
+x2 = 4
 
-comb = combinations([0, 1, 2, 3, 4, 5], x2)
+comb = combinations([0, 1, 2, 3, 4, 5, 6, 7], x2)
 
 #print(len(list(comb)))
 

@@ -108,6 +108,7 @@ class Greedy:
         self.greedy = []
         self.greedySeq = []
         self.restOfNets = []
+        self.listOfPairs = 0
 
         self.pattern = network
         self.coverage = network.coverage
@@ -116,7 +117,8 @@ class Greedy:
 
         self.searchPatternInNetworksList(self.pattern, networks)
         self.greedySeq.append({'net': self.pattern, 'difference': [], 'increase': 0})
-
+        self.greedy.append({'number': self.number, 'net': self.pattern})
+        self.coverage = self.pattern.coverage
 
     def searchPatternInNetworksList(self, pattern, networks):
 
@@ -125,20 +127,20 @@ class Greedy:
         for network2 in networks:
 
             last = []
-
-
-            if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
-                if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
-                    if not any(d == pattern for d in self.greedy):
-                        self.restOfNets.append({'number': self.number + 1, 'net': network2.net})
-                        if(max.coverage < network2.coverage):
-                            max = network2
+            print(pattern.net)
+            if (network2.net[0] == pattern.net[0]):
+                if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
+                    if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
+                        if not any(d == pattern for d in self.greedy):
+                            self.restOfNets.append({'number': self.number + 1, 'net': network2.net})
+                            if(max.coverage < network2.coverage):
+                                max = network2
 
 
         if(max.coverage != pattern.coverage):
             self.number = self.number + 1
             self.coverage = max.coverage
-            self.listOfPairs = len(max.edges.listOfPairs)
+            # self.listOfPairs = len(max.edges.listOfPairs)
 
             # print(self.number, pattern.edges.listOfPairs)
             pattern.number = self.number
@@ -162,15 +164,20 @@ class Greedy:
         self.greedy = []
         self.greedySeq = []
         self.restOfNets = []
+        self.listOfPairs = 0
 
         self.pattern = network
         self.coverage = network.coverage
         self.net = network.net
 
+        # print(network.edges.listOfPairs)
         self.listOfPairs = len(network.edges.listOfPairs)
 
         self.searchRandomPatternInNetworksList(self.pattern, networks)
         self.greedySeq.append({'net': self.pattern, 'difference': [], 'increase': 0})
+        self.greedy.append({'number': self.number, 'net': self.pattern})
+        # print('RANDOM', self.pattern.edges.listOfPairs)
+        self.coverage = self.pattern.coverage
 
     def searchRandomPatternInNetworksList(self, pattern, networks):
 
@@ -179,15 +186,15 @@ class Greedy:
 
         for network2 in networks:
 
-
-            if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
-                if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
-                        rand = network2
-                        randomArray.append(network2)
+            if (network2.net[0] == pattern.net[0]):
+                if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
+                    if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
+                            rand = network2
+                            randomArray.append(network2)
 
         if (rand.coverage != pattern.coverage):
             self.number = self.number + 1
-            self.listOfPairs = len(rand.edges.listOfPairs)
+            # self.listOfPairs = len(rand.edges.listOfPairs)
 
             # print(self.net, self.number, pattern.edges.listOfPairs, self.coverage)
             pattern.number = self.number
@@ -196,7 +203,9 @@ class Greedy:
             increase = float(rand.coverage) - float(pattern.coverage)
             self.greedySeq.append({'net': self.pattern, 'difference': self.difference, 'increase': increase})
 
-            self.greedy.append({'number': self.number, 'net': pattern})
+            # print('RANDOM', self.pattern.edges.listOfPairs)
+
+            self.greedy.append({'number': self.number, 'net': self.pattern})
             last = network2.edges.listOfPairs
 
             i = random.randint(0, len(randomArray)-1)
@@ -238,22 +247,24 @@ class Greedy:
         # print('MAXIMA', self.net, self.number, pattern.edges.listOfPairs, self.coverage)
 
         for network2 in networks:
-
-            if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
-                if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
-                    rand = network2
-                    randomArray.append(network2)
-
+            if (network2.net[0] == pattern.net[0]):
+                if (len(network2.edges.listOfPairs) - len(pattern.edges.listOfPairs) == 1):
+                    if set(pattern.edges.listOfPairs).issubset(set(network2.edges.listOfPairs)):
+                        rand = network2
+                        randomArray.append(network2)
+                        self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
         # print('MAXIMA', pattern.net, pattern.number, pattern.edges.listOfPairs, pattern.coverage)
-        self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
+        # self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
         if (rand.net != pattern.net):
+            # if self.net == '42.txt':
+            #     print(pattern.net, pattern.edges.listOfPairs)
             self.number = self.number + 1
             self.coverage = rand.coverage
             self.listOfPairs = len(rand.edges.listOfPairs)
 
             # print('MAXIMA', rand.net, self.number, rand.edges.listOfPairs, self.coverage)
             # pattern.number = self.number
-            self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
+            # self.greedy.append({'number': self.number, 'net': rand, 'coverage': rand.coverage})
             # print("GREEDYY ARRAY", self.greedy)
             last = network2.edges.listOfPairs
 
@@ -269,12 +280,15 @@ class Greedy:
         self.maximum = 0
         tmpMaximum = []
         for g in self.greedy:
-            if(self.maximum < float(g['coverage'])):
-                self.maximum = float(g['coverage'])
+            # if self.net == '42.txt':
+                # print(g['net'].net, g['net'].edges.listOfPairs)
+            if(self.maximum < float(g['net'].coverage)):
+                self.maximum = float(g['net'].coverage)
                 self.maximumNet = g['net']
         if(self.maximum != 0):
             self.maximumSeq = []
             self.maximumSeq.append({'net': self.maximumNet, 'difference': [], 'increase': 0})
+
             self.createMaximumSequences(self.maximumNet)
         if(self.maximum == 0):
             self.maximum = self.coverage
@@ -315,7 +329,7 @@ class Greedy:
     def createDifferenceCsv(self, name, dataset):
         # print('greedy-OP/results/' + name +'.csv')
 
-        myFields = ['net', 'coverage', 'edges', 'increase', 'difference', 'closeness', 'transitivity', 'eigenvector', 'betweenness' , 'rest']
+        myFields = ['net', 'coverage', 'edges', 'closeness', 'transitivity', 'eigenvector', 'betweenness', 'rest']
         myFile = open(name + '.csv', 'w')
         with myFile:
             writer = csv.DictWriter(myFile, fieldnames=myFields)
@@ -326,31 +340,57 @@ class Greedy:
             myFile = open(name +'.csv', 'a+')
             with myFile:
                 writer = csv.DictWriter(myFile, fieldnames=myFields)
-                writer.writerow({'net': data['net'], 'coverage': data['coverage'], 'edges': data['edges'], 'difference': data['difference'], 'increase': data['increase'],
+                writer.writerow({'net': data['net'], 'coverage': data['coverage'], 'edges': data['edges'],
                                  'closeness': data['closeness'], 'transitivity': data['transitivity'],'eigenvector': data['eigenvector'], 'betweenness': data['betweenness'], 'rest': data['rest']})
+
+    def createTable1(self, name, dataset):
+        # print('greedy-OP/results/' + name +'.csv')
+
+
+        myFields = ['links', 'net', 'space','0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', 'coverage']
+        myFile = open(name + '.csv', 'w')
+
+        for data in dataset:
+            # revertDataset = sot
+            # for i, x in enumerate(data.maximumSeq):
+            row = {'links': data.listOfPairs, 'net': data.net, 'space': ' ', 'coverage': data.coverage}
+            x = {str(i):x['net'].coverage for i, x in enumerate(reversed(data.maximumSeq))} ### UWAŻAC NA TOOOOO KONIECZNIE
+            # x = {str(i):x['net'].coverage for i, x in enumerate(data.greedy)} ### UWAŻAC NA TOOOOO KONIECZNIE
+            row.update(x)
+
+            # print(row)
+
+            myFile = open(name + '.csv', 'a+')
+            with myFile:
+                # myFields = [i for i, x in enumerate(data.greedy)]
+                writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
+                writer.writerow(row)
+
+                # writer.writerow({i:x['net'].coverage for i, x in enumerate(data.greedy)})
+        # print('\n')
 
 
 listOfNetworks = []
 allCases = []
 
-with open('../results/results.csv', 'r') as csvfile:
-    reader = csv.reader(csvfile, delimiter=',')
-    for row in reader:
-        tmpCase = Case()
-        if row != []:
-            if row[0] != 'pp':
-                tmpCase.pp = float(row[0])
-                tmpCase.coverage = row[2]
-                tmpCase.net = row[3]
+# with open('../results/results.csv', 'r') as csvfile:
+#     reader = csv.reader(csvfile, delimiter=',')
+#     for row in reader:
+#         tmpCase = Case()
+#         if row != []:
+#             if row[0] != 'pp':
+#                 tmpCase.pp = float(row[0])
+#                 tmpCase.coverage = row[2]
+#                 tmpCase.net = row[3]
+#
+#                 seed = Seed()
+#                 seed.createSeed(row[1])
+#                 tmpCase.seed = seed.seed
+#
+#                 allCases.append(tmpCase)
 
-                seed = Seed()
-                seed.createSeed(row[1])
-                tmpCase.seed = seed.seed
 
-                allCases.append(tmpCase)
-
-
-with open('../results/resultWithE.csv', 'r') as csvfile:
+with open('../results/resultWithE-ORIGINAL.csv', 'r') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
     for row in reader:
         tmpNetwors = Network()
@@ -376,10 +416,15 @@ listOfMaximum = []
 
 
 for l in listOfNetworks:
+    print(l.net)
     maximum = Greedy()
     maximum.createAllSequences(l, listOfNetworks)
     maximum.searchInGreedyMaximum()
     listOfMaximum.append(maximum)
+    for m in maximum.maximumSeq:
+        print(m['net'].net, m['net'].coverage)
+    print('\n')
+    print('\n')
 
 for l in listOfNetworks:
     greedy = Greedy()
@@ -391,34 +436,63 @@ for l in listOfNetworks:
     rand.createSequences(l, listOfNetworks)
     listOfRandom.append(rand)
 
+for i in range(len(listOfGreedy)):
+
+    # print(listOfMaximum[i].maximum)
+    print(listOfRandom[i].coverage)
+    print(listOfGreedy[i].coverage)
+    print('\n')
+
+    print(listOfMaximum[i].net, listOfMaximum[i].coverage)
+    for m in reversed(listOfMaximum[i].maximumSeq):
+        print(m['net'].net, m['net'].edges.listOfPairs, m['net'].coverage)
+    print('\n')
+    print('RANDOM')
+    print(listOfRandom[i].net, listOfRandom[i].coverage)
+    for m in listOfRandom[i].greedySeq:
+        print(m['net'].net, m['net'].edges.listOfPairs, m['net'].coverage, listOfRandom[i].restOfNets)
+    print('\n')
+    print('GREEDY')
+    print(listOfGreedy[i].net, listOfGreedy[i].coverage)
+    for m in listOfGreedy[i].greedySeq:
+        print(m['net'].net, m['net'].edges.listOfPairs, m['net'].coverage, listOfGreedy[i].restOfNets)
+    print('\n')
+
 listOfDifferencesInMax = []
 listOfDifferencesInGreedy = []
 listOfDifferencesInRandom = []
 
-# for m in listOfMaximum:
-#     for s in m.maximumSeq:
-#        listOfDifferencesInMax.append({'net': s['net'].net, 'coverage': s['net'].coverage, 'edges': s['net'].edges.listOfPairs, 'difference': s['difference'], 'increase':  s['increase'],
-#                                       'closeness': s['net'].closeness, 'transitivity': s['net'].transitivity, 'eigenvector': s['net'].eigenvector, 'betweenness': s['net'].betweenness})
-#
+for m in listOfMaximum:
+    for s in m.maximumSeq:
+       listOfDifferencesInMax.append({'net': s['net'].net, 'coverage': s['net'].coverage, 'edges': s['net'].edges.listOfPairs, 'difference': s['difference'], 'increase':  s['increase'],
+                                      'closeness': s['net'].closeness, 'transitivity': s['net'].transitivity, 'eigenvector': s['net'].eigenvector, 'betweenness': s['net'].betweenness})
+
 for g in listOfGreedy:
     for s in g.greedySeq:
         listOfDifferencesInGreedy.append(
             {'net': s['net'].net, 'coverage': s['net'].coverage, 'edges': s['net'].edges.listOfPairs,
-             'difference': s['difference'], 'increase': s['increase'],
              'closeness': s['net'].closeness, 'transitivity': s['net'].transitivity,
              'eigenvector': s['net'].eigenvector, 'betweenness': s['net'].betweenness, 'rest': g.restOfNets})
+
+
+# greedy.createTable1('random', listOfRandom)
+# greedy.createTable1('greedy', listOfGreedy)
+# greedy.createTable1('max', listOfMaximum)
 
 for g in listOfRandom:
-    for s in g.greedySeq:
-        listOfDifferencesInRandom.append(
-            {'net': s['net'].net, 'coverage': s['net'].coverage, 'edges': s['net'].edges.listOfPairs,
-             'difference': s['difference'], 'increase': s['increase'],
-             'closeness': s['net'].closeness, 'transitivity': s['net'].transitivity,
-             'eigenvector': s['net'].eigenvector, 'betweenness': s['net'].betweenness, 'rest': g.restOfNets})
+        for s in g.greedy:
+            print(s['net'].coverage)
+            listOfDifferencesInRandom.append(
+                {'net': s['net'].net, 'coverage': s['net'].coverage, 'edges': s['net'].edges.listOfPairs,
+                 'closeness': s['net'].closeness, 'transitivity': s['net'].transitivity,
+                 'eigenvector': s['net'].eigenvector, 'betweenness': s['net'].betweenness, 'rest': g.restOfNets})
 
 
-greedy.createDifferenceCsv('listOfDifferencesInGreedy', listOfDifferencesInGreedy)
+# greedy.createTable1('random', listOfRandom)
+
+# greedy.createDifferenceCsv('listOfDifferencesInMaximum', listOfDifferencesInMax)
 greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRandom)
+greedy.createDifferenceCsv('listOfDifferencesInGreedy', listOfDifferencesInGreedy)
 
 
 
@@ -543,31 +617,31 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 #
 #
 #
-# ########### FIGURE 2 ###################
+########## FIGURE 2 ###################
+
+# y = []
 #
-# # y = []
-# #
-# # for g in listOfGreedy:
-# #     for r in listOfRandom:
-# #         if(float(g.coverage) != float(r.coverage)):
-# #             if(g.net == r.net):
-# #                 # print("ROZNICA", float(g.coverage) / float(r.coverage))
-# #                 y.append(float(g.coverage) / float(r.coverage))
-# #                 if float(g.coverage) / float(r.coverage) > 1.5:
-# #                     for test in g.greedy:
-# #                         print(test['net'].edges.listOfPairs,  " ")
+# for g in listOfGreedy:
+#     for r in listOfRandom:
+#         if(float(g.coverage) != float(r.coverage)):
+#             if(g.net == r.net):
+#                 # print("ROZNICA", float(g.coverage) / float(r.coverage))
+#                 y.append(float(g.coverage) / float(r.coverage))
+#                 # if float(g.coverage) / float(r.coverage) > 1.5:
+#                     # for test in g.greedy:
+#                         # print(test['net'].edges.listOfPairs,  " ")
 # # fig = plt.figure(figsize=(10,10))
 # # ax = fig.add_subplot(111)
-# #
-# # y = sorted(y, reverse=True)
-# #
-# # x = range(len(y))
-# #
-# # less_than_one = list(filter(lambda x: x < 1, y))
-# # bigger_than_one = list(filter(lambda x: x > 1, y))
-# #
-# # print('LEEESSSS', len(less_than_one))
-# # print('BIGGGGER', len(bigger_than_one))
+#
+# y = sorted(y, reverse=True)
+#
+# x = range(len(y))
+#
+# less_than_one = list(filter(lambda x: x < 1, y))
+# bigger_than_one = list(filter(lambda x: x > 1, y))
+#
+# print('LEEESSSS', len(less_than_one))
+# print('BIGGGGER', len(bigger_than_one))
 # #
 # # ax.scatter(x, y, color='C0', s=2, label=col)
 # # ax.plot([1,128],[1,1], 'C3', lw=1)
@@ -586,16 +660,16 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 #
 # listOfMaximum = []
 #
-# print(listOfNetworks)
+# # print(listOfNetworks)
 # for l in listOfNetworks:
 #     maximum = Greedy()
 #     maximum.createAllSequences(l, listOfNetworks)
 #     maximum.searchInGreedyMaximum()
 #     listOfMaximum.append(maximum)
 #
-# for m in listOfMaximum:
-#     for s in m.maximumSeq:
-#         print(s['net'].net, s['net'].coverage, s['difference'], s['increase'])
+# # for m in listOfMaximum:
+# #     for s in m.maximumSeq:
+#         # print(s['net'].net, s['net'].coverage, s['difference'], s['increase'])
 #
 #
 # y1 = []
@@ -617,7 +691,7 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 #         networks.append(listOfGreedy[i].net)
 #         for n in listOfRandom:
 #             if(n.net == listOfGreedy[i].net):
-#                 print("RANDOM", n.net, n.coverage)
+#                 # print("RANDOM", n.net, n.coverage)
 #                 # print(m)
 #                 y2.append(float(n.coverage))
 #                 break
@@ -625,13 +699,13 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 #
 #         for m in listOfMaximum:
 #             if(m.net == listOfGreedy[i].net):
-#                 print("MAXIMUM", m.net, m.maximum, '\n')
+#                 # print("MAXIMUM", m.net, m.maximum, '\n')
 #                 # print(m)
 #                 y3.append(float(m.maximum))
 #                 break
 #
-# # fig = plt.figure(figsize=(10,10))
-# # ax = fig.add_subplot(111)
+# fig = plt.figure(figsize=(10,10))
+# ax = fig.add_subplot(111)
 #
 # # print(y1)
 # # print(y2)
@@ -679,7 +753,7 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 # for i in range(0, len(listOfGreedy)):
 #
 #     if len(listOfGreedy[i].greedy) >= 0:
-#         print("GREEDY", listOfGreedy[i].net, listOfGreedy[i].coverage)
+#         # print("GREEDY", listOfGreedy[i].net, listOfGreedy[i].coverage)
 #         y1.append(float(listOfGreedy[i].coverage))
 #         networks.append(listOfGreedy[i].net)
 #         for n in listOfRandom:
@@ -692,7 +766,7 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 #
 #         for m in listOfMaximum:
 #             if(m.net == listOfGreedy[i].net):
-#                 print("MAXIMUM", m.net, m.maximum, '\n')
+#                 # print("MAXIMUM", m.net, m.maximum, '\n')
 #                 # print(m)
 #                 y3.append(float(m.maximum))
 #                 break
@@ -700,9 +774,9 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 # fig = plt.figure(figsize=(10,10))
 # ax = fig.add_subplot(111)
 #
-# print(y1)
-# print(y2)
-# print(y3)
+# # print(y1)
+# # print(y2)
+# # print(y3)
 #
 # y1 = sorted(y1)
 # y2 = sorted(y2)
@@ -712,13 +786,13 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 #
 # x = range(len(y1))
 #
-# less_than_one = list(filter(lambda x: x < 1, y))
-# bigger_than_one = list(filter(lambda x: x > 1, y))
+# # less_than_one = list(filter(lambda x: x < 1, y))
+# # bigger_than_one = list(filter(lambda x: x > 1, y))
 #
-# print('LEEESSSS', len(less_than_one))
-# print('BIGGGGER', len(bigger_than_one))
+# # print('LEEESSSS', len(less_than_one))
+# # print('BIGGGGER', len(bigger_than_one))
 #
-# ax.scatter(x, y1, color='C2', s=14, label='GREEDY')
+# ax.scatter(x, y1, color='C2', s=4, label='GREEDY')
 # ax.scatter(x, y2, color='C0', s=4, label='RANDOM')
 # ax.scatter(x, y3, color='C3', s=4, label='MAXIMUM')
 #
@@ -746,10 +820,10 @@ greedy.createDifferenceCsv('listOfDifferencesInRandom', listOfDifferencesInRando
 # plt.show()
 #
 # fig.savefig('coverageXcases.png')
-# # plt.savefig("test.png", dpi = (200))
-#
-#
-#
+# plt.savefig("test.png", dpi = (200))
+# #
+# #
+# #
 # ##################### FIGURE 4 #####################
 #
 # # listOfRandom = sorted(listOfRandom, key=lambda x: x.coverage)
