@@ -1,0 +1,8 @@
+from igraph import *
+
+g1 = Graph.Read_Ncol('iso/g1.txt', directed=False)
+g2 = Graph.Read_Ncol('iso/g2.txt', directed=False)
+
+print(Graph.isomorphic(g1, g2))
+
+
