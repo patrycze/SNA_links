@@ -1,6 +1,6 @@
 setwd("/Users/apple/Desktop/SNA_links/greedy-OP/")
 
-random = read.csv('random.csv', header=FALSE,sep=",")
+random = read.csv('random-new.csv', header=FALSE,sep=",")
 greedy = read.csv('greedy.csv', header=FALSE,sep=",")
 max = read.csv('max.csv', header=FALSE,sep=",")
 
@@ -19,42 +19,40 @@ colnames(random)[10] = 'R7'
 colnames(random)[11] = 'R8'
 colnames(random)[12] = 'R9'
 colnames(random)[13] = 'R10'
+colnames(random)[14] = 'R11'
 
 colnames(greedy)[1] = 'number'
 colnames(greedy)[2] = 'net'
 colnames(greedy)[3] = 'space'
-colnames(greedy)[4] = '1'
-colnames(greedy)[5] = '2'
-colnames(greedy)[6] = '3'
-colnames(greedy)[7] = '4'
-colnames(greedy)[8] = '5'
-colnames(greedy)[9] = '6'
-colnames(greedy)[10] = '7'
-colnames(greedy)[11] = '8'
-colnames(greedy)[12] = '9'
-colnames(greedy)[13] = '10'
+colnames(greedy)[5] = '1'
+colnames(greedy)[6] = '2'
+colnames(greedy)[7] = '3'
+colnames(greedy)[8] = '4'
+colnames(greedy)[9] = '5'
+colnames(greedy)[10] = '6'
+colnames(greedy)[11] = '7'
+colnames(greedy)[12] = '8'
+colnames(greedy)[13] = '9'
+colnames(greedy)[14] = '10'
+colnames(greedy)[15] = '11'
+colnames(greedy)[16] = '12'
 
 colnames(max)[1] = 'number'
 colnames(max)[2] = 'net'
 colnames(max)[3] = 'space'
-colnames(max)[4] = '1'
-colnames(max)[5] = '2'
-colnames(max)[6] = '3'
-colnames(max)[7] = '4'
-colnames(max)[8] = '5'
-colnames(max)[9] = '6'
-colnames(max)[10] = '7'
-colnames(max)[11] = '8'
-colnames(max)[12] = '9'
-colnames(max)[13] = '10'
-colnames(max)[14] = '11'
-colnames(max)[15] = '12'
-colnames(max)[16] = '13'
-
-random$R10 = random$R9
-random$R11= random$R9
-random$R12= random$R9
-random$R13= random$R9
+colnames(max)[5] = '1'
+colnames(max)[6] = '2'
+colnames(max)[7] = '3'
+colnames(max)[8] = '4'
+colnames(max)[9] = '5'
+colnames(max)[10] = '6'
+colnames(max)[11] = '7'
+colnames(max)[12] = '8'
+colnames(max)[13] = '9'
+colnames(max)[14] = '10'
+colnames(max)[15] = '11'
+colnames(max)[16] = '12'
+colnames(max)[17] = '13'
 
 random$G1 <- greedy[,'1']
 random$G2 <- greedy[,'2']
@@ -66,9 +64,14 @@ random$G7 <- greedy[,'7']
 random$G8 <- greedy[,'8']
 random$G9 <- greedy[,'9']
 random$G10 <- greedy[,'10']
-random$G11 <- 0
-random$G12 <- 0
+random$G11 <-  greedy[,'11']
+random$G12 <-  greedy[,'12']
 random$G13 <- 0
+
+random$R12 <- 0
+random$R13 <- 0
+
+
 
 random$M1 <- max[,'1']
 random$M2 <- max[,'2']

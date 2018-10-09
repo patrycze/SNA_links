@@ -12,7 +12,7 @@ from os.path import isfile, join
 
 def simulation(net):
 
-    g = Graph.Read_Ncol('graphs/' + net, directed=False)
+    g = Graph.Read_Ncol('graphs-ORIGINAL/' + net, directed=False)
 
     nodes = Graph.vcount(g)
     edges = ''
@@ -43,7 +43,7 @@ with myFile:
     writer.writeheader();
 
 
-graphs = [f for f in listdir('graphs') if isfile(join('graphs', f))]
+graphs = [f for f in listdir('graphs-ORIGINAL') if isfile(join('graphs', f))]
 
 edges = []
 
