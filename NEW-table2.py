@@ -147,6 +147,7 @@ class Network:
     name = ''
     links = []
     coverage = 0
+    index = 0
 
 with open('test.csv', "r") as f:
     for line in f:
@@ -172,20 +173,61 @@ with open('test.csv', "r") as f:
         listOfNetworks.append(tmpNet)
 
 #
-# for l in listOfNetworks:
-#     for n in l.addedNetworks:
-#         if (n.endswith('.txt')):
-#             net = Network()
-#
-#             net.name = n
-#             net.coverage
-#             net.links = getLinksArray(net.name)
-#
-#             n = net
+for l in listOfNetworks:
+    for i, n in enumerate(l.addedNetworks):
+        if (n.endswith('.txt')):
+            net = Network()
 
+            net.name = n
+            net.index = i
+            net.links = getLinksArray(net.name)
+            l.addedNetworks[i] = net
 
 myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
                 '14', '15', '16']
+
+def createMaxSeq(dict, i, collection):
+
+    collectionOfNetwork = []
+
+    for c in collection:
+        for n in c:
+            if(type(n) is Network):
+                collectionOfNetwork.append(n)
+                print(n.name, n.coverage)
+    try:
+        m = max(collectionOfNetwork, key=lambda c: c.index)
+        m = m.index + 1
+        # print('MAX', m.index)
+    except:
+        print
+        m = 0
+
+    for i in reversed(range(int(m))):
+        if(i == m-1):
+            pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
+            print('MAX', pattern.links)
+        else:
+            next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i ])
+            next = filter(lambda x: len(pattern.links)-len(x.links) == 1, [n for n in next])
+            try:
+                print('RANDOM', random.choice([r.links for r in next]))
+            except:
+                print 
+    print('\n')
+    print('\n')
+    # print(i, collection)
+
+
+def returnNetCollection(net, pp, seed):
+
+    tmpArray = []
+
+    for l in listOfNetworks:
+        if(l.net == net and l.pp == pp and l.seed == seed):
+            tmpArray.append(l.addedNetworks)
+
+    return tmpArray
 
 for l in listOfNetworks:
     # print(l.net, l.pp, l.seed, l.addedNetworks)
@@ -204,32 +246,41 @@ for l in listOfNetworks:
     # print('DICT', dict)
 
     # for n in l.addedNetworks:
-    for i in range(1, 1000):
+    # print('ADDED', l.addedNetworks)
+
+    for i in range(1, 2):
 
         infectionsArray = []
 
         for n in l.addedNetworks:
-            if(n.endswith('.txt')):
+            if(type(n) is Network and n.name.endswith('.txt')):
 
                 # for i in range(1, 1000):
 
-
                 sim = simulation(l.pp, l.net, l.seed)
                 # infectionsArray.append(sim[0])
+                n.coverage = sim[0]
+
+
                 dict[n].append(sim[0])
+
 
             if n == '':
                 print
 
+        collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
+        createMaxSeq(dict, i, collectionOfNets)
+
     for key, value in dict.items():
         dict[key] = mean(value)
 
-    print("SŁOWNICZEK", dict)
+    # print("SŁOWNICZEK", dict)
 
-    infections.append(mean(infectionsArray))
+    # infections.append(mean(infectionsArray))
 
     x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
-    x1 = {str(i): x for i, x in enumerate(infections)}
+    tmp = [value for key, value in dict.items()]
+    x1 = {str(i): x for i, x in enumerate(tmp)}
     x.update(x1)
 
 
@@ -237,3 +288,4 @@ for l in listOfNetworks:
     with myFile:
         writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
         writer.writerow(x)
+

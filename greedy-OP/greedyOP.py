@@ -570,7 +570,7 @@ class Greedy:
 
         myFields = ['net', 'PP', 'seed', 'space','0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
         myFile = open(name + '.csv', 'w')
-        PParray = ['0.1', '0.2', '0.3', '0.4', '0.5']
+        PParray = ['0.1']
         seeds = [f for f in listdir('seeds') if isfile(join('seeds', f))]
         for pp in PParray:
             for seed in seeds:
