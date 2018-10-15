@@ -1,5 +1,8 @@
 setwd("/Users/apple/Desktop/SNA_links/greedy-OP/")
 
+random = read.csv('test.csv', header=FALSE,sep=",")
+
+
 random = read.csv('random-new.csv', header=FALSE,sep=",")
 greedy = read.csv('greedy.csv', header=FALSE,sep=",")
 max = read.csv('max.csv', header=FALSE,sep=",")
