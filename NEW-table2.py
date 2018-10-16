@@ -194,7 +194,7 @@ def createMaxSeq(dict, i, collection):
         for n in c:
             if(type(n) is Network):
                 collectionOfNetwork.append(n)
-                print(n.name, n.coverage)
+                print(n.name, n.index)
     try:
         m = max(collectionOfNetwork, key=lambda c: c.index)
         m = m.index + 1
@@ -206,17 +206,25 @@ def createMaxSeq(dict, i, collection):
     for i in reversed(range(int(m))):
         if(i == m-1):
             pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
-            print('MAX', pattern.links)
-        else:
-            next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i ])
-            next = filter(lambda x: len(pattern.links)-len(x.links) == 1, [n for n in next])
-            try:
-                print('RANDOM', random.choice([r.links for r in next]))
-            except:
-                print 
+            print(i ,' ', pattern.name)
+        if i == m-2:
+            recSeqNetwork(pattern, collectionOfNetwork, i)
+
     print('\n')
     print('\n')
     # print(i, collection)
+def recSeqNetwork(pattern, collectionOfNetwork, i):
+
+    next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
+    l = len(pattern.links) - 1
+    next = [r for r in next if len(r.links) == l]
+
+    try:
+        print(i ,' ', random.choice([r.name for r in next]))
+        pattern = random.choice([r for r in next])
+        recSeqNetwork(pattern, collectionOfNetwork, i-1)
+    except:
+        print
 
 
 def returnNetCollection(net, pp, seed):
@@ -255,12 +263,8 @@ for l in listOfNetworks:
         for n in l.addedNetworks:
             if(type(n) is Network and n.name.endswith('.txt')):
 
-                # for i in range(1, 1000):
-
                 sim = simulation(l.pp, l.net, l.seed)
-                # infectionsArray.append(sim[0])
                 n.coverage = sim[0]
-
 
                 dict[n].append(sim[0])
 
