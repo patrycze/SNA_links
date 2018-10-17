@@ -5,9 +5,8 @@
       <change beforePath="" afterPath="$PROJECT_DIR$/results/resultWithE.csv" />
     </list>
     <list default="true" id="8c593e73-7bde-48db-a7c7-78345109123b" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/NEW-table2.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test.csv" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/NEW-table2.py" afterPath="$PROJECT_DIR$/NEW-table2.py" />
       <change beforePath="$PROJECT_DIR$/graphs/41.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/graphs/42.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/graphs/43.txt" afterPath="" />
@@ -147,8 +146,7 @@
       <change beforePath="$PROJECT_DIR$/graphs/697.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/graphs/698.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/graphs/699.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/greedy-OP/greedyOP.py" afterPath="$PROJECT_DIR$/greedy-OP/greedyOP.py" />
-      <change beforePath="$PROJECT_DIR$/table1.R" afterPath="$PROJECT_DIR$/table1.R" />
+      <change beforePath="$PROJECT_DIR$/test.csv" afterPath="$PROJECT_DIR$/test.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <file path="$PROJECT_DIR$/results/resultWithE.csv" ignored="false" />
@@ -159,7 +157,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1539627097836" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1539813411124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -178,8 +176,8 @@
       <file leaf-file-name="greedyOP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="542" column="0" lean-forward="true" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
+            <state relative-caret-position="0">
+              <caret line="440" column="73" lean-forward="false" selection-start-line="440" selection-start-column="32" selection-end-line="440" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -188,8 +186,8 @@
       <file leaf-file-name="NEW-table2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NEW-table2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+            <state relative-caret-position="213">
+              <caret line="228" column="48" lean-forward="false" selection-start-line="228" selection-start-column="48" selection-end-line="228" selection-end-column="48" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -197,31 +195,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="graph_base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graph_base.py">
+      <file leaf-file-name="random.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../_infa/modelowanie dyfuzji/python/sym1/venv/lib/python3.5/random.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="results.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/results.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-290">
-              <caret line="5" column="60" lean-forward="true" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+            <state relative-caret-position="429">
+              <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -238,20 +216,14 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>random.choice</find>
-      <find>searchRandomPatternInNetworksListWithThreshold</find>
-      <find>createSequencesWithThreshold</find>
-      <find>arrayForRandomGreedySeq</find>
       <find>selectRandomForEach</find>
       <find>61.txt</find>
       <find>513.txt</find>
       <find>createTable1</find>
       <find>GREEDY</find>
-      <find>max</find>
       <find>updateNetworkEdges</find>
       <find>loca</find>
       <find>PATTERN</find>
-      <find>lamb</find>
       <find>lambda</find>
       <find>set</find>
       <find>53.txt</find>
@@ -268,6 +240,12 @@
       <find>edges</find>
       <find>createList</find>
       <find>enumera</find>
+      <find>where</find>
+      <find>lamb</find>
+      <find>filter</find>
+      <find>random</find>
+      <find>createMaxSeq</find>
+      <find>max</find>
     </findStrings>
     <replaceStrings>
       <replace>r1</replace>
@@ -359,6 +337,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -381,7 +360,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -391,13 +369,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/greedy-OP" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/greedy-OP" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/greedy-OP" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -558,7 +536,28 @@
       <option name="project" value="LOCAL" />
       <updated>1539377038731</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="TODO: add genere seq for max and greedy">
+      <created>1539628450154</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1539628450154</updated>
+    </task>
+    <task id="LOCAL-00015" summary="TODO: add genere seq for max and greedy">
+      <created>1539639650135</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1539639650135</updated>
+    </task>
+    <task id="LOCAL-00016" summary="creating seq for max">
+      <created>1539718982394</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1539718982394</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -569,9 +568,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52980876" sideWeight="0.5021299" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4544432" sideWeight="0.4978701" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43082115" sideWeight="0.4978701" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24227902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24760383" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.015974442" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -648,7 +647,9 @@
     <MESSAGE value="added figures and coverage attr to greedy class" />
     <MESSAGE value="added created seq with max, and display difference between n+1 - n" />
     <MESSAGE value="change approach to display greedy seq, becouse if i select specyfic PP and SEED seq coverage is not always looks G1 &lt; G2 &lt; G3 .... So i need create huge array of subsets and then choose max one" />
-    <option name="LAST_COMMIT_MESSAGE" value="change approach to display greedy seq, becouse if i select specyfic PP and SEED seq coverage is not always looks G1 &lt; G2 &lt; G3 .... So i need create huge array of subsets and then choose max one" />
+    <MESSAGE value="TODO: add genere seq for max and greedy" />
+    <MESSAGE value="creating seq for max" />
+    <option name="LAST_COMMIT_MESSAGE" value="creating seq for max" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -667,13 +668,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/results/graphs.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/results/resultWithE-ORIGINAL.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -825,13 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="11156" column="0" lean-forward="false" selection-start-line="11156" selection-start-column="0" selection-end-line="11156" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/seeds/4_1_seeds.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -965,42 +952,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graph_base.py">
+    <entry file="file://$PROJECT_DIR$/results/results.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="16" lean-forward="false" selection-start-line="34" selection-start-column="11" selection-end-line="34" selection-end-column="16" />
-          <folding />
+        <state relative-caret-position="-15">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="542" column="0" lean-forward="true" selection-start-line="542" selection-start-column="0" selection-end-line="542" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="440" column="73" lean-forward="false" selection-start-line="440" selection-start-column="32" selection-end-line="440" selection-end-column="73" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/results.csv">
+    <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-290">
-          <caret line="5" column="60" lean-forward="true" selection-start-line="5" selection-start-column="60" selection-end-line="5" selection-end-column="60" />
+        <state relative-caret-position="60">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="9" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="48" lean-forward="false" selection-start-line="16" selection-start-column="48" selection-end-line="16" selection-end-column="48" />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="11" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graph_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../_infa/modelowanie dyfuzji/python/sym1/venv/lib/python3.5/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NEW-table2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="222" column="0" lean-forward="true" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+        <state relative-caret-position="213">
+          <caret line="228" column="48" lean-forward="false" selection-start-line="228" selection-start-column="48" selection-end-line="228" selection-end-column="48" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>

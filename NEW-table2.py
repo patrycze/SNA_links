@@ -9,6 +9,8 @@ import time
 from os import listdir
 from os.path import isfile, join
 import collections
+from collections import Counter
+
 
 def getLinksArray(net):
 
@@ -140,6 +142,11 @@ class NetworkStructure:
     pp = ''
     seed = ''
     addedNetworks = []
+    seqFromAddedNetworksGREEDY = []
+    seqFromAddedNetworksMAX = []
+
+    greedySeq = []
+    maxSeq = []
 
 listOfNetworks = []
 
@@ -186,7 +193,7 @@ for l in listOfNetworks:
 myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
                 '14', '15', '16']
 
-def createMaxSeq(dict, i, collection):
+def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
 
     collectionOfNetwork = []
 
@@ -194,7 +201,7 @@ def createMaxSeq(dict, i, collection):
         for n in c:
             if(type(n) is Network):
                 collectionOfNetwork.append(n)
-                print(n.name, n.index)
+                # print(n.name, n.index)
     try:
         m = max(collectionOfNetwork, key=lambda c: c.index)
         m = m.index + 1
@@ -206,23 +213,60 @@ def createMaxSeq(dict, i, collection):
     for i in reversed(range(int(m))):
         if(i == m-1):
             pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
-            print(i ,' ', pattern.name)
+            # print(i ,' ', pattern.name)
         if i == m-2:
-            recSeqNetwork(pattern, collectionOfNetwork, i)
+            recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX)
 
-    print('\n')
-    print('\n')
+    # return quantityOfSeq
     # print(i, collection)
-def recSeqNetwork(pattern, collectionOfNetwork, i):
+def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
 
     next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
     l = len(pattern.links) - 1
     next = [r for r in next if len(r.links) == l]
 
     try:
-        print(i ,' ', random.choice([r.name for r in next]))
+        quantityOfSeqMAX.append(pattern.coverage)
+        # print(i ,' ', random.choice([r.name for r in next]))
         pattern = random.choice([r for r in next])
-        recSeqNetwork(pattern, collectionOfNetwork, i-1)
+        recSeqNetwork(pattern, collectionOfNetwork, i-1, quantityOfSeqMAX)
+    except:
+        print
+
+
+def createGreedySeq(dict, i, collection, quantityOfSeqGREEDY):
+
+    collectionOfNetwork = []
+
+    for c in collection:
+        for n in c:
+            if(type(n) is Network):
+                collectionOfNetwork.append(n)
+                # print(n.name, n.index)
+    try:
+        m = max(collectionOfNetwork, key=lambda c: c.index)
+        m = m.index + 1
+        # print('MAX', m.index)
+    except:
+        print
+        m = 0
+
+    for i in range(int(m)):
+            pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
+            recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
+
+
+def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
+
+    next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
+    l = len(pattern.links) - 1
+    next = [r for r in next if len(r.links) == l]
+
+    try:
+        quantityOfSeqGREEDY.append(pattern.coverage)
+        print(i ,' ', random.choice([r.name for r in next]))
+        pattern = max(next, key=lambda c: c.coverage)
+        recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
     except:
         print
 
@@ -237,59 +281,90 @@ def returnNetCollection(net, pp, seed):
 
     return tmpArray
 
+selectedNetworks = [] # tablica aby zapewnić unikalność sieci, ponieważ listOfNetworks zawiera
+
+# 42.txt 0.1 ['0']
+# 42.txt 0.1 ['0']
+
+# ze względu na dwa wiersze w tabeli
+
+
 for l in listOfNetworks:
-    # print(l.net, l.pp, l.seed, l.addedNetworks)
 
-    infections = []
+    if str(l.net) + str(l.pp) + str(l.seed) not in selectedNetworks:
 
-    # dict = {x: [] for i, x in enumerate(l.addedNetworks) if l.addedNetworks[int(i)].endswith('.txt')}
-    # dict = collections.OrderedDict.fromkeys(enumerate(l.addedNetworks))
+        selectedNetworks.append(str(l.net) + str(l.pp) + str(l.seed))
 
-    dict = collections.OrderedDict.fromkeys(x for i, x in enumerate(l.addedNetworks))
+        print(l.net, l.pp, l.seed)
 
-    for key, value in dict.items():
-        dict[key] = []
+        l.seqFromAddedNetworksGREEDY = []
+        l.seqFromAddedNetworksMAX = []
+        infections = []
 
-    # print('L.NET', l.addedNetworks)
-    # print('DICT', dict)
+        # dict = {x: [] for i, x in enumerate(l.addedNetworks) if l.addedNetworks[int(i)].endswith('.txt')}
+        # dict = collections.OrderedDict.fromkeys(enumerate(l.addedNetworks))
 
-    # for n in l.addedNetworks:
-    # print('ADDED', l.addedNetworks)
+        dict = collections.OrderedDict.fromkeys(x for i, x in enumerate(l.addedNetworks))
 
-    for i in range(1, 2):
+        for key, value in dict.items():
+            dict[key] = []
 
-        infectionsArray = []
+        # print('L.NET', l.addedNetworks)
+        # print('DICT', dict)
 
-        for n in l.addedNetworks:
-            if(type(n) is Network and n.name.endswith('.txt')):
+        # for n in l.addedNetworks:
+        # print('ADDED', l.addedNetworks)
 
-                sim = simulation(l.pp, l.net, l.seed)
-                n.coverage = sim[0]
+        for i in range(1, 100):
 
-                dict[n].append(sim[0])
+            infectionsArray = []
 
+            for n in l.addedNetworks:
+                if(type(n) is Network and n.name.endswith('.txt')):
 
-            if n == '':
-                print
+                    sim = simulation(l.pp, l.net, l.seed)
+                    n.coverage = sim[0]
 
-        collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
-        createMaxSeq(dict, i, collectionOfNets)
-
-    for key, value in dict.items():
-        dict[key] = mean(value)
-
-    # print("SŁOWNICZEK", dict)
-
-    # infections.append(mean(infectionsArray))
-
-    x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
-    tmp = [value for key, value in dict.items()]
-    x1 = {str(i): x for i, x in enumerate(tmp)}
-    x.update(x1)
+                    dict[n].append(sim[0])
 
 
-    myFile = open('results/results.csv', 'a+')
-    with myFile:
-        writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
-        writer.writerow(x)
+                if n == '':
+                    print
+
+            collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
+
+            quantityOfSeqGREEDY = []
+            quantityOfSeqMAX = []
+
+            createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
+            createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
+
+            l.seqFromAddedNetworksGREEDY.append(str(list(quantityOfSeqGREEDY)))
+            l.seqFromAddedNetworksMAX.append(str(list(reversed(quantityOfSeqMAX))))
+
+        counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
+        counterMax = Counter(l.seqFromAddedNetworksMAX)
+
+        # print([value for key, value in counter.most_common()])
+        print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
+        print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
+
+
+        for key, value in dict.items():
+            dict[key] = mean(value)
+
+        # print("SŁOWNICZEK", dict)
+
+        # infections.append(mean(infectionsArray))
+
+        x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
+        tmp = [value for key, value in dict.items()]
+        x1 = {str(i): x for i, x in enumerate(tmp)}
+        x.update(x1)
+
+
+        myFile = open('results/results.csv', 'a+')
+        with myFile:
+            writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
+            writer.writerow(x)
 
