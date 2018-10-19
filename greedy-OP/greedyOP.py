@@ -561,7 +561,7 @@ class Greedy:
             for c in combinationsArray:
                 c = c.replace("\n", "").split(" ")
                 tmpArray.append(c)
-            print('FUNCTION', tmpArray)
+            # print('FUNCTION', tmpArray)
         return tmpArray
 
     def createTable2(self, name, dataset):
@@ -570,7 +570,7 @@ class Greedy:
 
         myFields = ['net', 'PP', 'seed', 'space','0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
         myFile = open(name + '.csv', 'w')
-        PParray = ['0.1']
+        PParray = ['0.1', '0.2', '0.3', '0.4', '0.5']
         seeds = [f for f in listdir('seeds') if isfile(join('seeds', f))]
         for pp in PParray:
             for seed in seeds:
@@ -592,7 +592,7 @@ class Greedy:
                                 #     tmp = list(set([g['net'].net for g in t]))
                                 #     t = t1
                                     # print(t)
-                                print(list(set([g['net'].net for g in tmp])), i)
+                                # print(list(set([g['net'].net for g in tmp])), i)
                                 tmp1.append(list(set([g['net'].net for g in tmp])))
 
                             # tmp = []
@@ -609,11 +609,15 @@ class Greedy:
 
                             for r in range(0,m1):
                                 for i in range(0,10):
+
+
                                     try:
                                         row.append(tmp1[i][r])
                                     except:
-                                        row.append('')
-
+                                        if i == 0:
+                                            row.append(data.net)
+                                        else:
+                                            row.append('')
 
                                 x = {'net': data.net, 'nodes': data.net[1], 'edges': data.listOfPairs, 'PP': pp, 'seed': s1, 'space': ' '}
                                 x1 = {str(i):x for i, x in enumerate(row)}
