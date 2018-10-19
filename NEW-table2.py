@@ -257,7 +257,7 @@ def createGreedySeq(dict, i, collection, quantityOfSeqGREEDY):
 
     for c in collection:
         for n in c:
-            if(type(n) is Network):
+            if isinstance(n, Network):
                 collectionOfNetwork.append(n)
                 # print(n.name, n.index)
     try:
@@ -341,6 +341,7 @@ for l in listOfNetworks:
 
         # for n in l.addedNetworks:
         # print('ADDED', l.addedNetworks)
+        collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
 
         for i in range(1, 10):
 
@@ -358,7 +359,6 @@ for l in listOfNetworks:
                 if n == '':
                     print
 
-            collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
 
             quantityOfSeqGREEDY = []
             quantityOfSeqMAX = []
