@@ -342,7 +342,9 @@ for l in listOfNetworks:
         # for n in l.addedNetworks:
         # print('ADDED', l.addedNetworks)
 
-        for i in range(1, 10):
+		collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
+
+        for i in range(1, 10000):
 
             infectionsArray = []
 
@@ -357,8 +359,6 @@ for l in listOfNetworks:
 
                 if n == '':
                     print
-
-            collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
 
             quantityOfSeqGREEDY = []
             quantityOfSeqMAX = []
