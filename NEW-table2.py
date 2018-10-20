@@ -401,7 +401,7 @@ for l in listOfNetworks:
         counterMax = Counter(l.seqFromAddedNetworksMAX)
 
         # print([value for key, value in counter.most_common()])
-        # print('MAX', max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
+        # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
         selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
@@ -423,8 +423,8 @@ for l in listOfNetworks:
             averageGreedy.append(mean([a.coverage for a in averageGreedyArray[:,i]]))
 
         for i in range(0, len(averageMaxArray[0])):
-            print([a.coverage for a in averageMaxArray[:, i]])
-            print(mean([a.coverage for a in averageMaxArray[:, i]]))
+            # print([a.coverage for a in averageMaxArray[:, i]])
+            # print(mean([a.coverage for a in averageMaxArray[:, i]]))
             averageMAX.append(mean([a.coverage for a in averageMaxArray[:, i]]))
 
         for key, value in dict.items():
