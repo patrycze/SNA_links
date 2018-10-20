@@ -378,8 +378,7 @@ for l in listOfNetworks:
                     sim = simulation(l.pp, n.name, l.seed)   # zmiana z l na n
                     n.coverage = sim[0]
 
-                    dict[n].append(sim[0]) # TODO: do sprawdzenia czy N ma różną referencje / żeby tylko nie wskazywała na 1 obj
-                    # print('COVERAGE',n.name, sim[0])
+                    dict[n].append(sim[0]) 
 
                 if n == '':
                     print
