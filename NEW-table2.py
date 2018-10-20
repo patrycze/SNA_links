@@ -168,8 +168,8 @@ with open('test.csv', "r") as f:
 
         tmpNet = NetworkStructure()
         tmpNet.net = c.split(',')[0]
-        # tmpNet.pp = c.split(',')[1]
-        tmpNet.pp = 0.5
+        tmpNet.pp = c.split(',')[1]
+        # tmpNet.pp = 0.5
 
 
         c = c.replace("\"","")
@@ -343,22 +343,44 @@ for l in listOfNetworks:
         # print('ADDED', l.addedNetworks)
         collectionOfNets = returnNetCollection(l.net, l.pp, l.seed)
 
+        # print('ALL COLLECION', [c.name for c in collectionOfNets if isinstance(c, Network)])
+
+        # print('ALL COLLECION', set([net.name
+        #                         for collection in collectionOfNets
+        #                             for net in collection if isinstance(net, Network)
+        #                                     ]))
+
+        # print('THIS ROW NETWORKS', set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
+        #
+        restOfNetworks = list(set([net.name
+                                for collection in collectionOfNets
+                                    for net in collection if isinstance(net, Network)
+                                            ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
+
         for i in range(1, 10):
 
             infectionsArray = []
 
             for n in l.addedNetworks:
                 if(isinstance(n, Network) and n.name.endswith('.txt')):
-
-                    sim = simulation(l.pp, l.net, l.seed)
+                    sim = simulation(l.pp, n.name, l.seed)   # zmiana z l na n
                     n.coverage = sim[0]
 
-                    dict[n].append(sim[0])
+                    dict[n].append(sim[0]) # TODO: do sprawdzenia czy N ma różną referencje / żeby tylko nie wskazywała na 1 obj
                     # print('COVERAGE', sim[0])
 
                 if n == '':
                     print
 
+            for n in restOfNetworks:
+                for net in list(set([net
+                                for collection in collectionOfNets
+                                    for net in collection if isinstance(net, Network)
+                                            ])):
+                    if(n == net.name):
+                        # print('DIFFERENCE', n)
+                        sim = simulation(l.pp, net.name, l.seed)  # zmiana z l na n
+                        net.coverage = sim[0]
 
             quantityOfSeqGREEDY = []
             quantityOfSeqMAX = []
@@ -379,7 +401,7 @@ for l in listOfNetworks:
         counterMax = Counter(l.seqFromAddedNetworksMAX)
 
         # print([value for key, value in counter.most_common()])
-        # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
+        print('MAX', max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
         selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
@@ -396,13 +418,13 @@ for l in listOfNetworks:
         averageMAX = []
 
         for i in range(0,len(averageGreedyArray[0])):
-            print([a.coverage for a in averageGreedyArray[:, i]])
-            print(mean([a.coverage for a in averageGreedyArray[:,i]]))
+            # print([a.coverage for a in averageGreedyArray[:, i]])
+            # print(mean([a.coverage for a in averageGreedyArray[:,i]]))
             averageGreedy.append(mean([a.coverage for a in averageGreedyArray[:,i]]))
 
         for i in range(0, len(averageMaxArray[0])):
-            # print([a.coverage for a in averageMaxArray[:, i]])
-            # print(mean([a.coverage for a in averageMaxArray[:, i]]))
+            print([a.coverage for a in averageMaxArray[:, i]])
+            print(mean([a.coverage for a in averageMaxArray[:, i]]))
             averageMAX.append(mean([a.coverage for a in averageMaxArray[:, i]]))
 
         for key, value in dict.items():
