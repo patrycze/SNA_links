@@ -357,7 +357,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 10):
+        for i in range(1, 10000):
 
             infectionsArray = []
 
@@ -401,7 +401,7 @@ for l in listOfNetworks:
         counterMax = Counter(l.seqFromAddedNetworksMAX)
 
         # print([value for key, value in counter.most_common()])
-        print('MAX', max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
+        # print('MAX', max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
         selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
