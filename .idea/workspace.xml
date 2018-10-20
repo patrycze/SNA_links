@@ -157,7 +157,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1540043052254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1540052750113" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -176,7 +176,7 @@
       <file leaf-file-name="greedyOP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1317">
+            <state relative-caret-position="5992">
               <caret line="647" column="54" lean-forward="false" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="54" />
               <folding />
             </state>
@@ -203,24 +203,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NEW-table2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NEW-table2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NEW-table2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="302" column="32" lean-forward="false" selection-start-line="302" selection-start-column="32" selection-end-line="302" selection-end-column="32" />
+            <state relative-caret-position="240">
+              <caret line="431" column="0" lean-forward="false" selection-start-line="431" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
-                <marker date="1540043052000" expanded="false" signature="7225:7287" ph="..." />
+                <marker date="1540052750000" expanded="true" signature="7534:7596" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="max.csv" pinned="false" current-in-tab="true">
+      <file leaf-file-name="max.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/results/max.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2355">
-              <caret line="157" column="29" lean-forward="false" selection-start-line="157" selection-start-column="29" selection-end-line="157" selection-end-column="29" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -237,7 +237,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>simulation</find>
       <find>edges</find>
       <find>createList</find>
       <find>enumera</find>
@@ -260,13 +259,14 @@
       <find>dict</find>
       <find>returnNetCollection</find>
       <find>52.txt</find>
-      <find>createMaxSeq</find>
       <find>42.tx</find>
-      <find>COVERAGE</find>
-      <find>print</find>
       <find>0.666</find>
       <find>0.6666666</find>
       <find>DIFFERENCE</find>
+      <find>reverse</find>
+      <find>COVERAGE</find>
+      <find>print</find>
+      <find>createMaxSeq</find>
     </findStrings>
     <replaceStrings>
       <replace>r1</replace>
@@ -365,11 +365,6 @@
             <path>
               <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
               <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
-              <item name="greedy-OP" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
@@ -613,11 +608,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540038160620</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="tapeof changed to isinstance">
+      <created>1540043106603</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1540043106603</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="984" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="984" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -989,26 +991,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/results.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4545">
           <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/greedy.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1037,6 +1023,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5992">
+          <caret line="647" column="54" lean-forward="false" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/greedy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1816">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/results.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-540">
+          <caret line="0" column="67" lean-forward="false" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1045,30 +1055,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
+    <entry file="file://$PROJECT_DIR$/results/max.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1317">
-          <caret line="647" column="54" lean-forward="false" selection-start-line="647" selection-start-column="46" selection-end-line="647" selection-end-column="54" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NEW-table2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="302" column="32" lean-forward="false" selection-start-line="302" selection-start-column="32" selection-end-line="302" selection-end-column="32" />
+        <state relative-caret-position="240">
+          <caret line="431" column="0" lean-forward="false" selection-start-line="431" selection-start-column="0" selection-end-line="431" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
-            <marker date="1540043052000" expanded="false" signature="7225:7287" ph="..." />
+            <marker date="1540052750000" expanded="true" signature="7534:7596" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/max.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2355">
-          <caret line="157" column="29" lean-forward="false" selection-start-line="157" selection-start-column="29" selection-end-line="157" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>

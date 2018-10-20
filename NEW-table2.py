@@ -215,14 +215,25 @@ def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
         print
         m = 0
 
-    for i in reversed(range(int(m))):
-        if(i == m-1):
-            pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
-        if i == m-2:
-            recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX)
-        if m == 1:
-            pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
-            quantityOfSeqMAX.append(pattern)
+    for i in range(int(m)):
+        pattern = max([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
+
+        tmp = Network()
+
+        tmp.links = pattern.links
+        tmp.coverage = pattern.coverage
+        tmp.index = pattern.index
+        tmp.name = pattern.name
+
+        quantityOfSeqMAX.append(tmp)
+
+        # if(i == m-1):
+        #     pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
+        # if i == m-2:
+        #     recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX)
+        # if m == 1:
+        #     pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
+        #     quantityOfSeqMAX.append(pattern)
 
     # return quantityOfSeq
     # print(i, collection)
@@ -233,7 +244,7 @@ def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
     next = [r for r in next if len(r.links) == l]
 
     try:
-        print('PATTERN ', pattern.name, ' ', pattern.coverage)
+        # print('PATTERN ', pattern.name, ' ', pattern.coverage)
         tmp = Network()
 
         tmp.links = pattern.links
@@ -358,7 +369,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 10):
+        for i in range(1, 50):
 
             infectionsArray = []
 
@@ -368,7 +379,7 @@ for l in listOfNetworks:
                     n.coverage = sim[0]
 
                     dict[n].append(sim[0]) # TODO: do sprawdzenia czy N ma różną referencje / żeby tylko nie wskazywała na 1 obj
-                    print('COVERAGE',n.name, sim[0])
+                    # print('COVERAGE',n.name, sim[0])
 
                 if n == '':
                     print
@@ -382,7 +393,7 @@ for l in listOfNetworks:
                         # print('DIFFERENCE', n)
                         sim = simulation(l.pp, net.name, l.seed)  # zmiana z l na n
                         net.coverage = sim[0]
-                        print('COVERAGE', net.name, sim[0])
+                        # print('COVERAGE', net.name, sim[0])
 
             quantityOfSeqGREEDY = []
             quantityOfSeqMAX = []
@@ -390,21 +401,22 @@ for l in listOfNetworks:
             createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
             createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
 
-            # print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in reversed(quantityOfSeqMAX)])
+            print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqMAX])
 
             l.seqFromAddedNetworksGREEDY.append(str(list([q.name for q in quantityOfSeqGREEDY])))
             l.seqFromAddedNetworksGREEDYOBJ.append(quantityOfSeqGREEDY)
 
-            l.seqFromAddedNetworksMAXOBJ.append(list(reversed(quantityOfSeqMAX)))
-            l.seqFromAddedNetworksMAX.append(str(list(reversed([q.name for q in quantityOfSeqMAX]))))
+            l.seqFromAddedNetworksMAXOBJ.append(list(quantityOfSeqMAX))
+            l.seqFromAddedNetworksMAX.append(str(list([q.name for q in quantityOfSeqMAX])))
 
 
         counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
-        counterMax = Counter(l.seqFromAddedNetworksMAX)
+
+        # counterMax = Counter(l.seqFromAddedNetworksMAX)
 
         # print([value for key, value in counter.most_common()])
         # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
-        selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
+        # selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
         selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
@@ -414,7 +426,8 @@ for l in listOfNetworks:
 
 
         averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
-        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        # averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageMaxArray = np.array(l.seqFromAddedNetworksMAXOBJ) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
 
         averageGreedy = []
         averageMAX = []
