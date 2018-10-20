@@ -207,7 +207,6 @@ def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
         for n in c:
             if isinstance(n, Network):
                 collectionOfNetwork.append(n)
-                # print(n.name, n.index)
     try:
         m = max(collectionOfNetwork, key=lambda c: c.index)
         m = m.index + 1
@@ -219,7 +218,6 @@ def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
     for i in reversed(range(int(m))):
         if(i == m-1):
             pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
-            # print('PATTERN ', i ,' ', pattern.coverage)
         if i == m-2:
             recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX)
         if m == 1:
@@ -235,7 +233,7 @@ def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
     next = [r for r in next if len(r.links) == l]
 
     try:
-
+        print('PATTERN ', pattern.name, ' ', pattern.coverage)
         tmp = Network()
 
         tmp.links = pattern.links
@@ -289,7 +287,7 @@ def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
         tmp.name = pattern.name
 
         quantityOfSeqGREEDY.append(tmp)
-        print(i ,' ', random.choice([r.name for r in next]))
+        # print(i ,' ', random.choice([r.name for r in next]))
         pattern = max(next, key=lambda c: c.coverage)
         recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
     except:
@@ -302,7 +300,10 @@ def returnNetCollection(net, pp, seed):
 
     for l in listOfNetworks:
         if(l.net == net and l.pp == pp and l.seed == seed):
-            tmpArray.append(l.addedNetworks)
+            if(len(tmpArray) > 0):
+                tmpArray.append(l.addedNetworks[1:])
+            else:
+                tmpArray.append(l.addedNetworks)
 
     return tmpArray
 
@@ -357,7 +358,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 10000):
+        for i in range(1, 10):
 
             infectionsArray = []
 
@@ -367,7 +368,7 @@ for l in listOfNetworks:
                     n.coverage = sim[0]
 
                     dict[n].append(sim[0]) # TODO: do sprawdzenia czy N ma różną referencje / żeby tylko nie wskazywała na 1 obj
-                    # print('COVERAGE', sim[0])
+                    print('COVERAGE',n.name, sim[0])
 
                 if n == '':
                     print
@@ -381,6 +382,7 @@ for l in listOfNetworks:
                         # print('DIFFERENCE', n)
                         sim = simulation(l.pp, net.name, l.seed)  # zmiana z l na n
                         net.coverage = sim[0]
+                        print('COVERAGE', net.name, sim[0])
 
             quantityOfSeqGREEDY = []
             quantityOfSeqMAX = []
@@ -388,7 +390,7 @@ for l in listOfNetworks:
             createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
             createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
 
-            # print('RAW GREEDY', [q.coverage for q in quantityOfSeqGREEDY])
+            # print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in reversed(quantityOfSeqMAX)])
 
             l.seqFromAddedNetworksGREEDY.append(str(list([q.name for q in quantityOfSeqGREEDY])))
             l.seqFromAddedNetworksGREEDYOBJ.append(quantityOfSeqGREEDY)
@@ -423,8 +425,8 @@ for l in listOfNetworks:
             averageGreedy.append(mean([a.coverage for a in averageGreedyArray[:,i]]))
 
         for i in range(0, len(averageMaxArray[0])):
-            # print([a.coverage for a in averageMaxArray[:, i]])
-            # print(mean([a.coverage for a in averageMaxArray[:, i]]))
+            print([a.coverage for a in averageMaxArray[:, i]])
+            print(mean([a.coverage for a in averageMaxArray[:, i]]))
             averageMAX.append(mean([a.coverage for a in averageMaxArray[:, i]]))
 
         for key, value in dict.items():
