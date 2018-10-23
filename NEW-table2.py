@@ -13,7 +13,7 @@ from collections import Counter
 import numpy as np
 
 myFile = open('results/greedy.csv', 'w')
-myFile = open('results/results.csv', 'w')
+myFile = open('results/random.csv', 'w')
 myFile = open('results/max.csv', 'w')
 
 def getLinksArray(net):
@@ -149,6 +149,8 @@ class NetworkStructure:
     seqFromAddedNetworksGREEDYOBJ = []
     seqFromAddedNetworksMAX = []
     seqFromAddedNetworksMAXOBJ = []
+    seqFromAddedNetworksRANDOM = []
+    seqFromAddedNetworksRANDOMOBJ = []
 
     greedySeq = []
     maxSeq = []
@@ -199,6 +201,36 @@ for l in listOfNetworks:
 myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
                 '14', '15', '16']
 
+
+def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
+
+    collectionOfNetwork = []
+
+    for c in collection:
+        for n in c:
+            if isinstance(n, Network):
+                collectionOfNetwork.append(n)
+
+    try:
+        m = max(collectionOfNetwork, key=lambda c: c.index)
+        m = m.index + 1
+    except:
+        print
+        m = 0
+
+    for i in range(int(m)):
+        pattern = random.choice([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
+
+        tmp = Network()
+
+        tmp.links = pattern.links
+        tmp.coverage = pattern.coverage
+        tmp.index = pattern.index
+        tmp.name = pattern.name
+
+        quantityOfSeqRandom.append(tmp)
+
+
 def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
 
     collectionOfNetwork = []
@@ -207,10 +239,10 @@ def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
         for n in c:
             if isinstance(n, Network):
                 collectionOfNetwork.append(n)
+
     try:
         m = max(collectionOfNetwork, key=lambda c: c.index)
         m = m.index + 1
-        # print('MAX', m.index)
     except:
         print
         m = 0
@@ -337,6 +369,8 @@ for l in listOfNetworks:
         l.seqFromAddedNetworksGREEDYOBJ = []
         l.seqFromAddedNetworksMAX = []
         l.seqFromAddedNetworksMAXOBJ = []
+        l.seqFromAddedNetworksRANDOM = []
+        l.seqFromAddedNetworksRANDOMOBJ = []
 
         infections = []
 
@@ -348,8 +382,6 @@ for l in listOfNetworks:
         for key, value in dict.items():
             dict[key] = []
 
-        # print('L.NET', l.addedNetworks)
-        # print('DICT', dict)
 
         # for n in l.addedNetworks:
         # print('ADDED', l.addedNetworks)
@@ -369,7 +401,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 1000):
+        for i in range(1, 10):
 
             infectionsArray = []
 
@@ -396,9 +428,11 @@ for l in listOfNetworks:
 
             quantityOfSeqGREEDY = []
             quantityOfSeqMAX = []
+            quantityOfSeqRANDOM = []
 
             createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
             createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
+            createRandomSeq(dict, i, collectionOfNets, quantityOfSeqRANDOM)
 
             #print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqMAX])
 
@@ -408,28 +442,37 @@ for l in listOfNetworks:
             l.seqFromAddedNetworksMAXOBJ.append(list(quantityOfSeqMAX))
             l.seqFromAddedNetworksMAX.append(str(list([q.name for q in quantityOfSeqMAX])))
 
+            l.seqFromAddedNetworksRANDOMOBJ.append(list(quantityOfSeqRANDOM))
+            l.seqFromAddedNetworksRANDOM.append(str(list([q.name for q in quantityOfSeqRANDOM])))
 
         counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
-
-        # counterMax = Counter(l.seqFromAddedNetworksMAX)
+        counterMax = Counter(l.seqFromAddedNetworksMAX)
+        counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
 
         # print([value for key, value in counter.most_common()])
         # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
-        # selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
+        selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
         selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
+
+        selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
 
         # print('SELECTED GREEDY', selectednetGREEDY)
         # print('SELECTED MAX', selectednetMAX)
 
 
         averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
-        # averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
-        averageMaxArray = np.array(l.seqFromAddedNetworksMAXOBJ) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA])) == selectednetRANDOM[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+
+
+
+        # averageMaxArray = np.array(l.seqFromAddedNetworksMAXOBJ) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
 
         averageGreedy = []
         averageMAX = []
+        averageRandom = []
 
         for i in range(0,len(averageGreedyArray[0])):
             # print([a.coverage for a in averageGreedyArray[:, i]])
@@ -441,24 +484,30 @@ for l in listOfNetworks:
             print(mean([a.coverage for a in averageMaxArray[:, i]]))
             averageMAX.append(mean([a.coverage for a in averageMaxArray[:, i]]))
 
-        for key, value in dict.items():
-            dict[key] = mean(value)
+        for i in range(0, len(averageRandomArray[0])):
+            print([a.coverage for a in averageRandomArray[:, i]])
+            print(mean([a.coverage for a in averageRandomArray[:, i]]))
+            averageRandom.append(mean([a.coverage for a in averageRandomArray[:, i]]))
+
+
+        # for key, value in dict.items():
+        #     dict[key] = mean(value)
 
 
         # infections.append(mean(infectionsArray))
 
-        x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
-        tmp = [value for key, value in dict.items()]
-        x1 = {str(i): x for i, x in enumerate(tmp)}
-        x.update(x1)
+        # x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
+        # tmp = [value for key, value in dict.items()]
+        # x1 = {str(i): x for i, x in enumerate(tmp)}
+        # x.update(x1)
 
 
 
 
-        myFile = open('results/results.csv', 'a+')
-        with myFile:
-            writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
-            writer.writerow(x)
+        # myFile = open('results/results.csv', 'a+')
+        # with myFile:
+        #     writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
+        #     writer.writerow(x)
 
         x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
         tmp = [value for key, value in dict.items()]
@@ -476,6 +525,17 @@ for l in listOfNetworks:
         x.update(x1)
 
         myFile = open('results/greedy.csv', 'a+')
+        with myFile:
+            writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
+            writer.writerow(x)
+
+
+        x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
+        tmp = [value for key, value in dict.items()]
+        x1 = {str(i): x for i, x in enumerate(averageRandom)}
+        x.update(x1)
+
+        myFile = open('results/random.csv', 'a+')
         with myFile:
             writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
             writer.writerow(x)
