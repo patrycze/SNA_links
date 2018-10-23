@@ -331,7 +331,7 @@ for l in listOfNetworks:
 
         selectedNetworks.append(str(l.net) + str(l.pp) + str(l.seed))
 
-        print(l.net, l.pp, l.seed)
+        #print(l.net, l.pp, l.seed)
 
         l.seqFromAddedNetworksGREEDY = []
         l.seqFromAddedNetworksGREEDYOBJ = []
@@ -369,7 +369,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 50):
+        for i in range(1, 1000):
 
             infectionsArray = []
 
@@ -400,7 +400,7 @@ for l in listOfNetworks:
             createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
             createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
 
-            print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqMAX])
+            #print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqMAX])
 
             l.seqFromAddedNetworksGREEDY.append(str(list([q.name for q in quantityOfSeqGREEDY])))
             l.seqFromAddedNetworksGREEDYOBJ.append(quantityOfSeqGREEDY)
