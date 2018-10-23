@@ -219,7 +219,7 @@ def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
         m = 0
 
     for i in range(int(m)):
-        pattern = random.choice([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
+        pattern = random.choice([n for n in collectionOfNetwork if n.index == i])
 
         tmp = Network()
 
