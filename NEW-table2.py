@@ -480,13 +480,13 @@ for l in listOfNetworks:
             averageGreedy.append(mean([a.coverage for a in averageGreedyArray[:,i]]))
 
         for i in range(0, len(averageMaxArray[0])):
-            print([a.coverage for a in averageMaxArray[:, i]])
-            print(mean([a.coverage for a in averageMaxArray[:, i]]))
+            # print([a.coverage for a in averageMaxArray[:, i]])
+            # print(mean([a.coverage for a in averageMaxArray[:, i]]))
             averageMAX.append(mean([a.coverage for a in averageMaxArray[:, i]]))
 
         for i in range(0, len(averageRandomArray[0])):
-            print([a.coverage for a in averageRandomArray[:, i]])
-            print(mean([a.coverage for a in averageRandomArray[:, i]]))
+            # print([a.coverage for a in averageRandomArray[:, i]])
+            # print(mean([a.coverage for a in averageRandomArray[:, i]]))
             averageRandom.append(mean([a.coverage for a in averageRandomArray[:, i]]))
 
 
