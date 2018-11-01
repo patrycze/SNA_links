@@ -309,30 +309,34 @@ def createGreedySeq(dict, i, collection, quantityOfSeqGREEDY):
         print
         m = 0
 
-    for i in range(int(m)):
-            pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
-            recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
+    # for i in range(int(m)):
+    pattern = max([n for n in collectionOfNetwork if n.index == 0], key=lambda c: c.coverage)
+    recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
 
 
-def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
+def recGreedySeqNetwork(pattern1, collectionOfNetwork, i, quantityOfSeqGREEDY):
 
-    next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
-    l = len(pattern.links) - 1
-    next = [r for r in next if len(r.links) == l]
+    tmp1 = Network()
+    tmp1.links = pattern1.links
+    tmp1.coverage = pattern1.coverage
+    tmp1.index = pattern1.index
+    tmp1.name = pattern1.name
+    quantityOfSeqGREEDY.append(tmp1)
+
+    print(pattern1.links)
+    next1 = list(filter(lambda x: set(pattern1.links).issubset(set(x.links)), [n for n in collectionOfNetwork if n.index == i]))
+    print([n1.links for n1 in next1])
+    print([n1.links for n1 in next1], '\n')
+
+    l = len(pattern1.links) + 1
+    # next1 = [r for r in next if len(r.links) == l]
+
 
     try:
+        pattern1 = max(next, key=lambda c: c.coverage)
+        # print(pattern1.links)
 
-        tmp = Network()
-
-        tmp.links = pattern.links
-        tmp.coverage = pattern.coverage
-        tmp.index = pattern.index
-        tmp.name = pattern.name
-
-        quantityOfSeqGREEDY.append(tmp)
-        # print(i ,' ', random.choice([r.name for r in next]))
-        pattern = max(next, key=lambda c: c.coverage)
-        recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
+        recGreedySeqNetwork(pattern1, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
     except:
         print
 
@@ -434,7 +438,8 @@ for l in listOfNetworks:
             createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
             createRandomSeq(dict, i, collectionOfNets, quantityOfSeqRANDOM)
 
-            #print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqMAX])
+            # print('RAW GRE', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqGREEDY])
+            # print('RAW MAX', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqMAX])
 
             l.seqFromAddedNetworksGREEDY.append(str(list([q.name for q in quantityOfSeqGREEDY])))
             l.seqFromAddedNetworksGREEDYOBJ.append(quantityOfSeqGREEDY)
@@ -457,9 +462,6 @@ for l in listOfNetworks:
         selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
 
         selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
-
-        # print('SELECTED GREEDY', selectednetGREEDY)
-        # print('SELECTED MAX', selectednetMAX)
 
 
         averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
