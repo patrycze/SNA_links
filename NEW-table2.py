@@ -292,8 +292,9 @@ def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
         print
 
 
-def createGreedySeq(dict, i, collection, quantityOfSeqGREEDY):
+def createGreedySeq(i, collection, quantityOfSeqGREEDY):
 
+    print('ZACZYNAM ROBIC GREEDY\n')
     collectionOfNetwork = []
 
     for c in collection:
@@ -311,34 +312,37 @@ def createGreedySeq(dict, i, collection, quantityOfSeqGREEDY):
 
     # for i in range(int(m)):
     pattern = max([n for n in collectionOfNetwork if n.index == 0], key=lambda c: c.coverage)
+    print(0, 'MOŻLIWOŚCI MAMY TYLE:', [n.links for n in collectionOfNetwork if n.index == 0])
+    print(0, 'WYBIERAMY JEDNĄ:', pattern.links, '\n')
+
     recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
 
 
-def recGreedySeqNetwork(pattern1, collectionOfNetwork, i, quantityOfSeqGREEDY):
+def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
 
-    tmp1 = Network()
-    tmp1.links = pattern1.links
-    tmp1.coverage = pattern1.coverage
-    tmp1.index = pattern1.index
-    tmp1.name = pattern1.name
-    quantityOfSeqGREEDY.append(tmp1)
+    tmp = Network()
+    tmp.links = pattern.links
+    tmp.coverage = pattern.coverage
+    tmp.index = pattern.index
+    tmp.name = pattern.name
+    quantityOfSeqGREEDY.append(tmp)
+    print(i, 'SEQ NA TEN MOMENT:', [n.links for n in quantityOfSeqGREEDY])
 
-    print(pattern1.links)
-    next1 = list(filter(lambda x: set(pattern1.links).issubset(set(x.links)), [n for n in collectionOfNetwork if n.index == i]))
-    print([n1.links for n1 in next1])
-    print([n1.links for n1 in next1], '\n')
 
-    l = len(pattern1.links) + 1
-    # next1 = [r for r in next if len(r.links) == l]
+    next = list(filter(lambda x: set(pattern.links).issubset(set(x.links)), [n for n in collectionOfNetwork if n.index == i]))
+
+    l = len(pattern.links) + 1
+    next = [r for r in next if len(r.links) == l]
+    print(i, 'MOŻLIWOŚCI MAMY TYLE:', [n.links for n in next])
 
 
     try:
-        pattern1 = max(next, key=lambda c: c.coverage)
-        # print(pattern1.links)
+        pattern = max(next, key=lambda c: c.coverage)
+        print(i, 'WYBIERAMY JEDNĄ:', pattern.links, '\n')
 
-        recGreedySeqNetwork(pattern1, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
+        recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
     except:
-        print
+        print('CHCIAŁ Z PUSTEGO WZIĄC MAXA \n')
 
 
 def returnNetCollection(net, pp, seed):
@@ -435,7 +439,7 @@ for l in listOfNetworks:
             quantityOfSeqRANDOM = []
 
             createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
-            createGreedySeq(dict, i, collectionOfNets, quantityOfSeqGREEDY)
+            createGreedySeq(1, collectionOfNets, quantityOfSeqGREEDY)
             createRandomSeq(dict, i, collectionOfNets, quantityOfSeqRANDOM)
 
             # print('RAW GRE', [str(q.coverage) + ' ' + str(q.name) for q in quantityOfSeqGREEDY])
