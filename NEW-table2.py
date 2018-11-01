@@ -15,6 +15,15 @@ import numpy as np
 myFile = open('results/greedy.csv', 'w')
 myFile = open('results/random.csv', 'w')
 myFile = open('results/max.csv', 'w')
+myFile = open('results/linesGREEDY.csv', 'w')
+
+
+def writeLineToFile(name, cont):
+    print(cont)
+    myFile = open('results/' + name +'.csv', 'a+')
+    with myFile as f:
+        writer = csv.writer(f)
+        writer.writerow(cont)
 
 def getLinksArray(net):
 
@@ -203,6 +212,7 @@ myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7'
 
 
 def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
+    print('ZACZYNAM ROBIC RANDOM\n')
 
     collectionOfNetwork = []
 
@@ -219,7 +229,9 @@ def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
         m = 0
 
     for i in range(int(m)):
+        print(i, 'MOŻLIWOŚCI MAMY TYLE:', [n.links for n in collectionOfNetwork if n.index == i])
         pattern = random.choice([n for n in collectionOfNetwork if n.index == i])
+        print(i, 'WYBIERAMY JEDNĄ:', pattern.links)
 
         tmp = Network()
 
@@ -229,6 +241,7 @@ def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
         tmp.name = pattern.name
 
         quantityOfSeqRandom.append(tmp)
+        print(i, 'SEQ NA TEN MOMENT:', [n.links for n in quantityOfSeqRandom], '\n')
 
 
 def createMaxSeq(collection, quantityOfSeqMAX):
@@ -298,6 +311,14 @@ def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
 def createGreedySeq(i, collection, quantityOfSeqGREEDY):
 
     print('ZACZYNAM ROBIC GREEDY\n')
+
+
+    print('KOLEKCJA WYGLADA TAK:')
+    for nets in collection:
+        print(['NAME: ' + net.name + ' ' + 'COV: ' + str(net.coverage) + ' ' + 'INDEX: ' + str(net.index) for net in nets if isinstance(net, Network)])
+        # writeLineToFile('linesGREEDY', str([net.coverage for net in nets if isinstance(net, Network)]))
+    print('\n')
+
     collectionOfNetwork = []
 
     for c in collection:
@@ -315,8 +336,8 @@ def createGreedySeq(i, collection, quantityOfSeqGREEDY):
 
     # for i in range(int(m)):
     pattern = max([n for n in collectionOfNetwork if n.index == 0], key=lambda c: c.coverage)
-    print(0, 'MOŻLIWOŚCI MAMY TYLE:', [n.links for n in collectionOfNetwork if n.index == 0])
-    print(0, 'WYBIERAMY JEDNĄ:', pattern.links, '\n')
+    print(0, 'MOŻLIWOŚCI MAMY TYLE:', ['NAME ' + str(n.name) + ' LINKS ' + str(n.links) for n in collectionOfNetwork if n.index == 0])
+    print(0, 'WYBIERAMY JEDNĄ:',pattern.name, pattern.links, '\n')
 
     recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
 
@@ -336,12 +357,12 @@ def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
 
     l = len(pattern.links) + 1
     next = [r for r in next if len(r.links) == l]
-    print(i, 'MOŻLIWOŚCI MAMY TYLE:', [n.links for n in next])
+    print(i, 'MOŻLIWOŚCI MAMY TYLE:', ['NAME ' + str(n.name) + ' LINKS ' + str(n.links) for n in collectionOfNetwork if n.index == i])
 
 
     try:
         pattern = max(next, key=lambda c: c.coverage)
-        print(i, 'WYBIERAMY JEDNĄ:', pattern.links, '\n')
+        print(i, 'WYBIERAMY JEDNĄ:', pattern.name, pattern.links, '\n')
 
         recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
     except:
@@ -412,7 +433,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 10):
+        for i in range(1, 1000):
 
             infectionsArray = []
 
@@ -441,7 +462,7 @@ for l in listOfNetworks:
             quantityOfSeqMAX = []
             quantityOfSeqRANDOM = []
 
-            createMaxSeq(collectionOfNets, quantityOfSeqMAX)
+            # createMaxSeq(collectionOfNets, quantityOfSeqMAX)
             createGreedySeq(1, collectionOfNets, quantityOfSeqGREEDY)
             createRandomSeq(dict, i, collectionOfNets, quantityOfSeqRANDOM)
 
@@ -457,23 +478,26 @@ for l in listOfNetworks:
             l.seqFromAddedNetworksRANDOMOBJ.append(list(quantityOfSeqRANDOM))
             l.seqFromAddedNetworksRANDOM.append(str(list([q.name for q in quantityOfSeqRANDOM])))
 
-        counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
-        counterMax = Counter(l.seqFromAddedNetworksMAX)
-        counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
+        #counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
+        #counterMax = Counter(l.seqFromAddedNetworksMAX)
+        #counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
 
         # print([value for key, value in counter.most_common()])
         # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
-        selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
+        #selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
-        selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
+        #selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
 
-        selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
+        #selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
 
-
-        averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
-        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
-        averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA])) == selectednetRANDOM[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        # TUTAJ WYBIERAMY Z GŁÓWNEJ TABLICY WSZYSTKIE WYSTĄPIENIA NAJCZESTSZEGO PRZEBIEGU
+        #averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
+        averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
+        #averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        #averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA])) == selectednetRANDOM[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
 
 
 
@@ -482,9 +506,9 @@ for l in listOfNetworks:
         averageGreedy = []
         averageMAX = []
         averageRandom = []
-
+        print('WYSWIETLAM SREDNIE')
         for i in range(0,len(averageGreedyArray[0])):
-            # print([a.coverage for a in averageGreedyArray[:, i]])
+            print([a.coverage for a in averageGreedyArray[:, i]], mean([a.coverage for a in averageGreedyArray[:,i]]))
             # print(mean([a.coverage for a in averageGreedyArray[:,i]]))
             averageGreedy.append(mean([a.coverage for a in averageGreedyArray[:,i]]))
 

@@ -4,149 +4,11 @@
     <list id="0d3b3157-0404-43f6-bf3c-474d4b91ea27" name="Revert: added created seq with max, and display difference between n+1 - n" comment="">
       <change beforePath="" afterPath="$PROJECT_DIR$/results/resultWithE.csv" />
     </list>
-    <list default="true" id="8c593e73-7bde-48db-a7c7-78345109123b" name="Default" comment="clean code">
+    <list default="true" id="8c593e73-7bde-48db-a7c7-78345109123b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/NEW-table2.py" afterPath="$PROJECT_DIR$/NEW-table2.py" />
-      <change beforePath="$PROJECT_DIR$/graphs/41.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/42.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/43.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/44.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/45.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/46.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/51.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/510.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/511.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/512.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/513.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/514.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/515.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/516.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/517.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/518.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/519.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/52.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/520.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/521.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/53.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/54.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/55.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/56.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/57.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/58.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/59.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/61.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/610.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6100.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6101.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6102.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6103.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6104.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6105.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6106.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6107.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6108.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6109.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/611.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6110.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6111.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6112.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/612.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/613.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/614.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/615.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/616.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/617.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/618.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/619.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/62.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/620.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/621.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/622.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/623.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/624.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/625.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/626.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/627.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/628.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/629.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/63.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/630.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/631.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/632.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/633.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/634.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/635.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/636.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/637.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/638.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/639.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/64.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/640.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/641.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/642.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/643.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/644.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/645.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/646.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/647.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/648.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/649.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/65.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/650.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/651.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/652.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/653.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/654.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/655.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/656.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/657.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/658.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/659.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/66.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/660.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/661.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/662.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/663.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/664.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/665.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/666.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/667.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/668.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/669.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/67.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/670.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/671.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/672.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/673.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/674.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/675.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/676.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/677.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/678.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/679.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/68.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/680.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/681.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/682.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/683.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/684.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/685.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/686.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/687.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/688.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/689.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/69.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/690.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/691.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/692.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/693.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/694.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/695.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/696.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/697.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/698.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/699.txt" afterPath="" />
       <change beforePath="$PROJECT_DIR$/results/greedy.csv" afterPath="$PROJECT_DIR$/results/greedy.csv" />
+      <change beforePath="$PROJECT_DIR$/test.csv" afterPath="$PROJECT_DIR$/test.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <file path="$PROJECT_DIR$/results/resultWithE.csv" ignored="false" />
@@ -157,7 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1541064686085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1541101800329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -176,18 +38,30 @@
       <file leaf-file-name="greedyOP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17310">
+            <state relative-caret-position="411">
               <caret line="1163" column="0" lean-forward="false" selection-start-line="1163" selection-start-column="0" selection-end-line="1163" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
+      <file leaf-file-name="NEW-table2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NEW-table2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218745">
-              <caret line="14583" column="0" lean-forward="false" selection-start-line="14583" selection-start-column="0" selection-end-line="14583" selection-end-column="0" />
+            <state relative-caret-position="113">
+              <caret line="435" column="30" lean-forward="false" selection-start-line="435" selection-start-column="30" selection-end-line="435" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="linesGREEDY.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/results/linesGREEDY.csv">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -196,62 +70,18 @@
       <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4545">
-              <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NEW-table2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NEW-table2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="328" column="41" lean-forward="false" selection-start-line="328" selection-start-column="41" selection-end-line="328" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphs.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="random.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/random.csv">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="60" lean-forward="false" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="max.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/max.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="greedy.csv" pinned="false" current-in-tab="false">
+      <file leaf-file-name="greedy.csv" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/results/greedy.csv">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -268,8 +98,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>filter</find>
-      <find>max</find>
       <find>quantityOfSeqGREEDY</find>
       <find>seqFromAddedNetworksGREEDY</find>
       <find>seqFromAddedNetworksMAX</find>
@@ -289,15 +117,17 @@
       <find>DIFFERENCE</find>
       <find>reverse</find>
       <find>42.txt</find>
-      <find>createMaxSeq</find>
       <find>COVERAGE</find>
       <find>choice</find>
       <find>random</find>
       <find>random.choice</find>
       <find>print</find>
       <find>GREEDY MAX</find>
-      <find>createGreedySeq</find>
       <find>recGreedySeqNetwork</find>
+      <find>createMaxSeq</find>
+      <find>createGreedySeq</find>
+      <find>mean([a.coverage for a in averageGreedyArray[:,i]])</find>
+      <find>SREDNIE</find>
     </findStrings>
     <replaceStrings>
       <replace>r1</replace>
@@ -314,6 +144,11 @@
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="REBASE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -329,7 +164,6 @@
         <option value="$PROJECT_DIR$/results/resultsWithMaxValue.csv" />
         <option value="$PROJECT_DIR$/results/averageCoverageForOnePair.csv" />
         <option value="$PROJECT_DIR$/results/countedMaxValuesPerOnePair.csv" />
-        <option value="$PROJECT_DIR$/results/greedy.csv" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/greedyWithTest.py" />
         <option value="$PROJECT_DIR$/netxWIthouy.py" />
@@ -356,10 +190,11 @@
         <option value="$PROJECT_DIR$/greedy-OP/seeds/6_3_seeds.txt" />
         <option value="$PROJECT_DIR$/greedy-OP/seeds/6_4_seeds.txt" />
         <option value="$PROJECT_DIR$/greedy-OP/test.csv" />
-        <option value="$PROJECT_DIR$/test.csv" />
         <option value="$PROJECT_DIR$/results/results.csv" />
         <option value="$PROJECT_DIR$/greedy-OP/greedyOP.py" />
         <option value="$PROJECT_DIR$/graphs.py" />
+        <option value="$PROJECT_DIR$/test.csv" />
+        <option value="$PROJECT_DIR$/results/greedy.csv" />
         <option value="$PROJECT_DIR$/NEW-table2.py" />
       </list>
     </option>
@@ -689,56 +524,79 @@
       <option name="project" value="LOCAL" />
       <updated>1540768506324</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="watch out for filter objects!!!!!!">
+      <created>1541065000695</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1541065000695</updated>
+    </task>
+    <task id="LOCAL-00030" summary="added comments for generating GREEDY SEQ">
+      <created>1541093188442</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1541093188442</updated>
+    </task>
+    <task id="LOCAL-00031" summary="added comments for generating MAX SEQ">
+      <created>1541093803768</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1541093803768</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="984" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43082115" sideWeight="0.2657082" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.4978701" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.48509052" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36895388" sideWeight="0.7342918" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733408" sideWeight="0.6970181" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43082115" sideWeight="0.2657082" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.4978701" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.48509052" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38357705" sideWeight="0.7342918" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733408" sideWeight="0.6970181" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18104367" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43024495" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982002" sideWeight="0.4978701" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982002" sideWeight="0.4978701" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.52980876" sideWeight="0.5021299" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.43082115" sideWeight="0.4978701" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32795697" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25026625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43082115" sideWeight="0.2657082" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.4978701" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.48509052" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38357705" sideWeight="0.7342918" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733408" sideWeight="0.6970181" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18104367" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.015974442" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43024495" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982002" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982002" sideWeight="0.4978701" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -785,7 +643,10 @@
     <MESSAGE value="tapeof changed to isinstance" />
     <MESSAGE value="clean code" />
     <MESSAGE value="graphs added" />
-    <option name="LAST_COMMIT_MESSAGE" value="graphs added" />
+    <MESSAGE value="watch out for filter objects!!!!!!" />
+    <MESSAGE value="added comments for generating GREEDY SEQ" />
+    <MESSAGE value="added comments for generating MAX SEQ" />
+    <option name="LAST_COMMIT_MESSAGE" value="added comments for generating MAX SEQ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -804,7 +665,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/graphs/42.txt" />
     <entry file="file://$PROJECT_DIR$/graphs/811107.txt" />
     <entry file="file://$PROJECT_DIR$/greedy-OP/listOfDifferencesInRandom.csv">
       <provider selected="true" editor-type-id="text-editor">
@@ -1073,36 +933,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_import_hook.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/random.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17310">
-          <caret line="1163" column="0" lean-forward="false" selection-start-line="1163" selection-start-column="0" selection-end-line="1163" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,23 +947,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.csv">
+    <entry file="file://$PROJECT_DIR$/graphs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4545">
-          <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#31#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="218745">
-          <caret line="14583" column="0" lean-forward="false" selection-start-line="14583" selection-start-column="0" selection-end-line="14583" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/greedy.csv">
+    <entry file="file://$PROJECT_DIR$/results/random.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -1145,13 +973,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1486">
+          <caret line="14583" column="0" lean-forward="false" selection-start-line="14583" selection-start-column="0" selection-end-line="14583" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="1163" column="0" lean-forward="false" selection-start-line="1163" selection-start-column="0" selection-end-line="1163" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/linesGREEDY.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NEW-table2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="328" column="41" lean-forward="false" selection-start-line="328" selection-start-column="41" selection-end-line="328" selection-end-column="41" />
+        <state relative-caret-position="113">
+          <caret line="435" column="30" lean-forward="false" selection-start-line="435" selection-start-column="30" selection-end-line="435" selection-end-column="30" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="60" lean-forward="false" selection-start-line="0" selection-start-column="60" selection-end-line="0" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/greedy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
