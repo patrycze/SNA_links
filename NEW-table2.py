@@ -231,8 +231,8 @@ def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
         quantityOfSeqRandom.append(tmp)
 
 
-def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
-
+def createMaxSeq(collection, quantityOfSeqMAX):
+    print('ZACZYNAM ROBIC MAXA\n')
     collectionOfNetwork = []
 
     for c in collection:
@@ -248,7 +248,9 @@ def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
         m = 0
 
     for i in range(int(m)):
+        print(i, 'MOŻLIWOŚCI MAMY TYLE:', [n.links for n in collectionOfNetwork if n.index == i])
         pattern = max([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
+        print(i, 'WYBIERAMY JEDNĄ:', pattern.links)
 
         tmp = Network()
 
@@ -258,6 +260,7 @@ def createMaxSeq(dict, i, collection, quantityOfSeqMAX):
         tmp.name = pattern.name
 
         quantityOfSeqMAX.append(tmp)
+        print(i, 'SEQ NA TEN MOMENT:', [n.links for n in quantityOfSeqMAX], '\n')
 
         # if(i == m-1):
         #     pattern = max([n for n in collectionOfNetwork if n.index == i ], key=lambda c: c.coverage)
@@ -438,7 +441,7 @@ for l in listOfNetworks:
             quantityOfSeqMAX = []
             quantityOfSeqRANDOM = []
 
-            createMaxSeq(dict, i, collectionOfNets, quantityOfSeqMAX)
+            createMaxSeq(collectionOfNets, quantityOfSeqMAX)
             createGreedySeq(1, collectionOfNets, quantityOfSeqGREEDY)
             createRandomSeq(dict, i, collectionOfNets, quantityOfSeqRANDOM)
 
