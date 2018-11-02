@@ -412,7 +412,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 10):
+        for i in range(1, 500):
 
             infectionsArray = []
 
@@ -458,22 +458,22 @@ for l in listOfNetworks:
             l.seqFromAddedNetworksRANDOM.append(str(list([q.name for q in quantityOfSeqRANDOM])))
 
         counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
-        counterMax = Counter(l.seqFromAddedNetworksMAX)
-        counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
+        # counterMax = Counter(l.seqFromAddedNetworksMAX)
+        # counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
 
         # print([value for key, value in counter.most_common()])
         # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
-        selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
+        # selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
         selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
 
-        selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
+        # selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
 
 
         averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
-        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
-        averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA])) == selectednetRANDOM[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA]))]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA]))]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
 
 
 
