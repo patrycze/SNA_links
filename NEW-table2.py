@@ -463,19 +463,51 @@ for l in listOfNetworks:
 
         # print([value for key, value in counter.most_common()])
         # print(max(counterMax.most_common(), key=lambda t: t[1])) # CHYBA ZWRACA MAXA
-        selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
+        # selectednetMAX = max(counterMax.most_common(), key=lambda t: t[1])
 
         # print(max(counterGreedy.most_common(), key=lambda t: t[1]), '\n') # CHYBA ZWRACA MAXA
         selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
 
-        selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
+        # selectednetRANDOM = max(counterRandom.most_common(), key=lambda t: t[1])
 
+        mostCommonElementsInMAX = []
+        seqMAXOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ])
+        for i in range(0, len(seqMAXOBJ[0])):
+
+            # mostCommonPerI.append(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])
+            network = list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])[0]
+
+            mostCommonElementsInMAX.append(
+                [greedyA for greedyA in [t for t in seqMAXOBJ[:, i]] if greedyA.name == network])
+        print('NAJCZESTSZA MAX')
+        print(Counter([t.name for t in seqMAXOBJ[:, 0]]).most_common())
+        print(0, [m.coverage for m in mostCommonElementsInMAX[0]])
+
+        # mostCommonPerI = []
+        mostCommonElementsInRANDOM = []
+        seqRANODMOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksRANDOMOBJ])
+        for i in range(0, len(seqRANODMOBJ[0])):
+
+            # mostCommonPerI.append(Counter([t.name for t in seqRANODMOBJ[:, i]]).most_common()[0])
+            network = list(Counter([t.name for t in seqRANODMOBJ[:, i]]).most_common()[0])[0]
+            mostCommonElementsInRANDOM.append(
+                [greedyA for greedyA in [t for t in seqRANODMOBJ[:, i]] if greedyA.name == network])
+
+        print('NAJCZESTSZA RANDOM')
+        print(Counter([t.name for t in seqRANODMOBJ[:, 0]]).most_common())
+        print(0, [m.coverage for m in mostCommonElementsInRANDOM[0]])
 
         averageGreedyArray = np.array([greedyA for greedyA in l.seqFromAddedNetworksGREEDYOBJ if str(list([q.name for q in greedyA])) == selectednetGREEDY[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI
-        averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
-        averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA])) == selectednetRANDOM[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        # averageMaxArray = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ if str(list([m.name for m in maxA])) == selectednetMAX[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+        # averageRandomArray = np.array([randomA for randomA in l.seqFromAddedNetworksRANDOMOBJ if str(list([r.name for r in randomA])) == selectednetRANDOM[0]]) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
+
+        print('NAJCZESTSZA GREEDY')
+        for l1 in l.seqFromAddedNetworksGREEDYOBJ:
+            print([n.name + ' - ' + str(n.coverage) for n in l1])
 
 
+        print('NAJCZESTSZA GREEDY')
+        print(0, [a.coverage for a in averageGreedyArray[:, 0]])
 
         # averageMaxArray = np.array(l.seqFromAddedNetworksMAXOBJ) #SREDNIA Z NAJCZESCIEJ WYSTEPUJACYCH PRZEBIEGOW - ZSUMOWANIE TABLIC Z WYNIKAMI, NASTEPNY KROK
 
@@ -488,15 +520,15 @@ for l in listOfNetworks:
             # print(mean([a.coverage for a in averageGreedyArray[:,i]]))
             averageGreedy.append(mean([a.coverage for a in averageGreedyArray[:,i]]))
 
-        for i in range(0, len(averageMaxArray[0])):
+        for i in range(0, len(mostCommonElementsInMAX)):
             # print([a.coverage for a in averageMaxArray[:, i]])
             # print(mean([a.coverage for a in averageMaxArray[:, i]]))
-            averageMAX.append(mean([a.coverage for a in averageMaxArray[:, i]]))
+            averageMAX.append(mean([a.coverage for a in mostCommonElementsInMAX[i]]))
 
-        for i in range(0, len(averageRandomArray[0])):
+        for i in range(0, len(mostCommonElementsInRANDOM)):
             # print([a.coverage for a in averageRandomArray[:, i]])
             # print(mean([a.coverage for a in averageRandomArray[:, i]]))
-            averageRandom.append(mean([a.coverage for a in averageRandomArray[:, i]]))
+            averageRandom.append(mean([a.coverage for a in mostCommonElementsInRANDOM[i]]))
 
 
         # for key, value in dict.items():
