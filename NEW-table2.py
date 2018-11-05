@@ -152,7 +152,7 @@ class Network:
     coverage = 0
     index = 0
 
-with open('test.csv', "r") as f:
+with open('networksForGreedy.csv', "r") as f:
     for line in f:
         combinationsArray.append(line)
     for c in combinationsArray:
@@ -326,17 +326,10 @@ selectedNetworks = []
 
 
 for l in listOfNetworks:
-
-    if str(l.net) + str(l.pp) + str(l.seed) not in selectedNetworks:
-
-        selectedNetworks.append(str(l.net) + str(l.pp) + str(l.seed))
-
+        print(l.net, [n.name for n in l.addedNetworks if isinstance(n,Network)])
         l.seqFromAddedNetworksGREEDY = []
-        l.seqFromAddedNetworksGREEDYOBJ = []
         l.seqFromAddedNetworksMAX = []
-        l.seqFromAddedNetworksMAXOBJ = []
         l.seqFromAddedNetworksRANDOM = []
-        l.seqFromAddedNetworksRANDOMOBJ = []
 
         infections = []
 
@@ -367,79 +360,15 @@ for l in listOfNetworks:
                 if n == '':
                     print
 
-            for n in restOfNetworks:
-                for net in list(set([net
-                                for collection in collectionOfNets
-                                    for net in collection if isinstance(net, Network)
-                                            ])):
-                    if(n == net.name):
-                        sim = simulation(l.pp, net.name, l.seed)  # zmiana z l na n
-                        net.coverage = sim[0]
-
-            quantityOfSeqGREEDY = []
-            quantityOfSeqMAX = []
-            quantityOfSeqRANDOM = []
-
-            createMaxSeq(collectionOfNets, quantityOfSeqMAX)
-            createGreedySeq(1, collectionOfNets, quantityOfSeqGREEDY)
-            createRandomSeq(dict, i, collectionOfNets, quantityOfSeqRANDOM)
-
-            l.seqFromAddedNetworksGREEDY.append(str(list([q.name for q in quantityOfSeqGREEDY])))
-            l.seqFromAddedNetworksGREEDYOBJ.append(quantityOfSeqGREEDY)
-
-            l.seqFromAddedNetworksMAXOBJ.append(list(quantityOfSeqMAX))
-            l.seqFromAddedNetworksMAX.append(str(list([q.name for q in quantityOfSeqMAX])))
-
-            l.seqFromAddedNetworksRANDOMOBJ.append(list(quantityOfSeqRANDOM))
-            l.seqFromAddedNetworksRANDOM.append(str(list([q.name for q in quantityOfSeqRANDOM])))
-
-        counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
-        counterMax = Counter(l.seqFromAddedNetworksMAX)
-        counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
-
-        selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
-
-        mostCommonNetMax = []
-        mostCommonElementsInMAX = []
-        seqMAXOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ])
-        for i in range(0, len(seqMAXOBJ[0])):
-            mostCommonNetMax.append(list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])[0])
-            network = list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])[0]
-
-        mostCommonNetRandom = []
-        mostCommonElementsInRANDOM = []
-        seqRANODMOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksRANDOMOBJ])
-        for i in range(0, len(seqRANODMOBJ[0])):
-            mostCommonNetRandom.append(list(Counter([t.name for t in seqRANODMOBJ[:, i]]).most_common()[0])[0])
-
+        for key, value in dict.items():
+            dict[key] = mean(value)
 
         x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
         tmp = [value for key, value in dict.items()]
-        x1 = {str(i): x for i, x in enumerate(mostCommonNetRandom)}
+        x1 = {str(i): x for i, x in enumerate(tmp)}
         x.update(x1)
 
-        myFile = open('results/networksForRandom.csv', 'a+')
-        with myFile:
-            writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
-            writer.writerow(x)
-
-        x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
-        tmp = [value for key, value in dict.items()]
-        x1 = {str(i): x for i, x in enumerate(mostCommonNetMax)}
-        x.update(x1)
-
-        myFile = open('results/networksForMax.csv', 'a+')
-        with myFile:
-            writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
-            writer.writerow(x)
-
-        x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
-        tmp = [value for key, value in dict.items()]
-        tmpArr = selectednetGREEDY[0].replace('[', '').replace(']', '').replace('\'', '').split(",")
-        x1 = {str(i): x for i, x in enumerate(tmpArr)}
-        x.update(x1)
-
-        myFile = open('results/networksForGreedy.csv', 'a+')
+        myFile = open('results/averageGREEDY.csv', 'a+')
         with myFile:
             writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
             writer.writerow(x)
