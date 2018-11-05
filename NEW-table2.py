@@ -397,20 +397,24 @@ for l in listOfNetworks:
         counterMax = Counter(l.seqFromAddedNetworksMAX)
         counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
 
-        selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t[1])
-
+        selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t)
+        print(selectednetGREEDY)
         mostCommonNetMax = []
         mostCommonElementsInMAX = []
         seqMAXOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ])
         for i in range(0, len(seqMAXOBJ[0])):
-            mostCommonNetMax.append(list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])[0])
+            tmp = list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])
+            mostCommonNetMax.append(tmp[0])
+            mostCommonNetMax.append(tmp[1])
             network = list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])[0]
 
         mostCommonNetRandom = []
         mostCommonElementsInRANDOM = []
         seqRANODMOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksRANDOMOBJ])
         for i in range(0, len(seqRANODMOBJ[0])):
-            mostCommonNetRandom.append(list(Counter([t.name for t in seqRANODMOBJ[:, i]]).most_common()[0])[0])
+            tmp = list(Counter([t.name for t in seqRANODMOBJ[:, i]]).most_common()[0])
+            mostCommonNetRandom.append(tmp[0])
+            mostCommonNetRandom.append(tmp[1])
 
 
         x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
@@ -436,6 +440,7 @@ for l in listOfNetworks:
         x = {'net': l.net, 'PP': l.pp, 'seed': l.seed, 'space': ' '}
         tmp = [value for key, value in dict.items()]
         tmpArr = selectednetGREEDY[0].replace('[', '').replace(']', '').replace('\'', '').split(",")
+        tmpArr.append(selectednetGREEDY[1])
         x1 = {str(i): x for i, x in enumerate(tmpArr)}
         x.update(x1)
 
