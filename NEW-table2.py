@@ -1,3 +1,4 @@
+from __future__ import division
 from igraph import *
 import random
 # import matplotlib.pyplot as plt
@@ -353,7 +354,7 @@ for l in listOfNetworks:
                                     for net in collection if isinstance(net, Network)
                                             ]) - set([net.name for net in l.addedNetworks if isinstance(net, Network)]))
 
-        for i in range(1, 2):
+        for i in range(1, 10000):
 
             infectionsArray = []
 
@@ -394,19 +395,37 @@ for l in listOfNetworks:
             l.seqFromAddedNetworksRANDOM.append(str(list([q.name for q in quantityOfSeqRANDOM])))
 
         counterGreedy = Counter(l.seqFromAddedNetworksGREEDY)
-        counterMax = Counter(l.seqFromAddedNetworksMAX)
-        counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
+        # counterMax = Counter(l.seqFromAddedNetworksMAX)
+        # counterRandom = Counter(l.seqFromAddedNetworksRANDOM)
 
         selectednetGREEDY = max(counterGreedy.most_common(), key=lambda t: t)
-        print(selectednetGREEDY)
+        # print(selectednetGREEDY)
         mostCommonNetMax = []
-        mostCommonElementsInMAX = []
-        seqMAXOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ])
+
+        # mostCommonElementsInMAX = []
+        # print([maxA for maxA in l.seqFromAddedNetworksMAXOBJ])
+
+        seqMAXOBJ = np.array([maxA for maxA in l.seqFromAddedNetworksMAXOBJ ])
         for i in range(0, len(seqMAXOBJ[0])):
-            tmp = list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])
-            mostCommonNetMax.append(tmp[0])
-            mostCommonNetMax.append(tmp[1])
-            network = list(Counter([t.name for t in seqMAXOBJ[:, i]]).most_common()[0])[0]
+
+            avgMAX = {'avg': 0, 'net': ''}
+            nets = list(set([t.name for t in seqMAXOBJ[:, i]]))
+            for net in nets:
+                print([n.coverage for n in seqMAXOBJ[:, i]])
+                tmp = [n.coverage for n in seqMAXOBJ[:, i] if n.name == net]
+                tmpAVG = (sum(tmp) / 10000)
+                print(tmpAVG)
+
+                if(avgMAX['avg'] < tmpAVG):
+                    avgMAX['avg'] = tmpAVG
+                    avgMAX['net'] = net
+
+            mostCommonNetMax.append(avgMAX['net'])
+            mostCommonNetMax.append(avgMAX['avg'])
+
+
+
+
 
         mostCommonNetRandom = []
         mostCommonElementsInRANDOM = []
