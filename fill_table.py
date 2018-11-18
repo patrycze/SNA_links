@@ -62,7 +62,7 @@ def simulation(pp, net, seedsArray, i):
 
     array = []
 
-    readFileToArray('C:\\SNA_Links\\SNA_links\\wagi\\n1_' + str(i) + '.txt', array)
+    readFileToArray('wagi/n1_' + str(i) + '.txt', array)
 
     g = Graph.Read_Ncol('graphs-ORIGINAL/' + net, directed=False)
 
@@ -134,7 +134,7 @@ def simulation(pp, net, seedsArray, i):
         s = s + 1
 
         coverage = 100 * (numberofseeds + infections) / nodes
-        return infections + numberofseeds, s - 1, coverage, net
+        return infections + numberofseeds, s - 1, coverage, net, pp
 
 
 spARR = [0.1875]
@@ -210,7 +210,7 @@ for l in listOfNetworks:
 myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13',
                 '14', '15', '16']
 
-myFields1 = ['inf','seed','cov','net']
+myFields1 = ['inf','seed','cov','net', 'pp']
 def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
 
     collectionOfNetwork = []
@@ -387,28 +387,30 @@ for l in listOfNetworks:
             if isinstance(n, Network):
                 print(n.name)
                 infectionsArray = []
+                first = False
 
-                for i in range(1, 10):
+                if(isinstance(n, Network) and n.name.endswith('.txt')):
+                    row = str(l.pp) + ' ' +  str(n.name) + ' ' +  str(l.seed)
+                    print('ROW', row)
 
-                    # if(isinstance(n, Network) and n.name.endswith('.txt')):
-                    #     row = str(l.pp) + ' ' +  str(n.name) + ' ' +  str(l.seed)
-                    #     if row not in existList:
-                    #         existList.append(row)
+                    for i in range(1, 1000):
 
-                    sim = simulation(l.pp, n.name, l.seed, i)   # zmiana z l na n
-                    n.coverage = sim[0]
+                        sim = simulation(l.pp, n.name, l.seed, i)   # zmiana z l na n
+                        n.coverage = sim[0]
 
-                    dict[n].append(sim[0])
-                    # flag = checkExist(n.name)
-                    # print(flag)
+                        dict[n].append(sim[0])
+                        # flag = checkExist(n.name)
+                        # print(flag)
+                        if row not in existList or first == True:
+                            existList.append(row)
+                            first = True
+                            myFile = open('resultsPerNet/' + sim[3] + '_' + str(l.pp) + '_' + str(l.seed) + '.txt', 'a+')
+                            with myFile:
+                                writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields1, extrasaction='ignore')
+                                writer.writerow({'inf': sim[0],'seed': sim[1],'cov': sim[2],'net': n.name, 'pp': sim[4]})
 
-                    myFile = open('resultsPerNet/' + sim[3] + '_' + str(l.pp) + '_' + str(l.seed) + '.txt', 'a+')
-                    with myFile:
-                        writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields1, extrasaction='ignore')
-                        writer.writerow({'inf': sim[0],'seed': sim[1],'cov': sim[2],'net': sim[3]})
-
-                    if n == '':
-                        print
+                        if n == '':
+                            print
 
                     # flag = checkExist(l.net + '.txt')
 
@@ -422,7 +424,7 @@ for l in listOfNetworks:
         tmp = [value for key, value in dict.items()]
         x1 = {str(i): x for i, x in enumerate(tmp)}
         x.update(x1)
-        # print(x)
+        print(x)
         myFile = open('results/averageGREEDY.csv', 'a+')
         with myFile:
             writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')

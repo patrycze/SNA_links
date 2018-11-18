@@ -1,155 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list id="0d3b3157-0404-43f6-bf3c-474d4b91ea27" name="Revert: added created seq with max, and display difference between n+1 - n" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/results/resultWithE.csv" />
-    </list>
+    <list id="0d3b3157-0404-43f6-bf3c-474d4b91ea27" name="Revert: added created seq with max, and display difference between n+1 - n" comment="" />
     <list default="true" id="8c593e73-7bde-48db-a7c7-78345109123b" name="Default" comment="clean code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/NEW-table2.py" afterPath="$PROJECT_DIR$/NEW-table2.py" />
-      <change beforePath="$PROJECT_DIR$/graphs/41.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/42.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/43.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/44.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/45.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/46.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/51.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/510.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/511.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/512.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/513.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/514.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/515.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/516.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/517.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/518.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/519.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/52.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/520.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/521.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/53.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/54.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/55.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/56.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/57.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/58.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/59.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/61.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/610.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6100.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6101.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6102.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6103.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6104.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6105.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6106.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6107.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6108.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6109.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/611.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6110.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6111.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/6112.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/612.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/613.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/614.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/615.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/616.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/617.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/618.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/619.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/62.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/620.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/621.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/622.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/623.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/624.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/625.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/626.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/627.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/628.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/629.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/63.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/630.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/631.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/632.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/633.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/634.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/635.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/636.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/637.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/638.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/639.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/64.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/640.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/641.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/642.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/643.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/644.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/645.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/646.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/647.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/648.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/649.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/65.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/650.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/651.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/652.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/653.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/654.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/655.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/656.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/657.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/658.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/659.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/66.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/660.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/661.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/662.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/663.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/664.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/665.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/666.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/667.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/668.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/669.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/67.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/670.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/671.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/672.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/673.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/674.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/675.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/676.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/677.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/678.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/679.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/68.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/680.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/681.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/682.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/683.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/684.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/685.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/686.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/687.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/688.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/689.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/69.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/690.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/691.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/692.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/693.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/694.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/695.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/696.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/697.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/698.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/graphs/699.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/results/greedy.csv" afterPath="$PROJECT_DIR$/results/greedy.csv" />
+      <change beforePath="$PROJECT_DIR$/fill_table.py" afterPath="$PROJECT_DIR$/fill_table.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <file path="$PROJECT_DIR$/results/resultWithE.csv" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1541064686085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/SNA_links$s1.coverage" NAME="s1 Coverage Results" MODIFIED="1542573917380" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -173,82 +30,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="greedyOP.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
+      <file leaf-file-name="fill_table.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fill_table.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17310">
-              <caret line="1163" column="0" lean-forward="false" selection-start-line="1163" selection-start-column="0" selection-end-line="1163" selection-end-column="0" />
+            <state relative-caret-position="159">
+              <caret line="395" column="42" lean-forward="false" selection-start-line="395" selection-start-column="42" selection-end-line="395" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/greedy-OP/test.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="218745">
-              <caret line="14583" column="0" lean-forward="false" selection-start-line="14583" selection-start-column="0" selection-end-line="14583" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4545">
-              <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NEW-table2.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/NEW-table2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="328" column="41" lean-forward="false" selection-start-line="328" selection-start-column="41" selection-end-line="328" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="graphs.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/graphs.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="random.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/random.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="max.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/max.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="greedy.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/results/greedy.csv">
+      <file leaf-file-name="averageGREEDY.csv" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/results/averageGREEDY.csv">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -361,6 +154,7 @@
         <option value="$PROJECT_DIR$/greedy-OP/greedyOP.py" />
         <option value="$PROJECT_DIR$/graphs.py" />
         <option value="$PROJECT_DIR$/NEW-table2.py" />
+        <option value="$PROJECT_DIR$/fill_table.py" />
       </list>
     </option>
   </component>
@@ -370,7 +164,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="984" />
@@ -390,6 +184,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -401,13 +196,12 @@
             <path>
               <item name="SNA_links" type="b2602c69:ProjectViewProjectNode" />
               <item name="SNA_links" type="462c0819:PsiDirectoryNode" />
-              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -471,7 +265,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="SNA_links" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NEW-table2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fill_table.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -693,17 +487,16 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="984" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="989" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43082115" sideWeight="0.2657082" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.4978701" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295838" sideWeight="0.48509052" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36895388" sideWeight="0.7342918" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36800894" sideWeight="0.7342918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32733408" sideWeight="0.6970181" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18104367" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18423855" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43024495" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -711,6 +504,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982002" sideWeight="0.4978701" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -804,308 +598,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/graphs/42.txt" />
-    <entry file="file://$PROJECT_DIR$/graphs/811107.txt" />
-    <entry file="file://$PROJECT_DIR$/greedy-OP/listOfDifferencesInRandom.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/resultWithE.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="3" column="199" lean-forward="true" selection-start-line="3" selection-start-column="199" selection-end-line="3" selection-end-column="199" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/random.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1253">
-          <caret line="0" column="69" lean-forward="false" selection-start-line="0" selection-start-column="69" selection-end-line="0" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/resultWithE.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphs-ORIGINAL/53.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/random-new.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="1" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="0" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/hehe.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/combinations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/8_3_seeds.txt" />
-    <entry file="file://$PROJECT_DIR$/seeds/6_2_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/5_4_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/connectGreedyWithMeasures.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="23" lean-forward="false" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nodes_graph.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NEW.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1702">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/4_1_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/5_3_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/5_1_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/4_3_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/5_2_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/4_2_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/6_4_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/seeds/6_5_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/6_1_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/5_1_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/4_1_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/6_2_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/5_2_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="3" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/4_2_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/4_3_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/6_3_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/5_3_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/6_4_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/seeds/5_4_seeds.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" lean-forward="true" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graph_base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="16" column="4" lean-forward="false" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../_infa/modelowanie dyfuzji/python/sym1/venv/lib/python3.5/random.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3690">
-          <caret line="252" column="0" lean-forward="false" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/max.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="6" column="62" lean-forward="false" selection-start-line="6" selection-start-column="62" selection-end-line="6" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/greedy.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="24" selection-end-line="22" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/maxToDisplay.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/results.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-540">
-          <caret line="0" column="67" lean-forward="false" selection-start-line="0" selection-start-column="67" selection-end-line="0" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/graphs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_import_hook.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/results/random.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17310">
-          <caret line="1163" column="0" lean-forward="false" selection-start-line="1163" selection-start-column="0" selection-end-line="1163" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tabelka.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -1113,11 +605,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.csv">
+    <entry file="file://$PROJECT_DIR$/greedy-OP/greedyOP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4545">
-          <caret line="303" column="57" lean-forward="false" selection-start-line="303" selection-start-column="57" selection-end-line="303" selection-end-column="57" />
-          <folding />
+        <state relative-caret-position="17310">
+          <caret line="1163" column="0" lean-forward="false" selection-start-line="1163" selection-start-column="0" selection-end-line="1163" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1125,15 +616,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218745">
           <caret line="14583" column="0" lean-forward="false" selection-start-line="14583" selection-start-column="0" selection-end-line="14583" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/results/greedy.csv">
+    <entry file="file://$PROJECT_DIR$/test.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="61" lean-forward="false" selection-start-line="33" selection-start-column="61" selection-end-line="33" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/random.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1141,17 +644,345 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/greedy.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NEW-table2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="328" column="41" lean-forward="false" selection-start-line="328" selection-start-column="41" selection-end-line="328" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="146">
+          <caret line="335" column="0" lean-forward="false" selection-start-line="335" selection-start-column="0" selection-end-line="335" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/56.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/45.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/51.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/avaregeForResults.R">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/avarageGREEDY.csv" />
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/58.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/44.txt_0.1_['3'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/45.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/43.txt_0.1_['3'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/43.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/42.txt_0.1_['3'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/42.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/42.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/41.txt_0.1_['3'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/53.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/51.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/51.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/46.txt_0.1_['3'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/46.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/45.txt_0.1_['3'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/53.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/56.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/517.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/519.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/514.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/46.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/46.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/520.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/520.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/514.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/517.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/519.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/43.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/41.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/41.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-900">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/41.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1020">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/42.txt_0.1_['0'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-297">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/averageGREEDY.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/43.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/44.txt_0.1_['1'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resultsPerNet/45.txt_0.1_['2'].txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fill_table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="395" column="42" lean-forward="false" selection-start-line="395" selection-start-column="42" selection-end-line="395" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
