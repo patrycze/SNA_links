@@ -56,7 +56,10 @@ def getLinksArray(net):
     return edges
 
 def simulation(pp, net, seedsArray, i):
-    # print(seedsArray)
+    # print(i)
+
+    # i = 76
+
     s = 1;
     isInfecting = True
 
@@ -72,7 +75,7 @@ def simulation(pp, net, seedsArray, i):
     numberofseeds = int(len(seedsArray))
     # print(numberofseeds)
     infections = 0
-
+    # plot(g)
 
     for i in range(0, nodes):
         g.vs[i]["infected"] = 0
@@ -101,44 +104,61 @@ def simulation(pp, net, seedsArray, i):
         nodes = Graph.vcount(g)
         for j in range(0, nodes):
 
-            if (g.vs[j]["infected"] == 1 and g.vs[j]["used"] == 0 and g.vs[j]["stepinfected"] != s):
-                g.vs[j]["used"] = 1
-                neighborstab = g.neighbors(j, mode="out")
+
+            x = g.vs.find(str(j))
+            node = int(x.index)
+
+            print(x)
+
+
+            if (g.vs[node]["infected"] == 1 and g.vs[node]["used"] == 0 and g.vs[node]["stepinfected"] != s):
+                g.vs[node]["used"] = 1
+
+                neighborstab = g.neighbors(node, mode="all")
+
+                # print('wchodze z ', x)
 
                 if (len(neighborstab) > 0):
                     n = 0
                     notinfected = []
                     for i in range(0, len(neighborstab)):
                         if (g.vs[neighborstab[i]]["infected"] == 0):
+
+                            # x = g.vs.find(str(neighborstab[i]))
+                            # nodeNeigh = int(x.index)
+
                             notinfected.append(neighborstab[i])
-                    # print(notinfected)
+
+
+
+                    # print('notinfected', notinfected)
                     numberofneighbors = len(notinfected)
 
                     if notinfected:
                         for k in range(0, numberofneighbors):
                             if (numberofneighbors >= 1):
                                 # x = random.random()
-                                x = searchInArray(g.vs[j]['name'], g.vs[notinfected[k]]['name'], array)
+
+
+                                x = searchInArray(g.vs[node]['name'], g.vs[notinfected[k]]['name'], array)
+                                # print('x', g.vs[j]['name'], g.vs[notinfected[k]]['name'], x)
 
                                 if (float(x) <= float(pp)):
                                     g.vs[notinfected[k]]["infected"] = 1
                                     g.vs[notinfected[k]]["stepinfected"] = s
                                     g.vs[notinfected[k]]["used"] = 0
                                     g.vs[notinfected[k]]["color"] = "blue"
-                                    line = "INFEKCJA " + str(g.vs[j]['name']) + ' ' + str(g.vs[notinfected[k]]['name']) + ' ' + str(x) + "\n\n"
+                                    # line = "INFEKCJA " + str(g.vs[node]['name']) + ' ' + str(g.vs[notinfected[k]]['name']) + ' ' + str(x) + "\n\n"
+                                    # print(line)
                                     infections = infections + 1
+                    s = s + 1
 
         if (infecting == infections):
             isInfecting = False
 
-        s = s + 1
 
         coverage = 100 * (numberofseeds + infections) / nodes
         return infections + numberofseeds, s - 1, coverage, net, pp
-
-
-spARR = [0.1875]
-ppARR = [0.1, 0.2, 0.3, 0.4, 0.5]
 
 
 
@@ -211,137 +231,138 @@ myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7'
                 '14', '15', '16']
 
 myFields1 = ['inf','seed','cov','net', 'pp']
-def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
 
-    collectionOfNetwork = []
+# def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
+#
+#     collectionOfNetwork = []
+#
+#     for c in collection:
+#         for n in c:
+#             if isinstance(n, Network):
+#                 collectionOfNetwork.append(n)
+#
+#     try:
+#         m = max(collectionOfNetwork, key=lambda c: c.index)
+#         m = m.index + 1
+#     except:
+#         print
+#         m = 0
+#
+#     for i in range(int(m)):
+#         pattern = random.choice([n for n in collectionOfNetwork if n.index == i])
+#
+#         tmp = Network()
+#
+#         tmp.links = pattern.links
+#         tmp.coverage = pattern.coverage
+#         tmp.index = pattern.index
+#         tmp.name = pattern.name
+#
+#         quantityOfSeqRandom.append(tmp)
+#
 
-    for c in collection:
-        for n in c:
-            if isinstance(n, Network):
-                collectionOfNetwork.append(n)
+# def createMaxSeq(collection, quantityOfSeqMAX):
+#     collectionOfNetwork = []
+#
+#     for c in collection:
+#         for n in c:
+#             if isinstance(n, Network):
+#                 collectionOfNetwork.append(n)
+#
+#     try:
+#         m = max(collectionOfNetwork, key=lambda c: c.index)
+#         m = m.index + 1
+#     except:
+#         print
+#         m = 0
+#
+#     for i in range(int(m)):
+#         pattern = max([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
+#
+#         tmp = Network()
+#
+#         tmp.links = pattern.links
+#         tmp.coverage = pattern.coverage
+#         tmp.index = pattern.index
+#         tmp.name = pattern.name
+#
+#         quantityOfSeqMAX.append(tmp)
 
-    try:
-        m = max(collectionOfNetwork, key=lambda c: c.index)
-        m = m.index + 1
-    except:
-        print
-        m = 0
+# def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
+#
+#     next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
+#     l = len(pattern.links) - 1
+#     next = [r for r in next if len(r.links) == l]
+#
+#     try:
+#         tmp = Network()
+#
+#         tmp.links = pattern.links
+#         tmp.coverage = pattern.coverage
+#         tmp.index = pattern.index
+#         tmp.name = pattern.name
+#
+#         quantityOfSeqMAX.append(tmp)
+#         pattern = random.choice([r for r in next])
+#         recSeqNetwork(pattern, collectionOfNetwork, i-1, quantityOfSeqMAX)
+#     except:
+#         print
+#
 
-    for i in range(int(m)):
-        pattern = random.choice([n for n in collectionOfNetwork if n.index == i])
+# def createGreedySeq(i, collection, quantityOfSeqGREEDY):
+#
+#     collectionOfNetwork = []
+#
+#     for c in collection:
+#         for n in c:
+#             if isinstance(n, Network):
+#                 collectionOfNetwork.append(n)
+#                 # print(n.name, n.index)
+#     try:
+#         m = max(collectionOfNetwork, key=lambda c: c.index)
+#         m = m.index + 1
+#         # print('MAX', m.index)
+#     except:
+#         print
+#         m = 0
+#
+#     pattern = max([n for n in collectionOfNetwork if n.index == 0], key=lambda c: c.coverage)
+#
+#     recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
 
-        tmp = Network()
+# def checkExist(net, pp, seedArray):
+#     onlyfiles = [f for f in listdir('resultsPerNet') if isfile(join('resultsPerNet', f))]
+#     print('PLIKI',onlyfiles)
+#     print('SPRAWDZAM PLIK', net)
+#     if net in onlyfiles:
+#         statinfo = os.stat('resultsPerNet/' + net)
+#         print('ROZMIAR', statinfo.st_size)
+#
+#     if net not in onlyfiles:
+#         return False
 
-        tmp.links = pattern.links
-        tmp.coverage = pattern.coverage
-        tmp.index = pattern.index
-        tmp.name = pattern.name
-
-        quantityOfSeqRandom.append(tmp)
-
-
-def createMaxSeq(collection, quantityOfSeqMAX):
-    collectionOfNetwork = []
-
-    for c in collection:
-        for n in c:
-            if isinstance(n, Network):
-                collectionOfNetwork.append(n)
-
-    try:
-        m = max(collectionOfNetwork, key=lambda c: c.index)
-        m = m.index + 1
-    except:
-        print
-        m = 0
-
-    for i in range(int(m)):
-        pattern = max([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
-
-        tmp = Network()
-
-        tmp.links = pattern.links
-        tmp.coverage = pattern.coverage
-        tmp.index = pattern.index
-        tmp.name = pattern.name
-
-        quantityOfSeqMAX.append(tmp)
-
-def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
-
-    next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
-    l = len(pattern.links) - 1
-    next = [r for r in next if len(r.links) == l]
-
-    try:
-        tmp = Network()
-
-        tmp.links = pattern.links
-        tmp.coverage = pattern.coverage
-        tmp.index = pattern.index
-        tmp.name = pattern.name
-
-        quantityOfSeqMAX.append(tmp)
-        pattern = random.choice([r for r in next])
-        recSeqNetwork(pattern, collectionOfNetwork, i-1, quantityOfSeqMAX)
-    except:
-        print
-
-
-def createGreedySeq(i, collection, quantityOfSeqGREEDY):
-
-    collectionOfNetwork = []
-
-    for c in collection:
-        for n in c:
-            if isinstance(n, Network):
-                collectionOfNetwork.append(n)
-                # print(n.name, n.index)
-    try:
-        m = max(collectionOfNetwork, key=lambda c: c.index)
-        m = m.index + 1
-        # print('MAX', m.index)
-    except:
-        print
-        m = 0
-
-    pattern = max([n for n in collectionOfNetwork if n.index == 0], key=lambda c: c.coverage)
-
-    recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
-
-def checkExist(net, pp, seedArray):
-    onlyfiles = [f for f in listdir('resultsPerNet') if isfile(join('resultsPerNet', f))]
-    print('PLIKI',onlyfiles)
-    print('SPRAWDZAM PLIK', net)
-    if net in onlyfiles:
-        statinfo = os.stat('resultsPerNet/' + net)
-        print('ROZMIAR', statinfo.st_size)
-
-    if net not in onlyfiles:
-        return False
-
-def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
-
-    tmp = Network()
-    tmp.links = pattern.links
-    tmp.coverage = pattern.coverage
-    tmp.index = pattern.index
-    tmp.name = pattern.name
-    quantityOfSeqGREEDY.append(tmp)
-
-
-    next = list(filter(lambda x: set(pattern.links).issubset(set(x.links)), [n for n in collectionOfNetwork if n.index == i]))
-
-    l = len(pattern.links) + 1
-    next = [r for r in next if len(r.links) == l]
-
-
-    try:
-        pattern = max(next, key=lambda c: c.coverage)
-
-        recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
-    except:
-        print
+# def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
+#
+#     tmp = Network()
+#     tmp.links = pattern.links
+#     tmp.coverage = pattern.coverage
+#     tmp.index = pattern.index
+#     tmp.name = pattern.name
+#     quantityOfSeqGREEDY.append(tmp)
+#
+#
+#     next = list(filter(lambda x: set(pattern.links).issubset(set(x.links)), [n for n in collectionOfNetwork if n.index == i]))
+#
+#     l = len(pattern.links) + 1
+#     next = [r for r in next if len(r.links) == l]
+#
+#
+#     try:
+#         pattern = max(next, key=lambda c: c.coverage)
+#
+#         recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
+#     except:
+#         print
 
 
 def returnNetCollection(net, pp, seed):
@@ -361,7 +382,7 @@ selectedNetworks = []
 existList = []
 
 for l in listOfNetworks:
-        print('NOWY PRZEBIEG', l.net, [n.name for n in l.addedNetworks if isinstance(n,Network)])
+        # print('NOWY PRZEBIEG', l.net, [n.name for n in l.addedNetworks if isinstance(n,Network)])
         l.seqFromAddedNetworksGREEDY = []
         l.seqFromAddedNetworksMAX = []
         l.seqFromAddedNetworksRANDOM = []
@@ -391,7 +412,7 @@ for l in listOfNetworks:
 
                 if(isinstance(n, Network) and n.name.endswith('.txt')):
                     row = str(l.pp) + ' ' +  str(n.name) + ' ' +  str(l.seed)
-                    print('ROW', row)
+                    # print('ROW', row)
 
                     for i in range(1, 1000):
 
