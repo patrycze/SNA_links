@@ -18,19 +18,33 @@ from os import listdir
 from os.path import isfile, join
 
 
-myFile = open('results/averageGREEDY.csv', 'w')
+allWeights = {};
+
+myFile = open('results/results.csv', 'w')
 
 
-def readFileToArray(file, array):
-    # print(file)
+def readFileToArray(file):
+
+    array = []
+
     with open(file, "r") as ins:
         for line in ins:
             array.append(line.replace('\n', '').split(' '))
 
+    return array
+
+def readAllFromDirectory():
+    folder = "wagi"
+    for file in os.listdir(folder):
+        allWeights[file] = readFileToArray('wagi/' + file)
+        # print(allWeights)
+
+readAllFromDirectory()
+
+
 def searchInArray(a, b, array):
     for i in range(len(array)):
         if(array[i][0] == str(a) and array[i][1] == str(b)):
-            #print(array[i][0], array[i][1], array[i][2])
             return array[i][2]
 
 myFile = open('results/tabl2.csv', 'w')
@@ -55,17 +69,11 @@ def getLinksArray(net):
 
     return edges
 
-def simulation(pp, net, seedsArray, i):
-    # print(i)
-
-    # i = 76
+def simulation(pp, net, seedsArray, networkNumber):
 
     s = 1;
     isInfecting = True
 
-    array = []
-
-    readFileToArray('wagi/n1_' + str(i) + '.txt', array)
 
     g = Graph.Read_Ncol('graphs-ORIGINAL/' + net, directed=False)
 
@@ -108,7 +116,6 @@ def simulation(pp, net, seedsArray, i):
             x = g.vs.find(str(j))
             node = int(x.index)
 
-            print(x)
 
 
             if (g.vs[node]["infected"] == 1 and g.vs[node]["used"] == 0 and g.vs[node]["stepinfected"] != s):
@@ -140,7 +147,7 @@ def simulation(pp, net, seedsArray, i):
                                 # x = random.random()
 
 
-                                x = searchInArray(g.vs[node]['name'], g.vs[notinfected[k]]['name'], array)
+                                x = searchInArray(g.vs[node]['name'], g.vs[notinfected[k]]['name'], allWeights['n1_' + str(networkNumber) + '.txt'])
                                 # print('x', g.vs[j]['name'], g.vs[notinfected[k]]['name'], x)
 
                                 if (float(x) <= float(pp)):
@@ -194,7 +201,7 @@ class Network:
     coverage = 0
     index = 0
 
-with open('test.csv', "r") as f:
+with open('table_unique.csv', "r") as f:
     for line in f:
         combinationsArray.append(line)
     for c in combinationsArray:
@@ -203,18 +210,16 @@ with open('test.csv', "r") as f:
         tmpNet.net = c.split(',')[0]
         tmpNet.pp = c.split(',')[1]
 
-
         c = c.replace("\"","")
         c = c.split("[")
         c[1] = c[1].split("]")
 
-        tmpNet.addedNetworks = c[1][1].replace(" ","")[2:].split(",")
+        tmpNet.addedNetworks = c[1][1].replace(" ","").replace('\n','')[1:].split(",")
 
         tmpNet.seed = c[1][0].replace('\'',"").replace(' ',"").split(',')
 
         listOfNetworks.append(tmpNet)
 
-#
 for l in listOfNetworks:
     for i, n in enumerate(l.addedNetworks):
         if (n.endswith('.txt')):
@@ -231,139 +236,6 @@ myFields = ['net', 'PP', 'seed', 'space', '0', '1', '2', '3', '4', '5', '6', '7'
                 '14', '15', '16']
 
 myFields1 = ['inf','seed','cov','net', 'pp']
-
-# def createRandomSeq(dict, i, collection, quantityOfSeqRandom):
-#
-#     collectionOfNetwork = []
-#
-#     for c in collection:
-#         for n in c:
-#             if isinstance(n, Network):
-#                 collectionOfNetwork.append(n)
-#
-#     try:
-#         m = max(collectionOfNetwork, key=lambda c: c.index)
-#         m = m.index + 1
-#     except:
-#         print
-#         m = 0
-#
-#     for i in range(int(m)):
-#         pattern = random.choice([n for n in collectionOfNetwork if n.index == i])
-#
-#         tmp = Network()
-#
-#         tmp.links = pattern.links
-#         tmp.coverage = pattern.coverage
-#         tmp.index = pattern.index
-#         tmp.name = pattern.name
-#
-#         quantityOfSeqRandom.append(tmp)
-#
-
-# def createMaxSeq(collection, quantityOfSeqMAX):
-#     collectionOfNetwork = []
-#
-#     for c in collection:
-#         for n in c:
-#             if isinstance(n, Network):
-#                 collectionOfNetwork.append(n)
-#
-#     try:
-#         m = max(collectionOfNetwork, key=lambda c: c.index)
-#         m = m.index + 1
-#     except:
-#         print
-#         m = 0
-#
-#     for i in range(int(m)):
-#         pattern = max([n for n in collectionOfNetwork if n.index == i], key=lambda c: c.coverage)
-#
-#         tmp = Network()
-#
-#         tmp.links = pattern.links
-#         tmp.coverage = pattern.coverage
-#         tmp.index = pattern.index
-#         tmp.name = pattern.name
-#
-#         quantityOfSeqMAX.append(tmp)
-
-# def recSeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqMAX):
-#
-#     next = filter(lambda x: set(x.links).issubset(set(pattern.links)), [n for n in collectionOfNetwork if n.index == i])
-#     l = len(pattern.links) - 1
-#     next = [r for r in next if len(r.links) == l]
-#
-#     try:
-#         tmp = Network()
-#
-#         tmp.links = pattern.links
-#         tmp.coverage = pattern.coverage
-#         tmp.index = pattern.index
-#         tmp.name = pattern.name
-#
-#         quantityOfSeqMAX.append(tmp)
-#         pattern = random.choice([r for r in next])
-#         recSeqNetwork(pattern, collectionOfNetwork, i-1, quantityOfSeqMAX)
-#     except:
-#         print
-#
-
-# def createGreedySeq(i, collection, quantityOfSeqGREEDY):
-#
-#     collectionOfNetwork = []
-#
-#     for c in collection:
-#         for n in c:
-#             if isinstance(n, Network):
-#                 collectionOfNetwork.append(n)
-#                 # print(n.name, n.index)
-#     try:
-#         m = max(collectionOfNetwork, key=lambda c: c.index)
-#         m = m.index + 1
-#         # print('MAX', m.index)
-#     except:
-#         print
-#         m = 0
-#
-#     pattern = max([n for n in collectionOfNetwork if n.index == 0], key=lambda c: c.coverage)
-#
-#     recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY)
-
-# def checkExist(net, pp, seedArray):
-#     onlyfiles = [f for f in listdir('resultsPerNet') if isfile(join('resultsPerNet', f))]
-#     print('PLIKI',onlyfiles)
-#     print('SPRAWDZAM PLIK', net)
-#     if net in onlyfiles:
-#         statinfo = os.stat('resultsPerNet/' + net)
-#         print('ROZMIAR', statinfo.st_size)
-#
-#     if net not in onlyfiles:
-#         return False
-
-# def recGreedySeqNetwork(pattern, collectionOfNetwork, i, quantityOfSeqGREEDY):
-#
-#     tmp = Network()
-#     tmp.links = pattern.links
-#     tmp.coverage = pattern.coverage
-#     tmp.index = pattern.index
-#     tmp.name = pattern.name
-#     quantityOfSeqGREEDY.append(tmp)
-#
-#
-#     next = list(filter(lambda x: set(pattern.links).issubset(set(x.links)), [n for n in collectionOfNetwork if n.index == i]))
-#
-#     l = len(pattern.links) + 1
-#     next = [r for r in next if len(r.links) == l]
-#
-#
-#     try:
-#         pattern = max(next, key=lambda c: c.coverage)
-#
-#         recGreedySeqNetwork(pattern, collectionOfNetwork, i+1, quantityOfSeqGREEDY)
-#     except:
-#         print
-
 
 def returnNetCollection(net, pp, seed):
 
@@ -406,13 +278,12 @@ for l in listOfNetworks:
 
         for n in l.addedNetworks:
             if isinstance(n, Network):
-                print(n.name)
+                # print(n.name)
                 infectionsArray = []
                 first = False
 
                 if(isinstance(n, Network) and n.name.endswith('.txt')):
                     row = str(l.pp) + ' ' +  str(n.name) + ' ' +  str(l.seed)
-                    # print('ROW', row)
 
                     for i in range(1, 1000):
 
@@ -445,8 +316,8 @@ for l in listOfNetworks:
         tmp = [value for key, value in dict.items()]
         x1 = {str(i): x for i, x in enumerate(tmp)}
         x.update(x1)
-        print(x)
-        myFile = open('results/averageGREEDY.csv', 'a+')
+        # print(x)
+        myFile = open('results/results.csv', 'a+')
         with myFile:
             writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
             writer.writerow(x)

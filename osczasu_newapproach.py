@@ -59,6 +59,14 @@ class Product:
     friends = ''
     logs= ''
     msg_sum = ''
+    v1 = ''
+    v2 = ''
+    v3 = ''
+    v4 = ''
+    v5 = ''
+    day = ''
+    first_usage = ''
+    life_class = ''
 
 name = 'data'
 
@@ -66,59 +74,94 @@ productsList = []
 
 with open(name + '.csv', "r") as rows:
     for row in rows:
-        # row[:-2] wycina znak spacji na koncu
+
+
+            # row[:-2] wycina znak spacji na koncu
         row = row[:-2].split(";")
 
-        product = Product()
+        # print(len(row[9]))
 
-        product.id = row[2]
-        product.date = datetime.strptime(row[4].replace("\"","") + ' ' + row[5].replace("\"",""), "%Y-%m-%d %H:%M:%S")
-        product.user = row[6]
-        product.friends = row[7]
-        product.logs = row[13]
-        product.msg_sum = float(row[10]) + float(row[11])
-        product.limit = datetime.strptime(row[9].replace("\"",""), "%Y-%m-%d %H:%M")
-        productsList.append(product)
+        if len(row[10]) > 2 :
 
-        # print(product.date)
+            product = Product()
+
+            product.cd = row[0]
+            product.day = row[3]
+            product.element_type = row[1]
+            product.id = row[2]
+            product.date = datetime.strptime(row[4].replace("'","") + ' ' + row[5].replace("'",""), "%Y-%m-%d %H:%M:%S")
+            product.user = row[6]
+            product.friends = ''
+            product.logs = ''
+            product.v1 = row[13]
+            product.v2 = row[14]
+            product.v3 = row[16]
+            product.v4 = row[17]
+            product.v5 = row[18]
+            product.life_class = row[11]
+            product.first_usage = row[19]
+            # product.firstusage = row[]
+            # product.msg_sum = float(row[10]) + float(row[11])
+            product.limit = datetime.strptime(row[10].replace("'",""), "%Y-%m-%d %H:%M")
+            productsList.append(product)
+
+            # print(product.date)
 
 
 
 productsDictionary = ProductsDictionary()
 
+productCustomHash = {}
+
 productList = list(set([p.id for p in productsList]))
 productDict = collections.OrderedDict.fromkeys(set([p.id for p in productsList]))
+cd_dict = collections.OrderedDict.fromkeys(set([p.cd for p in productsList]))
+element_type_dict = collections.OrderedDict.fromkeys(set([p.element_type for p in productsList]))
 
-for key, value in productDict.items():
-    # productDict[key] = [pL for pL in productsList if pL.id == key]
-    productDict[key] = [pL for pL in productsList if pL.id == str(key)]
+# for key, value in productDict.items():
+#     # productDict[key] = [pL for pL in productsList if pL.id == key]
+#     productDict[key] = [pL for pL in productsList if pL.id == str(key)]
+
+for key, value in cd_dict.items():
+    cd_dict[key] = [pL for pL in productsList if pL.cd == str(key)]
+
+
+for key_cd, value_cd in cd_dict.items():
+    for key_et, value_et in element_type_dict.items():
+        for key_id, value_id in productDict.items():
+            productCustomHash[str(key_cd) + str(key_et) + str(key_id)] = []
+            for product in productsList:
+                if(product.cd == key_cd and product.element_type == key_et and product.id == key_id):
+                    productCustomHash[str(key_cd) + str(key_et) + str(key_id)].append(product)
 
 allProducts = []
 
-for key, value in productDict.items():
+
+
+
+
+
+for key, value in productCustomHash.items():
     productsDictionary = ProductsDictionary()
 
     # tutaj liczba uzytkownikow do danego momentu
-    productsDictionary.scope = len([value for counter, value in enumerate(productDict[key]) if value.date < value.limit])
+    productsDictionary.scope = len([value for counter, value in enumerate(productCustomHash[key]) if value.date < value.limit])
     # tutaj przypisuje uzytkownikom order_id
     counter = 0
-    for value in productDict[key]:
+    for value in productCustomHash[key]:
         if value.date < value.limit:
             value.order_id = counter + 1;
             counter = counter + 1
-            print('ORDER ID', value.order_id, 'DLA ITEMU O ID ', value.id,
-                  'I UZYTKOWNIKA', value.user, ' DATA ZMIANY ', value.date, 'DATA WYGASNIECIA PRODUKTU ', value.limit)
 
-    productsDictionary.products = productDict[key]
-
-    productsDictionary.last = productDict[key][len(productDict[key])-1].date
-    # productsDictionary.scope = productsDictionary.scope.total_seconds()
-    productsDictionary.assignPerctentage()
-    productsDictionary.assignTitle()
-    allProducts.append(productsDictionary)
+    productsDictionary.products = productCustomHash[key]
+    if(len(productCustomHash[key]) > 0):
+        productsDictionary.last = productCustomHash[key][len(productCustomHash[key])-1].date
+        productsDictionary.assignPerctentage()
+        productsDictionary.assignTitle()
+        allProducts.append(productsDictionary)
 
 
-myFields = ['prod_id', 'user_id', 'title', 'date', 'limit', 'percentage', 'friends', 'logs', 'mgs_sum']
+myFields = ['cd', 'element_type', 'prod_id', 'user_id', 'title', 'date', 'limit', 'percentage', 'day', 'life_class', 'first_usage', 'friends', 'logs', 'mgs_sum', 'v1', 'v2', 'v3', 'v4', 'v5']
 
 myFile = open('results/usersClassification.csv', 'a+')
 with myFile:
@@ -130,6 +173,6 @@ for productsDictionary in allProducts:
         myFile = open('results/usersClassification.csv', 'a+')
         with myFile:
             writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
-            writer.writerow({'prod_id': prod.id, 'user_id': prod.user, 'title': prod.title, 'date': prod.date,
-                             'limit': prod.limit, 'percentage': prod.percent,
-                             'friends': prod.friends, 'logs': prod.logs, 'mgs_sum': prod.msg_sum})
+            writer.writerow({'cd':prod.cd, 'element_type': prod.element_type, 'prod_id': prod.id, 'user_id': prod.user, 'title': prod.title, 'date': prod.date,
+                             'limit': prod.limit, 'percentage': prod.percent, 'day': prod.day, 'life_class': prod.life_class, 'first_usage': prod.first_usage,
+                             'friends': prod.friends, 'logs': prod.logs, 'mgs_sum': prod.msg_sum, 'v1': prod.v1,'v2': prod.v2,'v3': prod.v3,'v4': prod.v4,'v5': prod.v5})

@@ -568,7 +568,7 @@ class Greedy:
         # print('greedy-OP/results/' + name +'.csv')
 
 
-        myFields = ['net', 'PP', 'seed', 'space','0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16']
+        myFields = ['net', 'PP', 'seed', 'space','0']
         myFile = open(name + '.csv', 'w')
         PParray = ['0.1', '0.2', '0.3', '0.4', '0.5']
         seeds = [f for f in listdir('seeds') if isfile(join('seeds', f))]
@@ -619,7 +619,7 @@ class Greedy:
                                         else:
                                             row.append('')
 
-                                x = {'net': data.net, 'nodes': data.net[1], 'edges': data.listOfPairs, 'PP': pp, 'seed': s1, 'space': ' '}
+                                x = {'net': data.net, 'nodes': '', 'edges': data.listOfPairs, 'PP': pp, 'seed': s1, 'space': ' '}
                                 x1 = {str(i):x for i, x in enumerate(row)}
                                 x.update(x1)
 
