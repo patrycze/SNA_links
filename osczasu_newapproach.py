@@ -7,19 +7,19 @@ myFile = open('results/usersClassification.csv', 'w')
 
 def classify(product):
     if(isinstance(product.percent, float)):
-        if (product.percent < 2.5):
+        if (product.percent <= 2.5):
             product.title = 'innovator'
             # print('innnovator < 2.5%')
-        if (product.percent > 2.5 and product.percent < 16):
+        if (product.percent > 2.5 and product.percent <= 16):
             product.title = 'early adopter'
             # print('early adopter > 2.5% and < 16%')
-        if (product.percent > 16 and product.percent < 50):
+        if (product.percent > 16 and product.percent <= 50):
             product.title = 'early majority'
             # print('early majority > 16% and < 50%')
-        if (product.percent > 50 and product.percent < 84):
+        if (product.percent > 50 and product.percent <= 84):
             product.title = 'late majority'
             # print('late majority > 50% and < 84%')
-        if (product.percent > 84):
+        if (product.percent >= 84):
             product.title = 'laggards'
             # print('laggards > 84%')
 
@@ -89,14 +89,14 @@ with open(name + '.csv', "r") as rows:
             product.day = row[3]
             product.element_type = row[1]
             product.id = row[2]
-            product.date = datetime.strptime(row[4].replace("'","") + ' ' + row[5].replace("'",""), "%Y-%m-%d %H:%M:%S")
+            product.date = datetime.strptime(row[9].replace("'",""), "%Y-%m-%d %H:%M:%S")
             product.user = row[6]
             product.friends = ''
             product.logs = ''
-            product.v1 = row[13]
-            product.v2 = row[14]
-            product.v3 = row[16]
-            product.v4 = row[17]
+            product.v3 = row[13]
+            product.v4 = row[14]
+            product.v2 = row[16]
+            product.v1 = row[17]
             product.v5 = row[18]
             product.life_class = row[11]
             product.first_usage = row[19]
