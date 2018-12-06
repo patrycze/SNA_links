@@ -67,6 +67,11 @@ class Product:
     day = ''
     first_usage = ''
     life_class = ''
+    mes_to = ''
+    mes_from = ''
+    mfr_pre = ''
+    mto_pre = ''
+    log_pre = ''
 
 name = 'data'
 
@@ -161,7 +166,9 @@ for key, value in productCustomHash.items():
         allProducts.append(productsDictionary)
 
 
-myFields = ['cd', 'element_type', 'prod_id', 'user_id', 'title', 'date', 'limit', 'percentage', 'day', 'life_class', 'first_usage', 'friends', 'logs', 'mgs_sum', 'v1', 'v2', 'v3', 'v4', 'v5']
+myFields = ['cd', 'element_type', 'prod_id', 'user_id', 'title', 'date', 'limit', 'percentage', 'day', 'life_class',
+            'first_usage', 'friends', 'logs', 'mgs_sum', 'v1', 'v2', 'v3', 'v4', 'v5',
+            'mes_to', 'mes_from', 'mfr_pre', 'mto_pre', 'log_pre']
 
 myFile = open('results/usersClassification.csv', 'a+')
 with myFile:
@@ -175,4 +182,6 @@ for productsDictionary in allProducts:
             writer = csv.DictWriter(myFile, restval=0, fieldnames=myFields, extrasaction='ignore')
             writer.writerow({'cd':prod.cd, 'element_type': prod.element_type, 'prod_id': prod.id, 'user_id': prod.user, 'title': prod.title, 'date': prod.date,
                              'limit': prod.limit, 'percentage': prod.percent, 'day': prod.day, 'life_class': prod.life_class, 'first_usage': prod.first_usage,
-                             'friends': prod.friends, 'logs': prod.logs, 'mgs_sum': prod.msg_sum, 'v1': prod.v1,'v2': prod.v2,'v3': prod.v3,'v4': prod.v4,'v5': prod.v5})
+                             'friends': prod.friends, 'logs': prod.logs, 'mgs_sum': prod.msg_sum, 'v1': prod.v1,'v2': prod.v2,'v3': prod.v3,'v4': prod.v4,'v5': prod.v5,
+                             'mes_to': prod.mes_to, 'mes_from': prod.mes_from, 'mfr_pre': prod.mfr_pre,
+                             'mto_pre': prod.mto_pre, 'log_pre': prod.log_pre })
